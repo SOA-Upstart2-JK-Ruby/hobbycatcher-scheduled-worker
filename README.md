@@ -1,6 +1,6 @@
 # Facebook API Client
 
-Gather useful information from Facebook pages API.
+Gather useful information from Facebook pages API (v12.0).
 
 ## Resources
 
@@ -14,7 +14,7 @@ Gather useful information from Facebook pages API.
   - id
   - name
   - category
-  - profile picture
+  - profile_picture
   - followers count
   - rating
   - website
