@@ -39,6 +39,8 @@ fb_results['about'] = fanpage['about'] + NEWLINE + fanpage['description']
 
 fb_results['reviews'] = fanpage['ratings']
 
+fb_results['posts'] = fanpage['posts']
+
 ## BAD: wrong fanpage request
 bad_fanpage_url = fb_api_path('ABC', fields, config)
 fb_response[bad_fanpage_url] = call_fb_url(config, bad_fanpage_url)
