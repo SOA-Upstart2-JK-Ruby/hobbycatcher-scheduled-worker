@@ -11,3 +11,5 @@ gem 'minitest-rg'
 
 # Style Checking
 gem 'reek'
+
+gem 'pry'
