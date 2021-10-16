@@ -21,19 +21,19 @@ module InfoHunter
     end
 
     def pageInfo(page, fields, config)
-      fanpage_url = fb_api_path('tahrd108', fields, config)
+      fanpage_url = fb_api_path(page, fields, config)
       fanpage_data = call_fb_url(fanpage_url).parse
       PageInfo.new(fanpage_data, self)
     end
 
     def reviews(page, fields, config)
-      fanpage_url = fb_api_path('tahrd108', fields, config)
+      fanpage_url = fb_api_path(page, fields, config)
       fanpage_data = call_fb_url(fanpage_url).parse
       Reviews.new(fanpage_data, self)
     end
 
     def posts(page, fields, config)
-      fanpage_url = fb_api_path('tahrd108', fields, config)
+      fanpage_url = fb_api_path(page, fields, config)
       fanpage_data = call_fb_url(fanpage_url).parse
       Posts.new(fanpage_data, self)
     end

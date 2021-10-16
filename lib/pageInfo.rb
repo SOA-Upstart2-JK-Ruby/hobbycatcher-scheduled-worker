@@ -18,15 +18,15 @@ module InfoHunter
     end
   
     def profile
-      @pageInfo['profile']
+      @pageInfo['picture']['data']['url']
     end
   
     def followers
-      @pageInfo['followers']
+      @pageInfo['followers_count']
     end
   
     def rating
-      @pageInfo['rating']
+      @pageInfo['overall_star_rating']
     end
   
     def website
@@ -38,7 +38,7 @@ module InfoHunter
     end
   
     def about
-      @pageInfo['about']
+      @pageInfo['about'] + "\n" + @pageInfo['description']
     end
   end
 end

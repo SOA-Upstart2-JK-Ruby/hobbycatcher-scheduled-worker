@@ -13,8 +13,8 @@ module InfoHunter
       @posts['date']
     end
 
-    def content
-      @posts['content']
+    def message
+      @posts['message']
     end
   end
 end
