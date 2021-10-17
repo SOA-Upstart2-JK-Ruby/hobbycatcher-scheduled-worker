@@ -1,7 +1,8 @@
 require 'http'
+require 'pry'
 require_relative 'pageInfo'
-require_relative 'reviews'
-require_relative 'posts'
+require_relative 'review'
+require_relative 'post'
 
 module InfoHunter
   # Library for Facebook Web API
@@ -9,10 +10,14 @@ module InfoHunter
     module Errors
       class NotFound < StandardError; end
       class Unauthorized < StandardError; end
+      class Forbidden < StandardError; end
+      class BadRequest < StandardError; end
     end
 
     HTTP_ERROR = {
+      400 => Errors::BadRequest,
       401 => Errors::Unauthorized,
+      403 => Errors::Forbidden,
       404 => Errors::NotFound
     }.freeze
 
@@ -20,33 +25,35 @@ module InfoHunter
       @fb_token = token
     end
 
-    def pageInfo(page, fields, config)
-      fanpage_url = fb_api_path(page, fields, config)
+    def page(page, fields)
+      fanpage_url = fb_api_path([page,"?fields=", fields].join)
       fanpage_data = call_fb_url(fanpage_url).parse
-      PageInfo.new(fanpage_data, self)
+      pageInfo(fanpage_data)
     end
 
-    def reviews(page, fields, config)
-      fanpage_url = fb_api_path(page, fields, config)
-      fanpage_data = call_fb_url(fanpage_url).parse
-      Reviews.new(fanpage_data, self)
+    def pageInfo(data)
+      PageInfo.new(data, self)
     end
 
-    def posts(page, fields, config)
-      fanpage_url = fb_api_path(page, fields, config)
-      fanpage_data = call_fb_url(fanpage_url).parse
-      Posts.new(fanpage_data, self)
+    def reviews(data)
+      data.map { |review| Review.new(review.to_h) }
+    end
+
+    def posts(data)
+      data.map { |post| Post.new(post.to_h) }
     end
     
     private
 
-    def fb_api_path(page, fields, config)
-      "https://graph.facebook.com/v12.0/#{page}?fields=#{fields}&access_token=#{config['FACEBOOK_TOKEN']}"
+    def fb_api_path(path)
+      "https://graph.facebook.com/v12.0/#{path}&access_token=#{@fb_token}"
     end
 
     def call_fb_url(url)
-      HTTP.headers('Accept' => 'application/json',
-                   'Authorization' => "token #{@fb_token}").get(url)
+      result = HTTP.headers('Accept' => 'application/json',
+                            'Authorization' => @fb_token).get(url)
+
+      successful?(result) ? result : raise(HTTP_ERROR[result.code])
     end
 
     def successful?(result)

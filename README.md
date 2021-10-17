@@ -21,8 +21,9 @@ Gather useful information from Facebook pages API (v12.0).
   - location
   - about
 - Reviews
+  - date
   - sentiment (positive/negative)
-  - review
+  - comment
 - Posts
   - id
   - date
