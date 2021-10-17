@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'http'
 require 'pry'
-require_relative 'pageInfo'
+require_relative 'page_info'
 require_relative 'review'
 require_relative 'post'
 
@@ -8,17 +10,17 @@ module InfoHunter
   # Library for Facebook Web API
   class FacebookApi
     module Errors
-      class NotFound < StandardError; end
-      class Unauthorized < StandardError; end
-      class Forbidden < StandardError; end
+      # class NotFound < StandardError; end
+      # class Unauthorized < StandardError; end
+      # class Forbidden < StandardError; end
       class BadRequest < StandardError; end
     end
 
     HTTP_ERROR = {
-      400 => Errors::BadRequest,
-      401 => Errors::Unauthorized,
-      403 => Errors::Forbidden,
-      404 => Errors::NotFound
+      400 => Errors::BadRequest
+      # 401 => Errors::Unauthorized,
+      # 403 => Errors::Forbidden,
+      # 404 => Errors::NotFound
     }.freeze
 
     def initialize(token)
@@ -26,12 +28,12 @@ module InfoHunter
     end
 
     def page(page, fields)
-      fanpage_url = fb_api_path([page,"?fields=", fields].join)
+      fanpage_url = fb_api_path([page, '?fields=', fields].join)
       fanpage_data = call_fb_url(fanpage_url).parse
-      pageInfo(fanpage_data)
+      pageinfo(fanpage_data)
     end
 
-    def pageInfo(data)
+    def pageinfo(data)
       PageInfo.new(data, self)
     end
 
@@ -42,7 +44,7 @@ module InfoHunter
     def posts(data)
       data.map { |post| Post.new(post.to_h) }
     end
-    
+
     private
 
     def fb_api_path(path)

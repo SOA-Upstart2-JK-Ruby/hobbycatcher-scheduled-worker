@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module InfoHunter
   # Provides access to post data
   class Post
