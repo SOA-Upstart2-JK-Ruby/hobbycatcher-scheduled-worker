@@ -67,10 +67,20 @@ describe 'Tests Facebook API library' do
       reviews = @page.reviews
       _(reviews.count).must_equal CORRECT['reviews']['data'].count
 
+      # review_dates
+      review_dates = reviews.map(&:review_date)
+      correct_review_dates = CORRECT['reviews']['data'].map { |c| c['created_time'] }
+      _(review_dates).must_equal correct_review_dates
+
       # sentiments
       sentiments = reviews.map(&:sentiment)
       correct_sentiments = CORRECT['reviews']['data'].map { |c| c['recommendation_type'] }
       _(sentiments).must_equal correct_sentiments
+
+      # comments
+      comments = reviews.map(&:comment)
+      correct_comments = CORRECT['reviews']['data'].map { |c| c['review_text'] }
+      _(comments).must_equal correct_comments
     end
   end
 
@@ -78,6 +88,16 @@ describe 'Tests Facebook API library' do
     it 'HAPPY: should provide correct posts' do
       posts = @page.posts
       _(posts.count).must_equal CORRECT['posts']['data'].count
+
+      # post_ids
+      post_ids = posts.map(&:post_id)
+      correct_post_ids = CORRECT['posts']['data'].map { |c| c['id'] }
+      _(post_ids).must_equal correct_post_ids
+
+      # post_dates
+      post_dates = posts.map(&:post_date)
+      correct_post_dates = CORRECT['posts']['data'].map { |c| c['date'] }
+      _(post_dates).must_equal correct_post_dates
 
       # contents
       contents = posts.map(&:content)
