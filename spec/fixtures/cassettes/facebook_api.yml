@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Etag:
-      - '"848bd6a515a2bc56e9b77576c154de7356a597b3"'
+      - '"059ff192b6c370d40fd508c466bc78808e4b8560"'
       Content-Type:
       - application/json
       Vary:
@@ -46,15 +46,15 @@ http_interactions:
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       X-Fb-Request-Id:
-      - AfICT7_OPNB-4UX-XkpM0mY
+      - A6un85qbXG01SBA7Y6hBIWh
       X-Fb-Trace-Id:
-      - G9yZby3AFbD
+      - C1vErRs0Do9
       X-Fb-Rev:
-      - '1004593603'
+      - '1004600723'
       X-Fb-Debug:
-      - CwMb8+fb8dl2lK0esUn3PTvKGDbqxjD3luQyCQRwxb2wht613uZC9otUsSLH3AFOUzS0/bpO5QQWwESKvyCn7A==
+      - nhzDHopbdE9+77hzoG/NFCJDPXmfi3vydiEazMe6jy9zrpfSfbyHjoiblUQJXCI2IoJXuRxOf1bLg18h5xAGtQ==
       Date:
-      - Thu, 21 Oct 2021 16:22:42 GMT
+      - Fri, 22 Oct 2021 12:33:54 GMT
       Priority:
       - u=3,i
       Transfer-Encoding:
@@ -65,7 +65,7 @@ http_interactions:
       - close
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"1061904683926392","name":"MAKERA - \u81fa\u5e2b\u5927\u79d1\u6280\u7cfb108\u7d1a\u7562\u696d\u5c08\u984c\u5c55","category":"\u5b78\u9662\u8207\u5927\u5b78","picture":{"data":{"height":50,"is_silhouette":false,"url":"https:\/\/scontent.ftpe11-2.fna.fbcdn.net\/v\/t1.6435-1\/cp0\/p50x50\/42894638_1794779310638922_5474668072021262336_n.png?_nc_cat=105&ccb=1-5&_nc_sid=dbb9e7&_nc_ohc=IPmOMEeCzc4AX_lQqGu&_nc_ht=scontent.ftpe11-2.fna&edm=ABzdmSoEAAAA&oh=8cfd7ea582e67d2159d89b5e8e7ea5be&oe=6196CD92","width":50}},"followers_count":811,"overall_star_rating":5,"website":"https:\/\/ntnutahrd109.wixsite.com\/website","location":{"city":"Taipei","country":"Taiwan","latitude":25.027303405468,"longitude":121.5292596817,"street":"\u5927\u5b89\u5340\u548c\u5e73\u6771\u8def\u4e00\u6bb5162\u865f,
+      string: '{"id":"1061904683926392","name":"MAKERA - \u81fa\u5e2b\u5927\u79d1\u6280\u7cfb108\u7d1a\u7562\u696d\u5c08\u984c\u5c55","category":"\u5b78\u9662\u8207\u5927\u5b78","picture":{"data":{"height":50,"is_silhouette":false,"url":"https:\/\/scontent-tpe1-1.xx.fbcdn.net\/v\/t1.6435-1\/cp0\/p50x50\/42894638_1794779310638922_5474668072021262336_n.png?_nc_cat=105&ccb=1-5&_nc_sid=dbb9e7&_nc_ohc=IPmOMEeCzc4AX8XecFp&_nc_ht=scontent-tpe1-1.xx&edm=ABzdmSoEAAAA&oh=16d7c3cb0e7d1f1f89e3c0ef70ebde5f&oe=6196CD92","width":50}},"followers_count":811,"overall_star_rating":5,"website":"https:\/\/ntnutahrd109.wixsite.com\/website","location":{"city":"Taipei","country":"Taiwan","latitude":25.027303405468,"longitude":121.5292596817,"street":"\u5927\u5b89\u5340\u548c\u5e73\u6771\u8def\u4e00\u6bb5162\u865f,
         106 Taipei, Taiwan"},"about":"\u570b\u7acb\u53f0\u7063\u5e2b\u7bc4\u5927\u5b78
         \u79d1\u6280\u61c9\u7528\u8207\u4eba\u529b\u8cc7\u6e90\u767c\u5c55\u5b78\u7cfb109\u5e74\u5ea6\u7562\u696d\u5c55\u3010\u6280\u6558
         CONTINUE\u3011\nNational Taiwan Normal University TAHRD Graduation Exhibition","description":"\u6280\uff0e\u6558
@@ -151,7 +151,77 @@ http_interactions:
         https:\/\/www.zeczec.com\/projects\/makera\n\u23f012\/13-12\/15 8:00~17:00\n\ud83d\udccd\u53f0\u5e2b\u5927\u7d9c\u5408\u5927\u6a13210\n\u671f\u5f85\u8207\u60a8\u76f8\u898b\uff5e\ud83d\ude4f","story":"MAKERA
         - \u81fa\u5e2b\u5927\u79d1\u6280\u7cfb108\u7d1a\u7562\u696d\u5c08\u984c\u5c55\u2500\u2500\u548c\u99ac\u640f\u8072\u53ca\u5176\u4ed6
         4 \u4eba\u3002","id":"1061904683926392_1871239696326216"}],"paging":{"cursors":{"before":"QVFIUmYtckZAQX0UxZA0YtckJZAa3cxZA2ZA4QVRVRUFtMEh5MFBVVmtXX0dXZAk1LZAGgwdEJheXAxeDFNYmtmbE1JTTdKX2Ffc3I2TnZAKRms3dVpKcEtkckkxYlRQV3VDUmhfWm1WMXpqZAFRwWkdwSmJDeWRCT05jS053XzdsYzk0SGxPN1pW","after":"QVFIUmVQcmdoeFBQMnkxdkE5OFJfcmN0aUpoSWhLTkM5cklCYklLTmVWdWJxMDM2V0pndWtMa3ZAxT1kzRFFzV0RHZADk2NnI4VUo0NmNMUDNEcW9PWENFQk0wS3BEcWVTNDJQRVdNVmVVLTMyd011SDA0aFdiYjdkTmdzZAnNXYmF3UXZAR"},"next":"https:\/\/graph.facebook.com\/v12.0\/1061904683926392\/posts?access_token=<FACEBOOK_TOKEN>&limit=25&after=QVFIUmVQcmdoeFBQMnkxdkE5OFJfcmN0aUpoSWhLTkM5cklCYklLTmVWdWJxMDM2V0pndWtMa3ZAxT1kzRFFzV0RHZADk2NnI4VUo0NmNMUDNEcW9PWENFQk0wS3BEcWVTNDJQRVdNVmVVLTMyd011SDA0aFdiYjdkTmdzZAnNXYmF3UXZAR"}}}'
-  recorded_at: Thu, 21 Oct 2021 16:22:42 GMT
+  recorded_at: Fri, 22 Oct 2021 12:33:54 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/v12.0/tahrd108?access_token=<FACEBOOK_TOKEN>&fields=wrongfields
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Authorization:
+      - "<FACEBOOK_TOKEN>"
+      Connection:
+      - close
+      Host:
+      - graph.facebook.com
+      User-Agent:
+      - http.rb/5.0.4
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Vary:
+      - Origin
+      Cross-Origin-Resource-Policy:
+      - cross-origin
+      X-App-Usage:
+      - '{"call_count":5,"total_cputime":0,"total_time":3}'
+      X-Fb-Rlafr:
+      - '0'
+      Content-Type:
+      - application/json
+      Www-Authenticate:
+      - OAuth "Facebook Platform" "invalid_request" "(#100) Tried accessing nonexisting
+        field (wrongfields) on node type (Page)"
+      Access-Control-Allow-Origin:
+      - "*"
+      Facebook-Api-Version:
+      - v12.0
+      Strict-Transport-Security:
+      - max-age=15552000; preload
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      X-Fb-Request-Id:
+      - AkfY7EJKNsH-zW4VQbB9SXQ
+      X-Fb-Trace-Id:
+      - HxVAsxXguXJ
+      X-Fb-Rev:
+      - '1004600723'
+      X-Fb-Debug:
+      - TehIJCF4ZCvsjyh6w8A00UGm/etsTkkTh38srcj5jXMdws9RXNG6U7Qkpg4mZoRJovEhhLoCpmonJybr9y+c9g==
+      Date:
+      - Fri, 22 Oct 2021 12:33:55 GMT
+      Priority:
+      - u=3,i
+      Alt-Svc:
+      - h3=":443"; ma=3600, h3-29=":443"; ma=3600,h3-27=":443"; ma=3600
+      Connection:
+      - close
+      Content-Length:
+      - '172'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"error":{"message":"(#100) Tried accessing nonexisting field (wrongfields)
+        on node type (Page)","type":"OAuthException","code":100,"fbtrace_id":"AkfY7EJKNsH-zW4VQbB9SXQ"}}'
+  recorded_at: Fri, 22 Oct 2021 12:33:55 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/v12.0/wrongname?access_token=<FACEBOOK_TOKEN>&fields=id,name,category,picture,followers_count,overall_star_rating,website,location,about,description,ratings,posts
@@ -182,7 +252,7 @@ http_interactions:
       Cross-Origin-Resource-Policy:
       - cross-origin
       X-App-Usage:
-      - '{"call_count":0,"total_cputime":0,"total_time":0}'
+      - '{"call_count":5,"total_cputime":0,"total_time":3}'
       X-Fb-Rlafr:
       - '0'
       Content-Type:
@@ -203,15 +273,17 @@ http_interactions:
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       X-Fb-Request-Id:
-      - A7axssoFZVDOimAXrihZQM0
+      - AtHSYdHz_E5CuNpzasVzSjI
       X-Fb-Trace-Id:
-      - CvKo2FbMOT0
+      - FuLtQ8GQZI6
       X-Fb-Rev:
-      - '1004593603'
+      - '1004600723'
       X-Fb-Debug:
-      - 0RDXcYbULxypvLuihwihgjgoaTpidYeSxnJSXEU+uw44MVizbN0JOUPDmdT/vksM5NvoF6oCcS+7/Dkf4EzovA==
+      - gb4TCs3p37nOvS4t1hDtaAyK0QOVAWb5xnUs2QxqLtpBwlzpHLSuWokKdBpCNKemyY06sMtoEjEen28pfiyeZQ==
       Date:
-      - Thu, 21 Oct 2021 16:22:42 GMT
+      - Fri, 22 Oct 2021 12:33:55 GMT
+      Priority:
+      - u=3,i
       Transfer-Encoding:
       - chunked
       Alt-Svc:
@@ -222,78 +294,8 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"error":{"message":"Unsupported get request. Object with ID ''wrongname''
         does not exist, cannot be loaded due to missing permissions, or does not support
-        this operation. Please read the Graph API documentation at https:\/\/developers.facebook.com\/docs\/graph-api","type":"GraphMethodException","code":100,"error_subcode":33,"fbtrace_id":"A7axssoFZVDOimAXrihZQM0"}}'
-  recorded_at: Thu, 21 Oct 2021 16:22:42 GMT
-- request:
-    method: get
-    uri: https://graph.facebook.com/v12.0/tahrd108?access_token=<FACEBOOK_TOKEN>&fields=wrongfields
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      Authorization:
-      - "<FACEBOOK_TOKEN>"
-      Connection:
-      - close
-      Host:
-      - graph.facebook.com
-      User-Agent:
-      - http.rb/5.0.4
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Vary:
-      - Origin
-      Cross-Origin-Resource-Policy:
-      - cross-origin
-      X-App-Usage:
-      - '{"call_count":0,"total_cputime":0,"total_time":0}'
-      X-Fb-Rlafr:
-      - '0'
-      Content-Type:
-      - application/json
-      Www-Authenticate:
-      - OAuth "Facebook Platform" "invalid_request" "(#100) Tried accessing nonexisting
-        field (wrongfields) on node type (Page)"
-      Access-Control-Allow-Origin:
-      - "*"
-      Facebook-Api-Version:
-      - v12.0
-      Strict-Transport-Security:
-      - max-age=15552000; preload
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-store
-      Expires:
-      - Sat, 01 Jan 2000 00:00:00 GMT
-      X-Fb-Request-Id:
-      - ABlwPISS8GTfXxP7peMSD3O
-      X-Fb-Trace-Id:
-      - CS+UUAAgn1Y
-      X-Fb-Rev:
-      - '1004593603'
-      X-Fb-Debug:
-      - 2KQcD9tIU1eRWp2Y8bWPqe2NshQmXNbGUqdoMbQx+ImoxqBp8mtOQfyYwgjrd2DORlcVCKnGqjXLBP+3GEb2Jg==
-      Date:
-      - Thu, 21 Oct 2021 16:22:43 GMT
-      Priority:
-      - u=3,i
-      Alt-Svc:
-      - h3=":443"; ma=3600, h3-29=":443"; ma=3600,h3-27=":443"; ma=3600
-      Connection:
-      - close
-      Content-Length:
-      - '172'
-    body:
-      encoding: ASCII-8BIT
-      string: '{"error":{"message":"(#100) Tried accessing nonexisting field (wrongfields)
-        on node type (Page)","type":"OAuthException","code":100,"fbtrace_id":"ABlwPISS8GTfXxP7peMSD3O"}}'
-  recorded_at: Thu, 21 Oct 2021 16:22:43 GMT
+        this operation. Please read the Graph API documentation at https:\/\/developers.facebook.com\/docs\/graph-api","type":"GraphMethodException","code":100,"error_subcode":33,"fbtrace_id":"AtHSYdHz_E5CuNpzasVzSjI"}}'
+  recorded_at: Fri, 22 Oct 2021 12:33:55 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/v12.0/wrongname?access_token=&fields=wrongfields
@@ -341,15 +343,15 @@ http_interactions:
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       X-Fb-Request-Id:
-      - A33LKMHKCC5dpWWLTXLoqNW
+      - A0KA-b4rMnzJG3SmTbzEbQd
       X-Fb-Trace-Id:
-      - G+FMnOhjRnZ
+      - G1a3IOs+Nmk
       X-Fb-Rev:
-      - '1004593603'
+      - '1004600723'
       X-Fb-Debug:
-      - EGG1Pq8/hAkOsmr59H4Z0qrgAhqFYWSoBAU1RbQQ+UFvJ9OeYkJTf0X4FaZbxNax6nbGLrTgGmW7MsgtRc74Mg==
+      - TiuCzl3QxwtZ/kmG7prai0+N9wqlltZ9Adhs4YkBMTUZ0XPvZMu9F6HiuOgWqhjWHuDuLt1mUR3HWgjICRxMQQ==
       Date:
-      - Thu, 21 Oct 2021 16:22:43 GMT
+      - Fri, 22 Oct 2021 12:33:56 GMT
       Priority:
       - u=3,i
       Transfer-Encoding:
@@ -362,6 +364,6 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"error":{"message":"Unsupported get request. Object with ID ''wrongname''
         does not exist, cannot be loaded due to missing permissions, or does not support
-        this operation. Please read the Graph API documentation at https:\/\/developers.facebook.com\/docs\/graph-api","type":"GraphMethodException","code":100,"error_subcode":33,"fbtrace_id":"A33LKMHKCC5dpWWLTXLoqNW"}}'
-  recorded_at: Thu, 21 Oct 2021 16:22:43 GMT
+        this operation. Please read the Graph API documentation at https:\/\/developers.facebook.com\/docs\/graph-api","type":"GraphMethodException","code":100,"error_subcode":33,"fbtrace_id":"A0KA-b4rMnzJG3SmTbzEbQd"}}'
+  recorded_at: Fri, 22 Oct 2021 12:33:56 GMT
 recorded_with: VCR 6.0.0

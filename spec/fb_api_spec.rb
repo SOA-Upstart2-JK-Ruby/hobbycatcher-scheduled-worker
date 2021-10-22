@@ -17,7 +17,7 @@ describe 'Tests Facebook API library' do
                         match_requests_on: %i[method uri headers]
 
     @page = InfoHunter::FacebookApi.new(FACEBOOK_TOKEN)
-                                      .page(PAGENAME, FIELDS)
+                                   .page(PAGENAME, FIELDS)
   end
 
   after do
