@@ -3,6 +3,7 @@
 require 'http'
 require 'yaml'
 require 'pry'
+require 'delegate'
 
 config = YAML.safe_load(File.read('config/secrets.yml'))
 fields = %w[id name category picture followers_count overall_star_rating website location
@@ -12,20 +13,40 @@ def fb_api_path(page, fields, config)
   "https://graph.facebook.com/v12.0/#{page}?fields=#{fields}&access_token=#{config['FACEBOOK_TOKEN']}"
 end
 
-def call_fb_url(config, url)
+def all_fb_url(config, url)
   HTTP.headers('Accept' => 'application/json',
                'Authorization' => config['FACEBOOK_TOKEN'].to_s).get(url)
 end
+
+# class Urlprocess < SimpleDelegator
+
+#   def fb_api_path(page)
+#     config = YAML.safe_load(File.read('config/secrets.yml'))
+#     fields = %w[id name category picture followers_count overall_star_rating website location
+#               about description ratings posts].join('%2C')
+#     url="https://graph.facebook.com/v12.0/#{page}?fields=#{fields}&access_token=#{config['FACEBOOK_TOKEN']}"
+#     HTTP.headers('Accept' => 'application/json',
+#       'Authorization' => config['FACEBOOK_TOKEN'].to_s).get(url)
+#   end
+
+# end
+
 
 fb_response = {}
 fb_results = {}
 
 NEWLINE = "\n"
 
-## HAPPY fanpage request
+# # HAPPY fanpage request
+# fanpage_url = fb_api_path('tahrd108')
+# a= Urlprocess.new().fb_api_path('tahrd108')
+# fanpage = a.parse
+
+# # HAPPY fanpage request
 fanpage_url = fb_api_path('tahrd108', fields, config)
 fb_response[fanpage_url] = call_fb_url(config, fanpage_url)
 fanpage = fb_response[fanpage_url].parse
+# fanpage = Urlprocess.new.fb_api_path('tahrd108', fields, config)].parse
 
 fb_results['id'] = fanpage['id']
 fb_results['name'] = fanpage['name']

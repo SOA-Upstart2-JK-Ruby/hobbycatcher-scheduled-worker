@@ -37,14 +37,6 @@ module InfoHunter
       PageInfo.new(data, self)
     end
 
-    def reviews(data)
-      data.map { |review| Review.new(review.to_h) }
-    end
-
-    def posts(data)
-      data.map { |post| Post.new(post.to_h) }
-    end
-
     private
 
     def fb_api_path(path)
@@ -54,12 +46,25 @@ module InfoHunter
     def call_fb_url(url)
       result = HTTP.headers('Accept' => 'application/json',
                             'Authorization' => @fb_token).get(url)
-
-      successful?(result) ? result : raise(HTTP_ERROR[result.code])
-    end
-
-    def successful?(result)
-      !HTTP_ERROR.keys.include?(result.code)
+      Response.new(result).tap do |response|
+        raise(HTTP_ERROR[response.code]) unless response.successful?
+      end
     end
   end
+
+  #http response 
+  class Response < SimpleDelegator
+    module Errors
+      class BadRequest < StandardError; end
+    end
+
+    HTTP_ERROR = {
+      400 => Errors::BadRequest
+    }.freeze
+    def successful?
+      HTTP_ERROR.keys.include?(code) ? false : true
+    end
+
+  end
+  
 end
