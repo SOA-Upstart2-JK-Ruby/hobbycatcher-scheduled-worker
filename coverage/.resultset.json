@@ -43,10 +43,6 @@
           null,
           null,
           1,
-          0,
-          null,
-          null,
-          1,
           null,
           1,
           10,
@@ -72,7 +68,6 @@
           null,
           1,
           10,
-          null,
           null,
           null,
           null,
@@ -81,6 +76,7 @@
       },
       "/home/ruby/infohunter/lib/page_info.rb": {
         "lines": [
+          null,
           null,
           1,
           1,
@@ -194,6 +190,6 @@
         ]
       }
     },
-    "timestamp": 1634986790
+    "timestamp": 1634987648
   }
 }

@@ -33,7 +33,7 @@ namespace :quality do
 
   desc 'code smell detector'
   task :reek do
-    sh "reek"
+    sh 'reek'
   end
 
   desc 'complexiy analysis'

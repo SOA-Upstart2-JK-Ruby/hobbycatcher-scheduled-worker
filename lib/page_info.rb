@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'review'
 require_relative 'post'
 
@@ -47,12 +48,12 @@ module InfoHunter
     end
 
     def reviews
-      @reviews ||= @pageinfo['ratings']['data'].map{ |datum| Review.new(datum.to_h)}
+      @reviews ||= @pageinfo['ratings']['data'].map { |datum| Review.new(datum.to_h) }
       # @reviews ||= @data_source.filter_data(@pageinfo['ratings']['data'],Review)
     end
 
     def posts
-      @posts ||= @pageinfo['posts']['data'].map{ |datum| Post.new(datum.to_h)}
+      @posts ||= @pageinfo['posts']['data'].map { |datum| Post.new(datum.to_h) }
     end
   end
 end

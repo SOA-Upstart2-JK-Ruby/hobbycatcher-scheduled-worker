@@ -52,7 +52,7 @@ module InfoHunter
     end
   end
 
-  #http response 
+  # http response
   class Response < SimpleDelegator
     module Errors
       class BadRequest < StandardError; end
@@ -64,7 +64,6 @@ module InfoHunter
     def successful?
       HTTP_ERROR.keys.include?(code) ? false : true
     end
-
   end
-  
+
 end
