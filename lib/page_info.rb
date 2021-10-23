@@ -49,7 +49,6 @@ module InfoHunter
 
     def reviews
       @reviews ||= @pageinfo['ratings']['data'].map { |datum| Review.new(datum.to_h) }
-      # @reviews ||= @data_source.filter_data(@pageinfo['ratings']['data'],Review)
     end
 
     def posts
