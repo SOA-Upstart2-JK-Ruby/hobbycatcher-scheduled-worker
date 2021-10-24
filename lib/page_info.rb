@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require_relative 'review'
+require_relative 'post'
+
 module InfoHunter
   # Provides access to pageinfo data
   class PageInfo
@@ -45,11 +48,11 @@ module InfoHunter
     end
 
     def reviews
-      @reviews ||= @data_source.reviews(@pageinfo['ratings']['data'])
+      @reviews ||= @pageinfo['ratings']['data'].map { |datum| Review.new(datum.to_h) }
     end
 
     def posts
-      @posts ||= @data_source.posts(@pageinfo['posts']['data'])
+      @posts ||= @pageinfo['posts']['data'].map { |datum| Post.new(datum.to_h) }
     end
   end
 end
