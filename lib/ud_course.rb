@@ -19,7 +19,7 @@ module HobbyCatcher
     end
 
     def url
-      'https://www.udemy.com' + @course['url']
+      "https://www.udemy.com#{@course['url']}"
     end
 
     def price

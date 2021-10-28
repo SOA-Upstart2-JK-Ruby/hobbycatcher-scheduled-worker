@@ -31,22 +31,22 @@ module HobbyCatcher
     end
 
     def reviews(courseid)
-      reviews_url = ud_api_path(courseid + '/reviews/')
+      reviews_url = ud_api_path("#{courseid}/reviews/")
       reviews = call_ud_url(reviews_url).parse
-      reviews['results'].map { |review| Review.new(review)}
+      reviews['results'].map { |review| Review.new(review) }
     end
 
     private
 
     def ud_api_path(path)
-        "https://www.udemy.com/api-2.0/courses/#{path}"
+      "https://www.udemy.com/api-2.0/courses/#{path}"
     end
 
     def call_ud_url(url)
-        result = HTTP.headers('Accept' => 'application/json, text/plain, */*',
-                              'Authorization' => "Basic #{@ud_token}",
-                              'Content-Type' => 'application/json;charset=utf-8').get(url)
-        Response.new(result).tap do |response|
+      result = HTTP.headers('Accept' => 'application/json, text/plain, */*',
+                            'Authorization' => "Basic #{@ud_token}",
+                            'Content-Type' => 'application/json;charset=utf-8').get(url)
+      Response.new(result).tap do |response|
         raise(HTTP_ERROR[response.code]) unless response.successful?
       end
     end

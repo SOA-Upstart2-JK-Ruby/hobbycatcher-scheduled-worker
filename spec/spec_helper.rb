@@ -31,4 +31,3 @@ CORRECT_UD = YAML.safe_load(File.read('spec/fixtures/udemy_results.yml'))
 CASSETTES_FOLDER = 'spec/fixtures/cassettes'
 CASSETTE_FB_FILE = 'facebook_api'
 CASSETTE_UD_FILE = 'udemy_api'
-

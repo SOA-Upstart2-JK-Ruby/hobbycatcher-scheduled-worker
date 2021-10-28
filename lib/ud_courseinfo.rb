@@ -41,24 +41,24 @@ course = ud_response[course_url].parse
 
 ud_results['id'] = course['id']
 ud_results['title'] = course['title']
-ud_results['url'] = 'https://www.udemy.com' + course['url']
+ud_results['url'] = "https://www.udemy.com#{course['url']}"
 ud_results['price'] = course['price']
 ud_results['image'] = course['image_240x135']
 
 ## HAPPY course review (review) request
-reviews_url = course_url + '/reviews/'
+reviews_url = "#{course_url}/reviews/"
 ud_response[reviews_url] = call_ud_url(config, reviews_url)
 reviews = ud_response[reviews_url].parse
 
 ud_results['reviews'] = reviews['results'].map do |review|
-  key = ['date', 'rating', 'content']
-  value = review['created'],review['rating'],review['content']
-  Hash[key.zip(value)]
+  key = %w[date rating content]
+  value = review['created'], review['rating'], review['content']
+  key.zip(value).to_h
 end
 
 ## BAD: wrong course request
 bad_course_url = ud_api_path('WrongRequest')
 ud_response[bad_course_url] = call_ud_url(config, bad_course_url)
-ud_response[bad_course_url].parse 
+ud_response[bad_course_url].parse
 
 File.write('spec/fixtures/udemy_results.yml', ud_results.to_yaml)
