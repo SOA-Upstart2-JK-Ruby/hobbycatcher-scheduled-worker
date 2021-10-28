@@ -1,0 +1,971 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.udemy.com/api-2.0/courses/3253422
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/plain, */*
+      Authorization:
+      - Basic <UDEMY_TOKEN>
+      Content-Type:
+      - application/json;charset=utf-8
+      Connection:
+      - close
+      Host:
+      - www.udemy.com
+      User-Agent:
+      - http.rb/5.0.4
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 28 Oct 2021 01:09:10 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 6a5046f4287f6a96-TPE
+      Age:
+      - '0'
+      Allow:
+      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+      Cache-Control:
+      - max-age=0, max-stale=0, must-revalidate, no-cache, no-store, post-check=0,
+        pre-check=0, private
+      Set-Cookie:
+      - __cf_bm=3PhRw0naEwq7c1ijsWVfSF0dgTJhTXTB04plIl9seU4-1635383350-0-ASpGNbDvoxirZmRayz3KoxNkgVOPzLJsG5zSBGvCBznFoVDDoXyl9QwNUYdhcERfpWeaTbaOjBu47t+BhjrnwCg=;
+        path=/; expires=Thu, 28-Oct-21 01:39:10 GMT; domain=.udemy.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfruid=0fac1ae2e8f70b8705330b76952a74efc6791d33-1635383350; path=/; domain=.udemy.com;
+        HttpOnly; Secure; SameSite=None
+      - __udmy_2_v57r=b983d7ae95fa45f7994403d0ef903252; Domain=.udemy.com; expires=Fri,
+        28 Oct 2022 01:09:10 GMT; Max-Age=31536000; Path=/; Secure
+      - __udmy_evid=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - eva=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - evi="3@czWQbWf4Imgtqwhb5j-ABkddYxIeE1cwTxuWJxfw4qybitF8ldBWwJC9tfqyrxvafnA7dG-DNkfpaJFh_4tWhRNtOiLd1ZIj3ve5zcwohZNTRTh6i6ZJC_d5uHV2C34nMGU=";
+        expires=Sat, 27 Nov 2021 01:09:10 GMT; Max-Age=2592000; Path=/
+      - exaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - inaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - seen=1;Path=/;Max-Age=1800
+      - ud_cache_brand=TWen_US; expires=Fri, 29 Oct 2021 01:09:10 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_device=None; expires=Fri, 29 Oct 2021 01:09:10 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_language=en; expires=Fri, 29 Oct 2021 01:09:10 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_logged_in=0; expires=Fri, 29 Oct 2021 01:09:10 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_marketplace_country=TW; expires=Fri, 29 Oct 2021 01:09:10 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_modern_browser=0; expires=Fri, 29 Oct 2021 01:09:10 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_price_country=TW; expires=Fri, 29 Oct 2021 01:09:10 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_release=67f3e980d2a2a42d45b6; expires=Fri, 29 Oct 2021 01:09:10 GMT;
+        Max-Age=86400; Path=/; Secure
+      - ud_cache_user=""; expires=Fri, 29 Oct 2021 01:09:10 GMT; Max-Age=86400; Path=/;
+        Secure
+      - ud_cache_version=1; expires=Fri, 29 Oct 2021 01:09:10 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_firstvisit=2021-10-28T01:09:10.590518+00:00:1mftuo:XGdrbMjk-zy0G2fxUSzraV6noeM;
+        expires=Fri, 28 Oct 2022 01:09:10 GMT; Max-Age=31536000; Path=/
+      - ud_rule_vars=eJyFjcEOgyAQBX_FcG1tFpAKfIsJWXGxpKakiF6M_16Ttklvvb68mdlYwTxSocGtcY4lZdsbLYcWyaiAjQqtMU0DcgAKBqRQwvqU7pGYrdjWsRDzXN6sG7BQd-wdEyB4zaEWugJuwVgOF6WlkvoEYAE6dj5eEx5oSYu_uZIxhOjdnJbsya2YI_bTx5byiI_of6BMz4Xmf8VWKH2Fb3Fn-wuYG0et:1mftuo:tvgrAbx53lo4UMUfL4hV88bqKyE;
+        expires=Sat, 28 Oct 2023 01:09:10 GMT; Max-Age=63072000; Path=/
+      - ud_user_jwt=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - udmy_branded_partner=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0;
+        Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Via:
+      - 1.1 varnish (Varnish/5.2)
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - Authorization
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - master-only
+      X-Udemy-Cache-App-Namespace:
+      - ''
+      X-Varnish:
+      - '958408596'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"_class":"course","id":3253422,"title":"The Complete Rubiks Cube Course
+        2021: From Zero to Expert!","url":"/course/rubiks-cube-by-vasudev/","is_paid":true,"price":"NT$590","price_detail":{"amount":590.0,"currency":"TWD","price_string":"NT$590","currency_symbol":"NT$"},"price_serve_tracking_id":"G4jDGuNoTN-uphY-qSjqxA","visible_instructors":[{"_class":"user","title":"Vasudev
+        Soni","name":"Vasudev","display_name":"Vasudev Soni","job_title":"Business
+        Owner, Entrepreneur, Rubik''s Cube Expert","image_50x50":"https://img-c.udemycdn.com/user/50x50/77793156_c4ad.jpg","image_100x100":"https://img-c.udemycdn.com/user/100x100/77793156_c4ad.jpg","initials":"VS","url":"/user/vasudev-soni-3/"}],"image_125_H":"https://img-c.udemycdn.com/course/125_H/3253422_8d68_6.jpg","image_240x135":"https://img-c.udemycdn.com/course/240x135/3253422_8d68_6.jpg","is_practice_test_course":false,"image_480x270":"https://img-c.udemycdn.com/course/480x270/3253422_8d68_6.jpg","published_title":"rubiks-cube-by-vasudev","tracking_id":"1zAZhhYwQOajIpnEMKCxOQ"}'
+  recorded_at: Thu, 28 Oct 2021 01:09:09 GMT
+- request:
+    method: get
+    uri: https://www.udemy.com/api-2.0/courses/3253422
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/plain, */*
+      Authorization:
+      - Basic WrongTOKEN
+      Content-Type:
+      - application/json;charset=utf-8
+      Connection:
+      - close
+      Host:
+      - www.udemy.com
+      User-Agent:
+      - http.rb/5.0.4
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 28 Oct 2021 01:09:11 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 6a5046f7182356fb-TPE
+      Age:
+      - '0'
+      Allow:
+      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+      Cache-Control:
+      - max-age=0, max-stale=0, must-revalidate, no-cache, no-store, post-check=0,
+        pre-check=0, private
+      Set-Cookie:
+      - __cf_bm=q1Blr5lomnDcdyBW3MMjkpcbE4q3fcxOt3La_HdU4xg-1635383351-0-AUKDNPtlOs3nxpYxmN8pLEQQTaXLJZTRxJJo5dFOC9xHfcVW+Hu4nkhP49j3UPrZnVwu7bDGtknHreVTMvx9F+A=;
+        path=/; expires=Thu, 28-Oct-21 01:39:11 GMT; domain=.udemy.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfruid=26bc3a99ea48880e5d7eb73ea8866ac29da86b49-1635383351; path=/; domain=.udemy.com;
+        HttpOnly; Secure; SameSite=None
+      - __udmy_2_v57r=8adcfb868e884d658cba27c0af8a2175; Domain=.udemy.com; expires=Fri,
+        28 Oct 2022 01:09:11 GMT; Max-Age=31536000; Path=/; Secure
+      - __udmy_evid=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - eva=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - evi="3@d2MqzuHsUaRjRqHNKy23bIvHtLkzdu4W7I3ZioVIL21Xg5zG1h4m7oCUmdP5A668PvO8fiEbk_3vAmm52t5zWiWPY08fMtNlQg==";
+        expires=Sat, 27 Nov 2021 01:09:11 GMT; Max-Age=2592000; Path=/
+      - exaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - inaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - seen=1;Path=/;Max-Age=1800
+      - ud_cache_brand=TWen_US; expires=Fri, 29 Oct 2021 01:09:11 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_device=None; expires=Fri, 29 Oct 2021 01:09:11 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_language=en; expires=Fri, 29 Oct 2021 01:09:11 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_logged_in=0; expires=Fri, 29 Oct 2021 01:09:11 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_marketplace_country=TW; expires=Fri, 29 Oct 2021 01:09:11 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_modern_browser=0; expires=Fri, 29 Oct 2021 01:09:11 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_price_country=TW; expires=Fri, 29 Oct 2021 01:09:11 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_release=67f3e980d2a2a42d45b6; expires=Fri, 29 Oct 2021 01:09:11 GMT;
+        Max-Age=86400; Path=/; Secure
+      - ud_cache_user=""; expires=Fri, 29 Oct 2021 01:09:11 GMT; Max-Age=86400; Path=/;
+        Secure
+      - ud_cache_version=1; expires=Fri, 29 Oct 2021 01:09:11 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_firstvisit=2021-10-28T01:09:11.043521+00:00:1mftup:SMtzsjKCRW3Jkt0GaWPTc0HeGds;
+        expires=Fri, 28 Oct 2022 01:09:11 GMT; Max-Age=31536000; Path=/
+      - ud_rule_vars="eJyFjcEOwiAQBX-l4ao1C0rZ8i0kZEuhEo1EoL00_XebqIk3ry9vZlZWKU---tEuscSaskYaXRiwQ494GTuJbiChHFBAElxJ7VK6Rc90w1bDQsylvlk7UvVm3w0TIHjLoRXYANfQa85PcEaJ_QFAAxh23F932tGaZne1NVMI0dmS5uy8XShHGu4fW8oTPaL7gbJ_zr78K3LJUalvcWPbCy24SG0=:1mftup:aiMRjrC_YviEuw15vn6g1yiAEko";
+        expires=Sat, 28 Oct 2023 01:09:11 GMT; Max-Age=63072000; Path=/
+      - ud_user_jwt=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - udmy_branded_partner=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0;
+        Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Via:
+      - 1.1 varnish (Varnish/5.2)
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - Authorization
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - master-only
+      X-Udemy-Cache-App-Namespace:
+      - ''
+      X-Varnish:
+      - '877009423'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"_class":"course","id":3253422,"title":"The Complete Rubiks Cube Course
+        2021: From Zero to Expert!","url":"/course/rubiks-cube-by-vasudev/","is_paid":true,"price":"NT$590","price_detail":{"amount":590.0,"currency":"TWD","price_string":"NT$590","currency_symbol":"NT$"},"price_serve_tracking_id":"m-csfnBCTgK-zoS7ufDk7g","visible_instructors":[{"_class":"user","title":"Vasudev
+        Soni","name":"Vasudev","display_name":"Vasudev Soni","job_title":"Business
+        Owner, Entrepreneur, Rubik''s Cube Expert","image_50x50":"https://img-c.udemycdn.com/user/50x50/77793156_c4ad.jpg","image_100x100":"https://img-c.udemycdn.com/user/100x100/77793156_c4ad.jpg","initials":"VS","url":"/user/vasudev-soni-3/"}],"image_125_H":"https://img-c.udemycdn.com/course/125_H/3253422_8d68_6.jpg","image_240x135":"https://img-c.udemycdn.com/course/240x135/3253422_8d68_6.jpg","is_practice_test_course":false,"image_480x270":"https://img-c.udemycdn.com/course/480x270/3253422_8d68_6.jpg","published_title":"rubiks-cube-by-vasudev","tracking_id":"h2cAqoxHQI-kWxkYZK9_sQ"}'
+  recorded_at: Thu, 28 Oct 2021 01:09:10 GMT
+- request:
+    method: get
+    uri: https://www.udemy.com/api-2.0/courses/wrongid
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/plain, */*
+      Authorization:
+      - Basic <UDEMY_TOKEN>
+      Content-Type:
+      - application/json;charset=utf-8
+      Connection:
+      - close
+      Host:
+      - www.udemy.com
+      User-Agent:
+      - http.rb/5.0.4
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Thu, 28 Oct 2021 01:09:11 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '23'
+      Connection:
+      - close
+      Cf-Ray:
+      - 6a5046f9b82a56ef-TPE
+      Age:
+      - '0'
+      Allow:
+      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+      Set-Cookie:
+      - __cf_bm=sSNaqUfVPgHPXzJA.0GsgTPzawTfRXF8OIoxrzR9ix8-1635383351-0-Ab5MeaKrNvdjvyR3Pj5okv3TKdaqjMW4YGzjgFywPvCQpPvGml09tSsuWImum0QZhVbDiM69qOVzDGRs760EcwI=;
+        path=/; expires=Thu, 28-Oct-21 01:39:11 GMT; domain=.udemy.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfruid=26bc3a99ea48880e5d7eb73ea8866ac29da86b49-1635383351; path=/; domain=.udemy.com;
+        HttpOnly; Secure; SameSite=None
+      - __udmy_2_v57r=7478446b1e4640ce95fa6900b14abecf; Domain=.udemy.com; expires=Fri,
+        28 Oct 2022 01:09:11 GMT; Max-Age=31536000; Path=/; Secure
+      - __udmy_evid=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - eva=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - evi="3@iAnKYGUqOcrayXl07QfnYHDhMtgNdg1cGH60GEwuFMpmiGMRk5uaCaWs"; expires=Sat,
+        27 Nov 2021 01:09:11 GMT; Max-Age=2592000; Path=/
+      - exaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - inaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - ud_firstvisit=2021-10-28T01:09:11.467429+00:00:1mftup:aBF6alCrsVH-KJHswdxFhqqymBo;
+        expires=Fri, 28 Oct 2022 01:09:11 GMT; Max-Age=31536000; Path=/
+      - ud_rule_vars="eJyFjcEKwyAQBX8leG1TVrEm8VsEWc2aSkOlanIJ-fcG2kJvvT7ezGysYp6o0mjXWGJNWXey66VUjpNUEjwN14BqAHBcoiMftE_pHonphm2GhZhLfbN2xErm2A0TIHjLoRV9A1zDoDm_SCUGAScADWDY-XjNeKA1Lf5ma8YQorclLdmTXTFHdPPHlvKEj-h_oEzPhcrfYi859N_izvYXwK9H8g==:1mftup:pdJDjDfWhTZYDrtJ-wsAybOvNfE";
+        expires=Sat, 28 Oct 2023 01:09:11 GMT; Max-Age=63072000; Path=/
+      - ud_user_jwt=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - udmy_branded_partner=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0;
+        Path=/
+      Via:
+      - 1.1 varnish (Varnish/5.2)
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - Authorization
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ui-Message:
+      - Not found.
+      X-Ui-Message-Type:
+      - error
+      X-Varnish:
+      - '881361344'
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"detail":"Not found."}'
+  recorded_at: Thu, 28 Oct 2021 01:09:10 GMT
+- request:
+    method: get
+    uri: https://www.udemy.com/api-2.0/courses/8253422/reviews/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/plain, */*
+      Authorization:
+      - Basic <UDEMY_TOKEN>
+      Content-Type:
+      - application/json;charset=utf-8
+      Connection:
+      - close
+      Host:
+      - www.udemy.com
+      User-Agent:
+      - http.rb/5.0.4
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Thu, 28 Oct 2021 01:56:31 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '32'
+      Connection:
+      - close
+      Cf-Ray:
+      - 6a508c4f4f3c6b69-TPE
+      Age:
+      - '0'
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Set-Cookie:
+      - __cf_bm=4ZixhzmQ7j3doMDSEVgCO9Fdn6PVCcY8BSXVrRnYMOw-1635386191-0-AbWNOuJRB11aDb0cZiI7BOMP/+hJYyBBhQwRU4m02TO7d67KC3l2dpgWxmrV3lsII6rZxKhUOHHp4Am3D3WVHQ8=;
+        path=/; expires=Thu, 28-Oct-21 02:26:31 GMT; domain=.udemy.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfruid=c59baf47aa09cfdf06a47d252956583b65174e8e-1635386191; path=/; domain=.udemy.com;
+        HttpOnly; Secure; SameSite=None
+      - __udmy_2_v57r=f23b47b5f95b49b6ae5991f554d03525; Domain=.udemy.com; expires=Fri,
+        28 Oct 2022 01:56:31 GMT; Max-Age=31536000; Path=/; Secure
+      - __udmy_evid=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - eva=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - evi="3@aQgWk_2reJYF4Y6ACD3DQbGjxOgajD6I2hyvbTu4FM-qKZWwNxR2YHVr"; expires=Sat,
+        27 Nov 2021 01:56:31 GMT; Max-Age=2592000; Path=/
+      - exaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - inaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - ud_firstvisit=2021-10-28T01:56:31.395066+00:00:1mfued:b1nt-VYTPxqF2MaMTW03WHG5w3w;
+        expires=Fri, 28 Oct 2022 01:56:31 GMT; Max-Age=31536000; Path=/
+      - ud_rule_vars="eJyFjcsKwyAUBX8luG1Trq-k-i0BUaOpNFR6NdmE_HsDbaG7bg9nZjZSLU6hhtGsqaSaUUfGneidjEo6oVxng1SKRinFCFwyqX3O9xSIbsg2kJiw1DdrRlvDcOwDYcBoS6Fl1waolp3m9MIV0F6dADTAQM7Ha7YHWvPib6aijTF5U_KCPpjVYrJu_tgyTvaR_A-E4bmE8q8oaM8F_xZ3sr8AlWtHqg==:1mfued:b5F1ykDAMvgGdkhTETEfKCjHeYg";
+        expires=Sat, 28 Oct 2023 01:56:31 GMT; Max-Age=63072000; Path=/
+      - ud_user_jwt=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - udmy_branded_partner=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0;
+        Path=/
+      Via:
+      - 1.1 varnish (Varnish/5.2)
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - Authorization
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ui-Message:
+      - Resource not found.
+      X-Ui-Message-Type:
+      - error
+      X-Varnish:
+      - '873253576'
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"detail":"Resource not found."}'
+  recorded_at: Thu, 28 Oct 2021 01:56:30 GMT
+- request:
+    method: get
+    uri: https://www.udemy.com/api-2.0/courses/3253422/reviews/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/plain, */*
+      Authorization:
+      - Basic <UDEMY_TOKEN>
+      Content-Type:
+      - application/json;charset=utf-8
+      Connection:
+      - close
+      Host:
+      - www.udemy.com
+      User-Agent:
+      - http.rb/5.0.4
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 28 Oct 2021 01:58:56 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 6a508fda2bb34105-TPE
+      Age:
+      - '0'
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Cache-Control:
+      - max-age=0, max-stale=0, must-revalidate, no-cache, no-store, post-check=0,
+        pre-check=0, private
+      Set-Cookie:
+      - __cf_bm=YvFWQvJtqp0gsX6hIINwTY3KJADzTrLfB__.c6XpBew-1635386336-0-AWZF/B3UX4H4MZE/hfL2VfKn2UdhH3T3CdHEacc8TFRaP9uQ8Lp4VXraVTbHFFFHzKJFT0iSXqLc4P8//ngb4v4=;
+        path=/; expires=Thu, 28-Oct-21 02:28:56 GMT; domain=.udemy.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfruid=a1a06ba8f53ad0e81ad3b08aba6299d86b6ba343-1635386336; path=/; domain=.udemy.com;
+        HttpOnly; Secure; SameSite=None
+      - __udmy_2_v57r=ccd60bf37b134be492fa6f6dda02d404; Domain=.udemy.com; expires=Fri,
+        28 Oct 2022 01:58:56 GMT; Max-Age=31536000; Path=/; Secure
+      - __udmy_evid=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - eva=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - evi="3@ufZgKVMxHHhXdLmUyRU3nyo20uOlTTL28lwefa5EQ2qomOuWT2jNRabN"; expires=Sat,
+        27 Nov 2021 01:58:56 GMT; Max-Age=2592000; Path=/
+      - exaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - inaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - seen=1;Path=/;Max-Age=1800
+      - ud_cache_brand=TWen_US; expires=Fri, 29 Oct 2021 01:58:56 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_device=None; expires=Fri, 29 Oct 2021 01:58:56 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_language=en; expires=Fri, 29 Oct 2021 01:58:56 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_logged_in=0; expires=Fri, 29 Oct 2021 01:58:56 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_marketplace_country=TW; expires=Fri, 29 Oct 2021 01:58:56 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_modern_browser=0; expires=Fri, 29 Oct 2021 01:58:56 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_price_country=TW; expires=Fri, 29 Oct 2021 01:58:56 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_release=67f3e980d2a2a42d45b6; expires=Fri, 29 Oct 2021 01:58:56 GMT;
+        Max-Age=86400; Path=/; Secure
+      - ud_cache_user=""; expires=Fri, 29 Oct 2021 01:58:56 GMT; Max-Age=86400; Path=/;
+        Secure
+      - ud_cache_version=1; expires=Fri, 29 Oct 2021 01:58:56 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_firstvisit=2021-10-28T01:58:56.533856+00:00:1mfugy:eiCpNkR1SK0m0fOXHxNniJmFgGo;
+        expires=Fri, 28 Oct 2022 01:58:56 GMT; Max-Age=31536000; Path=/
+      - ud_rule_vars=eJyFjcsKwyAUBX8luG1TriYxxm8R5PpKpaVSNdmE_HsDbaG7bg9nZjZSMc--eqfXWGJNWVrrOJjQjYZ2vfH9xALywJ1DYK6HXtqUbtET2ZBNkRBzqW9WO6xeHbsiDBhtKbRMNEDlIOTALwMTgvETgARQ5Hy87nigNS32qmvGEKLVJS3Zer1ijmjuH1vKMz6i_YGyfy6-_C2KsZvYt7iT_QVC-0id:1mfugy:f1Ia5aMmEXEjN30Z4HrepkejNnA;
+        expires=Sat, 28 Oct 2023 01:58:56 GMT; Max-Age=63072000; Path=/
+      - ud_user_jwt=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - udmy_branded_partner=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0;
+        Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Via:
+      - 1.1 varnish (Varnish/5.2)
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - Authorization
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - master-only
+      X-Udemy-Cache-App-Namespace:
+      - ''
+      X-Varnish:
+      - '874697267'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"count":3,"next":null,"previous":null,"results":[{"_class":"course_review","id":78626304,"content":"What
+        a wonderful course this is. Totally loved the method and the way the instructor
+        taught.\nThank you so much, now I can also showoff my cubing skills in front
+        of my friends.","rating":5.0,"created":"2021-02-24T10:08:06Z","modified":"2021-02-25T15:08:21Z","user_modified":"2021-02-24T10:09:17Z","user":{"_class":"user","title":"Rohan","name":"Rohan","display_name":"Rohan"}},{"_class":"course_review","id":65683980,"content":"","rating":5.0,"created":"2020-09-06T05:44:55Z","modified":"2020-09-07T07:11:01Z","user_modified":"2020-09-06T05:44:55Z","user":{"_class":"user","title":"Naresh
+        Verma","name":"Naresh","display_name":"Naresh Verma"}},{"_class":"course_review","id":65669486,"content":"I
+        would say that this is literally the best Rubik''s Cube course on Udemy. Each
+        step is explained in detail by the instructor and you won''t face any problem
+        at all in between the course.\nI am very happy that I enrolled in this course
+        and got to learn the skill.","rating":5.0,"created":"2020-09-06T00:08:44Z","modified":"2020-09-07T07:11:01Z","user_modified":"2020-09-06T00:10:46Z","user":{"_class":"user","title":"rakhi
+        verma","name":"rakhi","display_name":"rakhi verma"}}]}'
+  recorded_at: Thu, 28 Oct 2021 01:58:56 GMT
+- request:
+    method: get
+    uri: https://www.udemy.com/api-2.0/courses/3253422/reviews/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/plain, */*
+      Authorization:
+      - Basic <UDEMY_TOKEN>
+      Content-Type:
+      - application/json;charset=utf-8
+      Connection:
+      - close
+      Host:
+      - www.udemy.com
+      User-Agent:
+      - http.rb/5.0.4
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 28 Oct 2021 01:59:31 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 6a5090b2ef8d0740-TPE
+      Age:
+      - '0'
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Cache-Control:
+      - max-age=0, max-stale=0, must-revalidate, no-cache, no-store, post-check=0,
+        pre-check=0, private
+      Set-Cookie:
+      - __cf_bm=vVXei4YmPGQX5P.0E1OQP7gp0ILvWboewBAE572jpqU-1635386371-0-AZodluxWyj6m9oQERiWU7xyaVwX/k1faH+oq8yuDN3rC78rojxQ59sW3tvW5gkMidshkYm8mDXzqp8A4ermOovs=;
+        path=/; expires=Thu, 28-Oct-21 02:29:31 GMT; domain=.udemy.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfruid=e39363c2b7f4af522452d13f6bd8ac3d9561d6f5-1635386371; path=/; domain=.udemy.com;
+        HttpOnly; Secure; SameSite=None
+      - __udmy_2_v57r=793423d07fea41d9b24a2e97da321680; Domain=.udemy.com; expires=Fri,
+        28 Oct 2022 01:59:31 GMT; Max-Age=31536000; Path=/; Secure
+      - __udmy_evid=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - eva=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - evi="3@q1xaMlXsYVVp6I-Js6ehqeJIJP9PDrnQOoItO2M7NM0QsxuU982JWKM_"; expires=Sat,
+        27 Nov 2021 01:59:31 GMT; Max-Age=2592000; Path=/
+      - exaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - inaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - seen=1;Path=/;Max-Age=1800
+      - ud_cache_brand=TWen_US; expires=Fri, 29 Oct 2021 01:59:31 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_device=None; expires=Fri, 29 Oct 2021 01:59:31 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_language=en; expires=Fri, 29 Oct 2021 01:59:31 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_logged_in=0; expires=Fri, 29 Oct 2021 01:59:31 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_marketplace_country=TW; expires=Fri, 29 Oct 2021 01:59:31 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_modern_browser=0; expires=Fri, 29 Oct 2021 01:59:31 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_price_country=TW; expires=Fri, 29 Oct 2021 01:59:31 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_release=67f3e980d2a2a42d45b6; expires=Fri, 29 Oct 2021 01:59:31 GMT;
+        Max-Age=86400; Path=/; Secure
+      - ud_cache_user=""; expires=Fri, 29 Oct 2021 01:59:31 GMT; Max-Age=86400; Path=/;
+        Secure
+      - ud_cache_version=1; expires=Fri, 29 Oct 2021 01:59:31 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_firstvisit=2021-10-28T01:59:31.233383+00:00:1mfuhX:u4NdHpzACnkC6beS2YJ4Fnximgk;
+        expires=Fri, 28 Oct 2022 01:59:31 GMT; Max-Age=31536000; Path=/
+      - ud_rule_vars="eJyFjUEOgjAQRa9iulXMdArS9iwkzdAO2GhsLIUN4e6SqIk7tz__vbeKQnnkwsEtcYolZdsaVaMK0A5MtQymx5qQTRtIobxosD6lW2RhD2LtxBDzVN6sC1S42_dOIKCsJFSoDyBtY6ySZ0StQR8BLEAnTvvrTjta0uyvrmQahujdlObs2S2UI_X3jy3lkR7R_0CZnzNPf4tamUZ-i5vYXoPWR6Q=:1mfuhX:U7X6dbThol8T_U98ZouQQgpAQnI";
+        expires=Sat, 28 Oct 2023 01:59:31 GMT; Max-Age=63072000; Path=/
+      - ud_user_jwt=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - udmy_branded_partner=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0;
+        Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Via:
+      - 1.1 varnish (Varnish/5.2)
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - Authorization
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - master-only
+      X-Udemy-Cache-App-Namespace:
+      - ''
+      X-Varnish:
+      - '959534906'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"count":3,"next":null,"previous":null,"results":[{"_class":"course_review","id":78626304,"content":"What
+        a wonderful course this is. Totally loved the method and the way the instructor
+        taught.\nThank you so much, now I can also showoff my cubing skills in front
+        of my friends.","rating":5.0,"created":"2021-02-24T10:08:06Z","modified":"2021-02-25T15:08:21Z","user_modified":"2021-02-24T10:09:17Z","user":{"_class":"user","title":"Rohan","name":"Rohan","display_name":"Rohan"}},{"_class":"course_review","id":65683980,"content":"","rating":5.0,"created":"2020-09-06T05:44:55Z","modified":"2020-09-07T07:11:01Z","user_modified":"2020-09-06T05:44:55Z","user":{"_class":"user","title":"Naresh
+        Verma","name":"Naresh","display_name":"Naresh Verma"}},{"_class":"course_review","id":65669486,"content":"I
+        would say that this is literally the best Rubik''s Cube course on Udemy. Each
+        step is explained in detail by the instructor and you won''t face any problem
+        at all in between the course.\nI am very happy that I enrolled in this course
+        and got to learn the skill.","rating":5.0,"created":"2020-09-06T00:08:44Z","modified":"2020-09-07T07:11:01Z","user_modified":"2020-09-06T00:10:46Z","user":{"_class":"user","title":"rakhi
+        verma","name":"rakhi","display_name":"rakhi verma"}}]}'
+  recorded_at: Thu, 28 Oct 2021 01:59:30 GMT
+- request:
+    method: get
+    uri: https://www.udemy.com/api-2.0/courses/3253422
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/plain, */*
+      Authorization:
+      - 'Basic '
+      Content-Type:
+      - application/json;charset=utf-8
+      Connection:
+      - close
+      Host:
+      - www.udemy.com
+      User-Agent:
+      - http.rb/5.0.4
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 28 Oct 2021 03:16:24 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 6a5101523d1a0740-TPE
+      Age:
+      - '0'
+      Allow:
+      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+      Cache-Control:
+      - max-age=0, max-stale=0, must-revalidate, no-cache, no-store, post-check=0,
+        pre-check=0, private
+      Set-Cookie:
+      - __cf_bm=Tpi9nGlmUcD8O.FhT20MB_7unuMUwChWyYoTcnRLGEM-1635390984-0-Af8dEn+2Uz7aFm6fyCXY3bnKixfLlJgng3PRWPjtcfJvJZeBe/2lrXDxuMa1Cg2GWfYw0sWiTyme68QP8JjywPc=;
+        path=/; expires=Thu, 28-Oct-21 03:46:24 GMT; domain=.udemy.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfruid=146d8ae09fc4f43e414e3ca803fdeabe4eb11a02-1635390984; path=/; domain=.udemy.com;
+        HttpOnly; Secure; SameSite=None
+      - __udmy_2_v57r=1a8fc7f32e3948ef82352e4b54321fcc; Domain=.udemy.com; expires=Fri,
+        28 Oct 2022 03:16:24 GMT; Max-Age=31536000; Path=/; Secure
+      - __udmy_evid=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - eva=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - evi="3@dhSS8HoXLxEsuEo37aU0XHjI6e2mhI3GphEt7CvcFRP_7zUVK4TCjFmbCj8Onvqivjk3djjKpnCWCyotlqdztmDgtQK8XVHKAPIAZ6D2dAcZJggwJNee4zUcdU09xRbjkAs=";
+        expires=Sat, 27 Nov 2021 03:16:24 GMT; Max-Age=2592000; Path=/
+      - exaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - inaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - seen=1;Path=/;Max-Age=1800
+      - ud_cache_brand=TWen_US; expires=Fri, 29 Oct 2021 03:16:24 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_device=None; expires=Fri, 29 Oct 2021 03:16:24 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_language=en; expires=Fri, 29 Oct 2021 03:16:24 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_logged_in=0; expires=Fri, 29 Oct 2021 03:16:24 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_marketplace_country=TW; expires=Fri, 29 Oct 2021 03:16:24 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_modern_browser=0; expires=Fri, 29 Oct 2021 03:16:24 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_price_country=TW; expires=Fri, 29 Oct 2021 03:16:24 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_cache_release=67f3e980d2a2a42d45b6; expires=Fri, 29 Oct 2021 03:16:24 GMT;
+        Max-Age=86400; Path=/; Secure
+      - ud_cache_user=""; expires=Fri, 29 Oct 2021 03:16:24 GMT; Max-Age=86400; Path=/;
+        Secure
+      - ud_cache_version=1; expires=Fri, 29 Oct 2021 03:16:24 GMT; Max-Age=86400;
+        Path=/; Secure
+      - ud_firstvisit=2021-10-28T03:16:24.247070+00:00:1mfvtw:7ZXLm-EcDqd6cO7lznZfMFISHEU;
+        expires=Fri, 28 Oct 2022 03:16:24 GMT; Max-Age=31536000; Path=/
+      - ud_rule_vars=eJyFjcEOgyAQBX_FcG1tlgUr8i0mBHGxpKakgF6M_16Ttklvvb68mdlYsWmiQqNZQw4lJs2t8q71Akl0UpFXKBokOTRSIPfOaRfjPRDTFdt65kPK5c2a0Rbqj71nCMhrDjWqCoTmV43yghIUdicADdCz8_Ga7YGWuLibKcl6H5zJcUmOzGpTsMP8scU02UdwP1Ci50L5X1G0su3gW9zZ_gLUFkgG:1mfvtw:NURDeBYvj6A1EdnxCqHlbNyt8sk;
+        expires=Sat, 28 Oct 2023 03:16:24 GMT; Max-Age=63072000; Path=/
+      - ud_user_jwt=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - udmy_branded_partner=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0;
+        Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Via:
+      - 1.1 varnish (Varnish/5.2)
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - Authorization
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - master-only
+      X-Udemy-Cache-App-Namespace:
+      - ''
+      X-Varnish:
+      - '972599835'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"_class":"course","id":3253422,"title":"The Complete Rubiks Cube Course
+        2021: From Zero to Expert!","url":"/course/rubiks-cube-by-vasudev/","is_paid":true,"price":"NT$590","price_detail":{"amount":590.0,"currency":"TWD","price_string":"NT$590","currency_symbol":"NT$"},"price_serve_tracking_id":"HoIqDvsoSPqm3jS-3bN66Q","visible_instructors":[{"_class":"user","title":"Vasudev
+        Soni","name":"Vasudev","display_name":"Vasudev Soni","job_title":"Business
+        Owner, Entrepreneur, Rubik''s Cube Expert","image_50x50":"https://img-c.udemycdn.com/user/50x50/77793156_c4ad.jpg","image_100x100":"https://img-c.udemycdn.com/user/100x100/77793156_c4ad.jpg","initials":"VS","url":"/user/vasudev-soni-3/"}],"image_125_H":"https://img-c.udemycdn.com/course/125_H/3253422_8d68_6.jpg","image_240x135":"https://img-c.udemycdn.com/course/240x135/3253422_8d68_6.jpg","is_practice_test_course":false,"image_480x270":"https://img-c.udemycdn.com/course/480x270/3253422_8d68_6.jpg","published_title":"rubiks-cube-by-vasudev","tracking_id":"a9lZvLu5Q7qpmu5O9ViD6g"}'
+  recorded_at: Thu, 28 Oct 2021 03:16:23 GMT
+- request:
+    method: get
+    uri: https://www.udemy.com/api-2.0/courses/wrongid
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/plain, */*
+      Authorization:
+      - 'Basic '
+      Content-Type:
+      - application/json;charset=utf-8
+      Connection:
+      - close
+      Host:
+      - www.udemy.com
+      User-Agent:
+      - http.rb/5.0.4
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Thu, 28 Oct 2021 03:24:38 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '23'
+      Connection:
+      - close
+      Cf-Ray:
+      - 6a510d638f88313b-TPE
+      Age:
+      - '0'
+      Allow:
+      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+      Set-Cookie:
+      - __cf_bm=P8hGn_5_BdO1i.fzfEO5aJtoOamX51ykS6MtxQanZNM-1635391478-0-ASG74SEnKKjuYxbefLt3v313ZuFKtD0WCj2opve9kcT30MDCgD0XJFb3UFWmZ/QASStQ4UjwNYdTDr3YU8tJ7sk=;
+        path=/; expires=Thu, 28-Oct-21 03:54:38 GMT; domain=.udemy.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfruid=4518113f0368bc9a91cf67cd712847ffab5265d5-1635391478; path=/; domain=.udemy.com;
+        HttpOnly; Secure; SameSite=None
+      - __udmy_2_v57r=531cb61a3cd14cb9b81ecab7f65b1483; Domain=.udemy.com; expires=Fri,
+        28 Oct 2022 03:24:38 GMT; Max-Age=31536000; Path=/; Secure
+      - __udmy_evid=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - eva=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - evi="3@P-kG-ZVWrMWaEq2lTtEmL7mz9BzoJs0Yh1kw8zPGPt2CaFd1b6Uv7i32"; expires=Sat,
+        27 Nov 2021 03:24:38 GMT; Max-Age=2592000; Path=/
+      - exaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - inaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - ud_firstvisit=2021-10-28T03:24:38.541379+00:00:1mfw1u:mR7JpUcYqVqEb7vooUuyE5JRnSw;
+        expires=Fri, 28 Oct 2022 03:24:38 GMT; Max-Age=31536000; Path=/
+      - ud_rule_vars=eJyFjcEOgyAQBX_FcG1tWBClfIsJWVawpKakiF6M_16Ttklvvb68mdlYwTz64ge7xjmWlI2SQK4FlDRAQ-7qNHhC14VWOWi0NJTSPXpmKrb1LMQ8lzdrByy-P_aeCS6gBl4LXXFpRGOkvijZgoQT54bznp2P14QHWtJCN1syhhDJzmnJ5O2KOaKbPraUR3xE-oGyfy5-_ltUHfDuW9zZ_gIQKkhP:1mfw1u:2LyDoZKVUAMnBS8J7H2yRdD-UTk;
+        expires=Sat, 28 Oct 2023 03:24:38 GMT; Max-Age=63072000; Path=/
+      - ud_user_jwt=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - udmy_branded_partner=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0;
+        Path=/
+      Via:
+      - 1.1 varnish (Varnish/5.2)
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - Authorization
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ui-Message:
+      - Not found.
+      X-Ui-Message-Type:
+      - error
+      X-Varnish:
+      - '114404851'
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"detail":"Not found."}'
+  recorded_at: Thu, 28 Oct 2021 03:24:38 GMT
+- request:
+    method: get
+    uri: https://www.udemy.com/api-2.0/courses/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/plain, */*
+      Authorization:
+      - Basic WrongToken
+      Content-Type:
+      - application/json;charset=utf-8
+      Connection:
+      - close
+      Host:
+      - www.udemy.com
+      User-Agent:
+      - http.rb/5.0.4
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Date:
+      - Thu, 28 Oct 2021 03:27:41 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '63'
+      Connection:
+      - close
+      Cf-Ray:
+      - 6a5111db2fc26a9c-TPE
+      Age:
+      - '0'
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Set-Cookie:
+      - __cf_bm=O5abUmL5jp_xIdU7u9iv7c0nSKpJsx3b8GE1N9qPVA8-1635391661-0-AdAgBBLxC31ofHU4DlW6fy1aZIcv6JN2x1C/yH+6C3ZG/Dh6no2ecvSa6cegAjTr0Yd33gF+g9M8IydlgjMAf44=;
+        path=/; expires=Thu, 28-Oct-21 03:57:41 GMT; domain=.udemy.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfruid=f5ee6cf0dca9cfefca90486b1afeb8ad070137a6-1635391661; path=/; domain=.udemy.com;
+        HttpOnly; Secure; SameSite=None
+      - __udmy_2_v57r=199c822a810647a8b8e6652753568aa7; Domain=.udemy.com; expires=Fri,
+        28 Oct 2022 03:27:41 GMT; Max-Age=31536000; Path=/; Secure
+      - __udmy_evid=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - eva=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - evi="3@6q2sZYXf8Uukx5XnzfCR0mneQgTuBBAKmcrWfsePdoE_mMtwUzQOI_LH"; expires=Sat,
+        27 Nov 2021 03:27:41 GMT; Max-Age=2592000; Path=/
+      - exaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - inaff=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - ud_firstvisit=2021-10-28T03:27:41.515316+00:00:1mfw4r:NE9AyC-_yYodx-BHWAM8CFIzdsQ;
+        expires=Fri, 28 Oct 2022 03:27:41 GMT; Max-Age=31536000; Path=/
+      - ud_rule_vars=eJyFjcEOgyAQBX_FcG1tFhRBvoWErBQtqSnpgl6M_16Ttklvvb68mdlYQZpCCVe3xhxLIsP73mshUHPoWoV60KHrpFCykZ1GVMandI-BmYptlo2Rcnmz7ool2GO3TIDgNYda6AoaI5Rp-UVyaJU6ARgAy87Ha8YDLWnxN1cIxzF6l9NCPrgVKeIwf2yJJnxE_wNReC4h_y2KRkr9Le5sfwEcr0ch:1mfw4r:fvogzmSlMXz5uVgAgh17M1ukIrI;
+        expires=Sat, 28 Oct 2023 03:27:41 GMT; Max-Age=63072000; Path=/
+      - ud_user_jwt=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/
+      - udmy_branded_partner=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0;
+        Path=/
+      Via:
+      - 1.1 varnish (Varnish/5.2)
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - Authorization
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ui-Message:
+      - You do not have permission to perform this action.
+      X-Ui-Message-Type:
+      - error
+      X-Varnish:
+      - '763343851'
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"detail":"You do not have permission to perform this action."}'
+  recorded_at: Thu, 28 Oct 2021 03:27:41 GMT
+recorded_with: VCR 6.0.0

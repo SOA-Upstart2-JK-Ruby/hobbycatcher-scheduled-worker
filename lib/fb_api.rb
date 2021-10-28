@@ -6,7 +6,7 @@ require_relative 'page_info'
 require_relative 'review'
 require_relative 'post'
 
-module InfoHunter
+module HobbyCatcher
   # Library for Facebook Web API
   class FacebookApi
     module Errors

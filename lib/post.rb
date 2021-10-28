@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module InfoHunter
+module HobbyCatcher
   # Provides access to post data
   class Post
     def initialize(post_data)
