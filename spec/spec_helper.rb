@@ -12,6 +12,9 @@ require 'webmock'
 
 require_relative '../lib/fb_api'
 require_relative '../lib/ud_api'
+require_relative '../lib/gateways/udemy_api'
+
+require_relative '../init'
 
 # Facebook API
 PAGENAME = 'tahrd108'
