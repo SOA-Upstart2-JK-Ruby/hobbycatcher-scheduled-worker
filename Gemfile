@@ -20,3 +20,7 @@ gem 'rake'
 gem 'flog'
 gem 'reek'
 gem 'rubocop'
+
+# Validation
+gem 'dry-struct'
+gem 'dry-types'

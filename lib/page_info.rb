@@ -3,7 +3,7 @@
 require_relative 'review'
 require_relative 'post'
 
-module InfoHunter
+module HobbyCatcher
   # Provides access to pageinfo data
   class PageInfo
     def initialize(info_data, data_source)
