@@ -3,7 +3,7 @@
 require 'dry-types'
 require 'dry-struct'
 
-require_relative 'review.rb'
+require_relative 'review'
 
 module HobbyCatcher
   module Entity
@@ -16,7 +16,7 @@ module HobbyCatcher
       attribute :url,       Strict::String
       attribute :price,     Strict::String
       attribute :image,     Strict::String
-      attribute :reviews,   Review
+      attribute :reviews,   Strict::Array.of(Review)
     end
   end
 end

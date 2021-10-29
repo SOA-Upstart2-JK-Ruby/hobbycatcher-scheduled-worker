@@ -1,12 +1,12 @@
 # frozen_string_literal: false
 
-require_relative 'review_mapper.rb'
+require_relative 'review_mapper'
 
 module HobbyCatcher
   module Udemy
     # Data Mapper: Udemy course -> Course entity
     class CourseMapper
-      def initialize(ud_token, gateway_class = UdemyApi)
+      def initialize(ud_token, gateway_class = Udemy::Api)
         @token = ud_token
         @gateway_class = gateway_class
         @gateway = @gateway_class.new(@token)
@@ -31,7 +31,7 @@ module HobbyCatcher
         end
 
         def build_entity
-          HobbyCatcher::Entity::Project.new(
+          HobbyCatcher::Entity::Course.new(
             id: id,
             title: title,
             url: url,
@@ -44,26 +44,26 @@ module HobbyCatcher
         def id
           @course['id']
         end
-      
+
         def title
           @course['title']
         end
-      
+
         def url
           "https://www.udemy.com#{@course['url']}"
         end
-      
+
         def price
           @course['price']
         end
-      
+
         def image
           @course['image_240x135']
         end
-      
+
         def reviews
           # @reviews ||= @data_source.reviews(@course['id'].to_s)
-          @review_mapper.load_several(@course['id'])
+          @review_mapper.load_several(@course['id'].to_s)
         end
       end
     end

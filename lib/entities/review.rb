@@ -9,7 +9,7 @@ module HobbyCatcher
     class Review < Dry::Struct
       include Dry.Types
 
-      attribute :date,      Strict::DateTime
+      attribute :date,      Strict::String
       attribute :rating,    Float
       attribute :content,   Strict::String.optional
     end
