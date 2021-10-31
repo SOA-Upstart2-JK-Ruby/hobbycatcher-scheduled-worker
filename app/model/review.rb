@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module InfoHunter
+module HobbyCatcher
   # Provides access to review data
   class Review
     def initialize(review_data)

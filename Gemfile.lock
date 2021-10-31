@@ -62,7 +62,6 @@ GEM
     minitest (5.14.4)
     minitest-rg (5.2.0)
       minitest (~> 5.0)
-    nio4r (2.5.8)
     parallel (1.21.0)
     parser (3.0.2.0)
       ast (~> 2.4.1)
