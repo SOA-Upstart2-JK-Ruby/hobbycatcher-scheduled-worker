@@ -10,30 +10,60 @@ route do |routing|
 routing.assets # load custom CSS
 # GET /
 routing.root do
-view 'home'
+view 'home',locals: { hobbies: ["read","bike","dance","sing"] }
+end
+
+  routing.on 'introhobby' do 
+    routing.redirect "project/#{owner}/#{project}"
+    puts routing.params.inspect
+    view 'introhobby', locals: { hobbies: ["read","bike","dance","sing"]  }
+    
+  
+    # routing.get "introhobby'", String do |type|
+    #    puts "#{type.inspect} "
+    #   end
+    # routing.is do
+    # POST /project/
+    # routing.post do
+    #     gh_url = routing.params['github_url'].downcase
+    #     routing.halt 400 unless (gh_url.include? 'github.com') &&
+    #     (gh_url.split('/').count >= 3)
+    #     owner, project = gh_url.split('/')[-2..]
+    # routing.redirect "project/#{owner}/#{project}"
+    # end
+    # end
+    # routing.on String, String do |owner, project|
+    #     # GET /project/owner/project
+    #     routing.get do
+    #     # github_project = Github::ProjectMapper
+    #     # .new(GH_TOKEN)
+    #     # .find(owner, project)
+    #     view 'introhoppy', locals: { project: ["read","bike","dance","sing"]  }
+    #     end
+    # end
 end
 end
 end
+
 end
-# # routing.on 'project' do
-# # routing.is do
-# # # POST /project/
-# # routing.post do
-# # gh_url = routing.params['github_url'].downcase
-# # routing.halt 400 unless (gh_url.include? 'github.com') &&
-# # (gh_url.split('/').count >= 3)
-# # owner, project = gh_url.split('/')[-2..]
-# # routing.redirect "project/#{owner}/#{project}"
-# # end
-# # end
-# # routing.on String, String do |owner, project|
-# # # GET /project/owner/project
-# # routing.get do
-# # github_project = Github::ProjectMapper
-# # .new(GH_TOKEN)
-# # .find(owner, project)
-# # view 'project', locals: { project: github_project }
-# # end
+
+# # POST /project/
+# routing.post do
+#     gh_url = routing.params['github_url'].downcase
+#     routing.halt 400 unless (gh_url.include? 'github.com') &&
+#     (gh_url.split('/').count >= 3)
+#     owner, project = gh_url.split('/')[-2..]
+#     routing.redirect "project/#{owner}/#{project}"
+#     end
+#     end
+# routing.on String, String do |owner, project|
+# # GET /project/owner/project
+# routing.get do
+# github_project = Github::ProjectMapper
+# .new(GH_TOKEN)
+# .find(owner, project)
+# view 'project', locals: { project: github_project }
+# end
 
 # module InfoHunter
 #   class App < Roda
