@@ -50,4 +50,3 @@ namespace :quality do
     sh "flog -d #{CODE}"
   end
 end
-

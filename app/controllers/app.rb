@@ -12,6 +12,7 @@ module HobbyCatcher
   class App < Roda
     plugin :render, engine: 'slim', views: 'app/views'
     plugin :assets, css: 'style.css', path: 'app/views/assets'
+    plugin :public, root: 'app/views/public'
     plugin :halt
 
     route do |routing|
@@ -23,23 +24,19 @@ module HobbyCatcher
       end
 
       routing.on 'introhobby' do
-        
         routing.is do
           # POST /introhobby/
           routing.post do
             hobby_name = routing.params['hobby_name'].downcase
-           # routing.halt 400 if COMPANY_LIST[0][cmp_name].nil?
+            # routing.halt 400 if COMPANY_LIST[0][cmp_name].nil?
             routing.redirect "introhobby/#{hobby_name}"
-        
           end
         end
 
         routing.on String do |hobby|
           # GET /introhoppy/hoppy
           routing.get do
-            hobby_introduction = Udemy::CourseMapper
-                                .new(UD_TOKEN)
-                                .find(hobby)
+            hobby_introduction = Udemy::CourseMapper.new(UD_TOKEN).find(hobby)
             view 'introhobby', locals: { hobby: hobby_introduction }
           end
         end

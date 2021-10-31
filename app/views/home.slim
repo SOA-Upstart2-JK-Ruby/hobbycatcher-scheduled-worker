@@ -2,12 +2,12 @@
   form role="form" action="/introhobby" method='POST' id='show-hoppy-form'
     .row.vertical-align.query-bar
       .col-md-2.col-sm-3
-        .text-right What's your hobby ?
+        .text-right What's your course id ?
       .col-md-8.col-sm-6
         input { 
           type='text' name='hobby_name'
           id='hobby_name_input' class="form-control"
-          placeholder="e.g. Draw"
+          placeholder="e.g. 3253422"
         }
       .col-md-2.col-sm-3
         button { 
@@ -22,15 +22,3 @@
 /       div.card style="width: 18rem;"
 /         div.card-body
 /           p.card-text = hobby
-
-    /   - unless items.empty?
-    /     table
-    /       - items.each do |item|
-    /         tr
-    /           td.name = item.name
-    /           td.price = item.price
-    /   - else
-    /     p
-    /      | No items found.  Please add some inventory.
-    /        Thank you!
-    /  img.card-img-top src="..." 

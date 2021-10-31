@@ -1,11 +1,9 @@
 .container
   .row
-    h2
-      span.hobby.title
-        = hobby.title
-    h5
-      span.hobby.url
-        = hobby.url
-    h5
-      span.hobby.price
-        = hobby.price
+    div.card style="width: 40rem;"
+      img.card-img-top src="#{hobby.image}"
+      div.card-body
+        h5.card-title
+          a href="#{hobby.url}" #{hobby.title}
+        p.card-text = hobby.price
+
