@@ -1,28 +1,27 @@
 .container
-form role="form" action="/project" method='POST' id='show-project-form'
-.row.vertical-align.query-bar
-.col-md-2.col-sm-3
-.text-right Github URL:
-.col-md-8.col-sm-6
-input {
-type='text' name='github_url'
-id='github_url_input' class="form-control"
-placeholder="e.g. https://www.github.com/soumyaray/YPBT-app"
-}
-.col-md-2.col-sm-3
-button {
-type='submit' id='repo-form-submit' class='submit'
-value='submit' class="btn btn-success"
-} Show Project
-.row
-.col-md-12.blank-row
-div.alert.alert-primary A simple primary alertcheck it out!
-- unless hobbies.empty?
-  - hobbies.each do |hobby|
-    a href= "/introhobby/#{hobby}"
-      div.card style="width: 18rem;"
-        div.card-body
-          p.card-text = hobby
+  form role="form" action="/introhobby" method='POST' id='show-hoppy-form'
+    .row.vertical-align.query-bar
+      .col-md-2.col-sm-3
+        .text-right What's your hobby ?
+      .col-md-8.col-sm-6
+        input { 
+          type='text' name='hobby_name'
+          id='hobby_name_input' class="form-control"
+          placeholder="e.g. Draw"
+        }
+      .col-md-2.col-sm-3
+        button { 
+          type='submit' id='hobby-form-submit' class='submit' 
+          value='submit' class="btn btn-success" 
+        } Show
+    .row
+      .col-md-12.blank-row
+/ - unless hobbies.empty?
+/   - hobbies.each do |hobby|
+/     a href= "/introhobby/#{hobby}"
+/       div.card style="width: 18rem;"
+/         div.card-body
+/           p.card-text = hobby
 
     /   - unless items.empty?
     /     table

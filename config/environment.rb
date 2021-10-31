@@ -1,9 +1,9 @@
 require 'roda'
 require 'yaml'
-module CodePraise
+module HobbyCatcher
 # Configuration for the App
 class App < Roda
 CONFIG = YAML.safe_load(File.read('config/secrets.yml'))
-#GH_TOKEN = CONFIG['GITHUB_TOKEN']
+UD_TOKEN = CONFIG['UDEMY_TOKEN']
 end
 end

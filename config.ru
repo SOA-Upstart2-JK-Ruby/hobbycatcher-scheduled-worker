@@ -38,4 +38,4 @@ require_relative './init.rb'
 #   end
 # end
 
-run InfoHunter::App.freeze.app
+run HobbyCatcher::App.freeze.app

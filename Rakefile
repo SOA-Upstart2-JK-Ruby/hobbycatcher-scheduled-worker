@@ -13,6 +13,10 @@ task :spec do
   sh 'ruby spec/fb_api_spec.rb'
 end
 
+task :rerack do
+  sh "rerun -c rackup --ignore 'coverage/*'"
+end
+
 namespace :vcr do
   desc 'delete cassette fixtures'
   task :wipe do
@@ -46,3 +50,4 @@ namespace :quality do
     sh "flog -d #{CODE}"
   end
 end
+
