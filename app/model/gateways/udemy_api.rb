@@ -11,12 +11,12 @@ module HobbyCatcher
         @UDEMY_TOKEN = token
       end
 
-      def course(courseid)
-        Request.new(@UDEMY_TOKEN).path(courseid).parse
+      def courselist(field, keyword)
+        Request.new(@UDEMY_TOKEN).path("?#{field}=#{keyword}").parse
       end
 
-      def reviews(courseid)
-        Request.new(@UDEMY_TOKEN).path("#{courseid}/reviews/").parse
+      def course(courseid)
+        Request.new(@UDEMY_TOKEN).path("#{courseid}/?fields[course]=@all").parse
       end
 
       # Sends out HTTP requests
@@ -27,8 +27,8 @@ module HobbyCatcher
           @ud_token = token
         end
 
-        def path(courseid)
-          get(COURSE_PATH + courseid)
+        def path(path)
+          get(COURSE_PATH + path)
         end
 
         def get(url)

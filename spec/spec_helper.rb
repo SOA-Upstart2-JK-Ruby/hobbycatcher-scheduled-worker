@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+ENV['RACK_ENV'] = 'test'
+
 require 'simplecov'
 SimpleCov.start
 
@@ -10,26 +12,23 @@ require 'minitest/rg'
 require 'vcr'
 require 'webmock'
 
-require_relative '../lib/fb_api'
-require_relative '../lib/gateways/udemy_api'
-
 require_relative '../init'
 
-# Facebook API
-PAGENAME = 'tahrd108'
-FIELDS = %w[id name category picture followers_count overall_star_rating website location
-            about description ratings posts].join('%2C')
 # UDEMY API
 COURSEID = '3253422'
+FIELD = 'category'
+KEYWORD = 'Design'
 
 # TOKEN
-CONFIG = YAML.safe_load(File.read('config/secrets.yml'))
-FACEBOOK_TOKEN = CONFIG['FACEBOOK_TOKEN']
-UDEMY_TOKEN = CONFIG['UDEMY_TOKEN']
+#UDEMY_TOKEN = HobbyCatcher::App.config.UDEMY_TOKEN
 
-CORRECT_FB = YAML.safe_load(File.read('spec/fixtures/facebook_results.yml'))
 CORRECT_UD = YAML.safe_load(File.read('spec/fixtures/udemy_results.yml'))
 
 CASSETTES_FOLDER = 'spec/fixtures/cassettes'
-CASSETTE_FB_FILE = 'facebook_api'
 CASSETTE_UD_FILE = 'udemy_api'
+
+# TEMP
+require_relative '../app/model/gateways/udemy_api'
+
+CONFIG = YAML.safe_load(File.read('config/secrets.yml'))
+UDEMY_TOKEN = CONFIG['development']['UDEMY_TOKEN']
