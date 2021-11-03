@@ -1,9 +1,14 @@
 .container
   .row
-    div.card style="width: 40rem;"
-      img.card-img-top src="#{hobby.image}"
-      div.card-body
-        h5.card-title
-          a href="#{hobby.url}" #{hobby.title}
-        p.card-text = hobby.price
+    - hobby.courses.each do |course|
+      .col-md-3
+        .card
+          img.card-img-top src="#{course.image}"
+          .card-body
+            h5.card-title
+              a href="#{course.url}" = course.title
+            p.card-text 
+              p Price: #{course.price}
+            p.card-text 
+              p Rating: #{course.rating}
 

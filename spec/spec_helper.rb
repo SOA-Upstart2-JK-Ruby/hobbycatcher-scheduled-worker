@@ -20,15 +20,9 @@ FIELD = 'category'
 KEYWORD = 'Design'
 
 # TOKEN
-#UDEMY_TOKEN = HobbyCatcher::App.config.UDEMY_TOKEN
+UDEMY_TOKEN = HobbyCatcher::App.config.UDEMY_TOKEN
 
 CORRECT_UD = YAML.safe_load(File.read('spec/fixtures/udemy_results.yml'))
 
 CASSETTES_FOLDER = 'spec/fixtures/cassettes'
 CASSETTE_UD_FILE = 'udemy_api'
-
-# TEMP
-require_relative '../app/model/gateways/udemy_api'
-
-CONFIG = YAML.safe_load(File.read('config/secrets.yml'))
-UDEMY_TOKEN = CONFIG['development']['UDEMY_TOKEN']

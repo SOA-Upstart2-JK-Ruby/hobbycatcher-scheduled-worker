@@ -2,8 +2,9 @@
 
 source 'https://rubygems.org'
 
-# Comfiguration and Utilities
+# Configuration and Utilities
 gem 'figaro', '~> 1.2'
+gem 'rake'
 
 # Web Application
 gem 'puma', '~> 5.5'
@@ -18,7 +19,9 @@ gem 'dry-types', '~> 1.5'
 gem 'http', '~> 5.0'
 
 # Database
-gem 'sequel', '~> 1.4'
+gem 'hirb', '~> 0'
+gem 'hirb-unicode', '~> 0'
+gem 'sequel', '~> 5.49'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
@@ -36,9 +39,6 @@ end
 group :development do
   gem 'rerun', '~> 0'
 end
-
-# Utility Tools
-gem 'rake'
 
 # Debugging
 gem 'pry'
