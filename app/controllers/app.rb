@@ -27,7 +27,7 @@ module HobbyCatcher
         routing.is do
           # POST /introhobby/
           routing.post do
-            hobby_name = routing.params['hobby_name'].downcase
+            hobby_name = routing.params['hobby_name']
             # routing.halt 400 if COMPANY_LIST[0][cmp_name].nil?
             routing.redirect "introhobby/#{hobby_name}"
           end
@@ -36,7 +36,7 @@ module HobbyCatcher
         routing.on String do |hobby|
           # GET /introhoppy/hoppy
           routing.get do
-            hobby_introduction = Udemy::CourseMapper.new(UD_TOKEN).find(hobby)
+            hobby_introduction = Udemy::CourselistMapper.new(App.config.UDEMY_TOKEN).find('category', hobby)
             view 'introhobby', locals: { hobby: hobby_introduction }
           end
         end

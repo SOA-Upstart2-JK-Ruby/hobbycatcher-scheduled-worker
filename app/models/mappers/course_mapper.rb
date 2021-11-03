@@ -1,7 +1,5 @@
 # frozen_string_literal: false
 
-require_relative 'review_mapper'
-
 module HobbyCatcher
   module Udemy
     # Data Mapper: Udemy course -> Course entity
@@ -12,36 +10,37 @@ module HobbyCatcher
         @gateway = @gateway_class.new(@token)
       end
 
-      def find(courseid)
-        data = @gateway.course(courseid)
-        build_entity(data)
+      def load_several(courseid)
+        #binding.pry
+        CourseMapper.build_entity(@gateway.course(courseid))
+        #@gateway.course(courseid).map do |data|
+        #  CourseMapper.build_entity(data)
+        #end
       end
 
-      def build_entity(data)
-        DataMapper.new(data, @token, @gateway_class).build_entity
+      def self.build_entity(data)
+        DataMapper.new(data).build_entity
       end
 
       # Extracts entity specific elements from data structure
       class DataMapper
-        def initialize(course, token, gateway_class)
-          @course = course
-          @review_mapper = ReviewMapper.new(
-            token, gateway_class
-          )
+        def initialize(course_data)
+          @course = course_data
         end
 
         def build_entity
-          HobbyCatcher::Entity::Course.new(
-            id: id,
+          Entity::Course.new(
+            id: nil,
+            course_id: course_id,
             title: title,
             url: url,
             price: price,
             image: image,
-            reviews: reviews
+            rating: rating
           )
         end
 
-        def id
+        def course_id
           @course['id']
         end
 
@@ -61,9 +60,8 @@ module HobbyCatcher
           @course['image_240x135']
         end
 
-        def reviews
-          # @reviews ||= @data_source.reviews(@course['id'].to_s)
-          @review_mapper.load_several(@course['id'].to_s)
+        def rating
+          @course['avg_rating']
         end
       end
     end
