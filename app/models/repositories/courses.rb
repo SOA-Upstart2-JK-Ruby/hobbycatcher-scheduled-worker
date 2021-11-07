@@ -14,11 +14,6 @@ module HobbyCatcher
             Database::CourseOrm.all.map { |db_course| rebuild_entity(db_course) }
         end
 
-
-
-
-
-
         def self.find_id(id)
           rebuild_entity Database::CourseOrm.first(id: id)
         end
@@ -33,8 +28,6 @@ module HobbyCatcher
   
         def self.rebuild_entity(db_record)
           return nil unless db_record
-  
-          #創成entity
           Entity::Course.new(
             id:        db_record.id,
             course_id: db_record.course_id,
@@ -55,18 +48,6 @@ module HobbyCatcher
         def self.db_find_or_create(entity)
           Database::CourseOrm.find_or_create(entity.to_attr_hash)
         end
-
-
-#       def self.find_full_name(owner_name, project_name)
-#         # SELECT * FROM `projects` LEFT JOIN `members`
-#         # ON (`members`.`id` = `projects`.`owner_id`)
-#         # WHERE ((`username` = 'owner_name') AND (`name` = 'project_name'))
-#         db_project = Database::ProjectOrm
-#           .left_join(:members, id: :owner_id)
-#           .where(username: owner_name, name: project_name)
-#           .first
-#         rebuild_entity(db_project)
-#       end
       end
     end
   end
