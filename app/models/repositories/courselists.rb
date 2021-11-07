@@ -12,6 +12,7 @@ module HobbyCatcher
 
       # Courselists::PersistCourse
       class PersistCourse
+        # Create course follow entity
         def initialize(entity)
           @entity = entity
         end

@@ -5,70 +5,70 @@ courses:
   url: https://www.udemy.com/course/art-fundamentals-in-one-hour/
   price: Free
   image: https://img-c.udemycdn.com/course/240x135/1298438_2631.jpg
-  rating: 4.7078314
+  rating: 4.7269735
 - id: 1298462
   title: Photoshop Fundamentals
   url: https://www.udemy.com/course/photoshop-fundamentals-in-one-hour/
   price: Free
   image: https://img-c.udemycdn.com/course/240x135/1298462_38dd.jpg
-  rating: 4.5061727
-- id: 399938
-  title: Professional Logo Design in Adobe Illustrator
-  url: https://www.udemy.com/course/professional-logo-design-crash-course/
-  price: Free
-  image: https://img-c.udemycdn.com/course/240x135/399938_e897_5.jpg
-  rating: 4.5433073
+  rating: 4.519231
 - id: 2689650
   title: Photoshop CC 2020 Productivity Techniques
   url: https://www.udemy.com/course/photoshop-cc-2019-productivity-techniques/
   price: Free
   image: https://img-c.udemycdn.com/course/240x135/2689650_f696.jpg
-  rating: 4.612903
+  rating: 4.616667
+- id: 399938
+  title: Professional Logo Design in Adobe Illustrator
+  url: https://www.udemy.com/course/professional-logo-design-crash-course/
+  price: Free
+  image: https://img-c.udemycdn.com/course/240x135/399938_e897_5.jpg
+  rating: 4.5542636
 - id: 2657572
   title: Free Blender Crash Course!
   url: https://www.udemy.com/course/blender-crash-course/
   price: Free
   image: https://img-c.udemycdn.com/course/240x135/2657572_8301.jpg
-  rating: 4.631783
+  rating: 4.6220474
 - id: 3758812
   title: How to Draw Dynamic Stickmen
   url: https://www.udemy.com/course/how-to-draw-dynamic-stickmen/
-  price: Free
+  price: NT$2,290
   image: https://img-c.udemycdn.com/course/240x135/3758812_f0fa.jpg
-  rating: 4.5263157
+  rating: 4.525641
+- id: 2122746
+  title: Combat Knife 3D Game Asset in Blender and Substance Painter
+  url: https://www.udemy.com/course/combat-knife-3d-game-model-asset-in-blender-and-substance-painter/
+  price: Free
+  image: https://img-c.udemycdn.com/course/240x135/2122746_fa3f.jpg
+  rating: 4.6836734
 - id: 918278
   title: How to draw a realistic eye
   url: https://www.udemy.com/course/how-to-draw-a-realistic-eye/
   price: Free
   image: https://img-c.udemycdn.com/course/240x135/918278_36fb.jpg
-  rating: 4.4423075
+  rating: 4.375
+- id: 783802
+  title: Create Your Own Character in Blender
+  url: https://www.udemy.com/course/create-your-own-character/
+  price: Free
+  image: https://img-c.udemycdn.com/course/240x135/783802_be91_9.jpg
+  rating: 4.625
+- id: 1561106
+  title: WordPress for Beginners - How to Make a Website Step by Step
+  url: https://www.udemy.com/course/wordpress-website-tutorial/
+  price: Free
+  image: https://img-c.udemycdn.com/course/240x135/1561106_19a9_11.jpg
+  rating: 4.409091
 - id: 585916
   title: How to Build a Website with WordPress For Fun and Business
   url: https://www.udemy.com/course/how-to-create-a-website-with-wordpress-for-fun-and-profit/
   price: Free
   image: https://img-c.udemycdn.com/course/240x135/585916_03d9_3.jpg
   rating: 4.75
-- id: 2122746
-  title: Combat Knife 3D Game Asset in Blender and Substance Painter
-  url: https://www.udemy.com/course/combat-knife-3d-game-model-asset-in-blender-and-substance-painter/
-  price: Free
-  image: https://img-c.udemycdn.com/course/240x135/2122746_fa3f.jpg
-  rating: 4.7021275
-- id: 1561106
-  title: WordPress for Beginners - How to Make a Website Step by Step
-  url: https://www.udemy.com/course/wordpress-website-tutorial/
-  price: Free
-  image: https://img-c.udemycdn.com/course/240x135/1561106_19a9_11.jpg
-  rating: 4.347826
-- id: 783802
-  title: Create Your Own Character in Blender
-  url: https://www.udemy.com/course/create-your-own-character/
-  price: Free
-  image: https://img-c.udemycdn.com/course/240x135/783802_be91_9.jpg
-  rating: 4.595238
-- id: 719318
-  title: AutoCAD 2D and 3D practice drawings
-  url: https://www.udemy.com/course/autocad-2d-and-3d-practice-drawings/
-  price: Free
-  image: https://img-c.udemycdn.com/course/240x135/719318_9c19_2.jpg
-  rating: 4.568182
+- id: 3335090
+  title: Get Started in UI/UX Design
+  url: https://www.udemy.com/course/ui-ux-designs/
+  price: NT$590
+  image: https://img-c.udemycdn.com/course/240x135/3335090_4863_2.jpg
+  rating: 4.480392
