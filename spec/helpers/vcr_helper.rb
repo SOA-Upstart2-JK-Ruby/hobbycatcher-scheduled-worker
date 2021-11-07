@@ -9,25 +9,17 @@ module VcrHelper
   UDEMY_CASSETTE = 'udemy_api'
 
   def self.setup_vcr
-    VCR.configure do |c|
-      c.cassette_library_dir = CASSETTES_FOLDER
-      c.hook_into :webmock
+    VCR.configure do |config|
+      config.cassette_library_dir = CASSETTES_FOLDER
+      config.hook_into :webmock
     end
   end
 
   def self.configure_vcr_for_udemy
-    VCR.configure do |c|
-      c.filter_sensitive_data('<UDEMY_TOKEN>') { UDEMY_TOKEN }
-      c.filter_sensitive_data('<UDEMY_TOKEN_ESC>') { CGI.escape(UDEMY_TOKEN) }
+    VCR.configure do |config|
+      config.filter_sensitive_data('<UDEMY_TOKEN>') { UDEMY_TOKEN }
+      config.filter_sensitive_data('<UDEMY_TOKEN_ESC>') { CGI.escape(UDEMY_TOKEN) }
     end
-    VCR.insert_cassette(
-      UDEMY_CASSETTE,
-      record:            :new_episodes,
-      match_requests_on: %i[method uri headers]
-    )
-  end
-
-  def vcr_cassette
     VCR.insert_cassette(
       UDEMY_CASSETTE,
       record:            :new_episodes,
