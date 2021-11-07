@@ -8,10 +8,9 @@ module HobbyCatcher
     # class CourseOrm < Sequel::Model(:courses)\
     # binding.pry
     class CourseOrm < Sequel::Model(:courses)
-     
       many_to_one :courselist,
                   class: :'HobbyCatcher::Database::CourselistOrm',
-                  key: :course_id
+                  key:   :course_id
 
       plugin :timestamps, update_on_create: true
 

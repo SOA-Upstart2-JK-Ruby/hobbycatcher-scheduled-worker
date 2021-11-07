@@ -8,15 +8,15 @@ module HobbyCatcher
     # Library for Udemy API
     class Api
       def initialize(token)
-        @UDEMY_TOKEN = token
+        @udemy_token = token
       end
 
       def courselist(field, keyword)
-        Request.new(@UDEMY_TOKEN).path("?#{field}=#{keyword}").parse
+        Request.new(@udemy_token).path("?#{field}=#{keyword}").parse
       end
 
       def course(courseid)
-        Request.new(@UDEMY_TOKEN).path("#{courseid}/?fields[course]=@all").parse
+        Request.new(@udemy_token).path("#{courseid}/?fields[course]=@all").parse
       end
 
       # Sends out HTTP requests

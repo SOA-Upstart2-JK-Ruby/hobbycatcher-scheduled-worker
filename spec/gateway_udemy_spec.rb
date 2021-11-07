@@ -13,10 +13,10 @@ describe 'Tests Udemy API library' do
 
   before do
     VCR.insert_cassette CASSETTE_UD_FILE,
-                        record: :new_episodes,
+                        record:            :new_episodes,
                         match_requests_on: %i[method uri headers]
     @courselist = HobbyCatcher::Udemy::CourselistMapper.new(UDEMY_TOKEN)
-                                                       .find(FIELD, KEYWORD)
+      .find(FIELD, KEYWORD)
   end
 
   after do
@@ -36,7 +36,8 @@ describe 'Tests Udemy API library' do
 
     it 'SAD: should raise exception when unauthorized' do
       _(proc do
-        HobbyCatcher::Udemy::CourselistMapper.new('WrongToken').find(FIELD, KEYWORD)
+        HobbyCatcher::Udemy::CourselistMapper.new('WrongToken')
+                                            .find(FIELD, KEYWORD)
       end).must_raise HobbyCatcher::Udemy::Api::Response::Forbidden
     end
   end
