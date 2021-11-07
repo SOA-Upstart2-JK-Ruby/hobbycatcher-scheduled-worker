@@ -17,6 +17,7 @@ module HobbyCatcher
 
     route do |routing|
       routing.assets # load CSS
+      routing.public
 
       # GET /
       routing.root do
@@ -28,7 +29,16 @@ module HobbyCatcher
           # POST /introhobby/
           routing.post do
             hobby_name = routing.params['hobby_name']
-            # routing.halt 400 if COMPANY_LIST[0][cmp_name].nil?
+            # Get hobby_introduction from Udemy
+            hobby_introduction = Udemy::CourselistMapper
+              .new(App.config.UDEMY_TOKEN)
+              .find('category', hobby_name)
+            
+
+            # Add project to database
+            #這是放在COURSELIST裡的
+           Repository::For.entity(hobby_introduction).create(hobby_introduction)
+            # Redirect viewer to project page
             routing.redirect "introhobby/#{hobby_name}"
           end
         end
@@ -36,7 +46,12 @@ module HobbyCatcher
         routing.on String do |hobby|
           # GET /introhoppy/hoppy
           routing.get do
-            hobby_introduction = Udemy::CourselistMapper.new(App.config.UDEMY_TOKEN).find('category', hobby)
+           #hobby_introduction = Udemy::CourselistMapper.new(App.config.UDEMY_TOKEN).find('category', hobby)
+           #要這樣寫就要像老師的那樣 不然根本要不出來嗚嗚屋
+           #可以成功
+           hobby_introduction = Repository::For.klass(Entity::Course).all
+          #                       .find_hobby(hobby)   
+
             view 'introhobby', locals: { hobby: hobby_introduction }
           end
         end

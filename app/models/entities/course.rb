@@ -16,6 +16,10 @@ module HobbyCatcher
       attribute :price,     Strict::String
       attribute :image,     Strict::String
       attribute :rating,    Strict::Float
+
+      # def to_attr_hash
+      #   to_hash.reject { |key, _| [:id].include? key }
+      # end
     end
   end
 end
