@@ -9,9 +9,10 @@ module HobbyCatcher
 
 
         def self.create(entity)
-           # raise 'Course already exists' if find(entity)
+            #raise 'Course already exists' if find(entity)
     
-            #db_course = PersistCourse.new(entity).create_course
+            db_course = PersistCourse.new(entity).create_course
+            
             #rebuild_entity(db_course)
         end
 
@@ -23,6 +24,7 @@ module HobbyCatcher
             def create_course
               courses = @entity.to_hash[:courses]
               courses.map { |course|
+                raise 'Course already exists' if Repository::Courselists.find(course)
                 Database::CourseOrm.create(course.reject { |key, _| [:id].include? key })
               }
              # Database::CourseOrm.create(@entity.to_attr_hash)
@@ -45,7 +47,8 @@ module HobbyCatcher
 #       end
 
       def self.find(entity)
-        find_courseid(entity.course_id)
+        
+        find_courseid(entity[:course_id])
       end
 
       def self.find_courseid(course_id)
@@ -57,7 +60,7 @@ module HobbyCatcher
 
         #創成entity
         Entity::Course.new(
-          #id:        db_record.id,
+          id:        db_record.id,
           course_id: db_record.course_id,
           title:     db_record.title,
           url:       db_record.url,

@@ -1,6 +1,6 @@
 .container
   .row
-    - hobby.each do |course|
+    - hobby.courses.each do |course|
       .col-md-3
         .card
           img.card-img-top src="#{course.image}"
