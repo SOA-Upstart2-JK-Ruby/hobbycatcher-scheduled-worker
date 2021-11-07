@@ -13,6 +13,13 @@ module HobbyCatcher
 
       attribute :id,       Integer.optional
       attribute :courses,  Strict::Array.of(Course)
+
+      # def to_attr_hash
+      #   to_hash.reject { |key, _| [:id].include? key }
+      # end
+      # def to_attr_hash
+      #   to_hash.reject { |key, _| %i[id courses].include? key }
+      # end
     end
   end
 end
