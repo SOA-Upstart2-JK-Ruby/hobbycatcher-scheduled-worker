@@ -4,7 +4,6 @@ require 'roda'
 require 'slim'
 require 'yaml'
 
-
 module HobbyCatcher
   # Web App
   class App < Roda
@@ -20,7 +19,7 @@ module HobbyCatcher
       # GET /
       routing.root do
         view_courses = Repository::For.klass(Entity::Course).all
-        view 'home' ,locals: {view_courses: view_courses}
+        view 'home', locals: { view_courses: view_courses }
       end
 
       routing.on 'introhobby' do
@@ -36,10 +35,9 @@ module HobbyCatcher
         routing.on String do |hobby|
           # GET /introhoppy/hoppy
           routing.get do
-
             hobby_introduction = Udemy::CourselistMapper.new(App.config.UDEMY_TOKEN).find('category', hobby)
             # Add project to database
-            Repository::For.entity(hobby_introduction).create(hobby_introduction) 
+            Repository::For.entity(hobby_introduction).create(hobby_introduction)
 
             view 'introhobby', locals: { hobby: hobby_introduction }
           end

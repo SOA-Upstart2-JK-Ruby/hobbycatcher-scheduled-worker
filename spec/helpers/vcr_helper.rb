@@ -5,8 +5,8 @@ require 'webmock'
 
 # Setting up VCR
 module VcrHelper
-  CASSETTES_FOLDER = 'spec/fixtures/cassettes'.freeze
-  UDEMY_CASSETTE = 'udemy_api'.freeze
+  CASSETTES_FOLDER = 'spec/fixtures/cassettes'
+  UDEMY_CASSETTE = 'udemy_api'
 
   def self.setup_vcr
     VCR.configure do |c|
@@ -20,10 +20,17 @@ module VcrHelper
       c.filter_sensitive_data('<UDEMY_TOKEN>') { UDEMY_TOKEN }
       c.filter_sensitive_data('<UDEMY_TOKEN_ESC>') { CGI.escape(UDEMY_TOKEN) }
     end
-
     VCR.insert_cassette(
       UDEMY_CASSETTE,
-      record: :new_episodes,
+      record:            :new_episodes,
+      match_requests_on: %i[method uri headers]
+    )
+  end
+
+  def vcr_cassette
+    VCR.insert_cassette(
+      UDEMY_CASSETTE,
+      record:            :new_episodes,
       match_requests_on: %i[method uri headers]
     )
   end

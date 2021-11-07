@@ -30,13 +30,12 @@ module HobbyCatcher
 
         def build_entity
           HobbyCatcher::Entity::Courselist.new(
-            id: nil,
-            courses: courses,
+            id:      nil,
+            courses: courses
           )
         end
 
         def courses
-          #binding.pry
           # @courselist.map{ |c| c['id'].to_s}
           @courselist.map do |course|
             @course_mapper.load_several(course['id'].to_s)

@@ -11,11 +11,7 @@ module HobbyCatcher
       end
 
       def load_several(courseid)
-        #binding.pry
         CourseMapper.build_entity(@gateway.course(courseid))
-        #@gateway.course(courseid).map do |data|
-        #  CourseMapper.build_entity(data)
-        #end
       end
 
       def self.build_entity(data)
@@ -30,13 +26,13 @@ module HobbyCatcher
 
         def build_entity
           Entity::Course.new(
-            id: nil,
+            id:        nil,
             course_id: course_id,
-            title: title,
-            url: url,
-            price: price,
-            image: image,
-            rating: rating
+            title:     title,
+            url:       url,
+            price:     price,
+            image:     image,
+            rating:    rating
           )
         end
 

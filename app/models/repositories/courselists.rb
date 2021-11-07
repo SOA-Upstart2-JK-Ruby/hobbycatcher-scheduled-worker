@@ -6,27 +6,27 @@ module HobbyCatcher
   module Repository
     # Repository for Project Entities
     class Courselists
+      def self.create(entity)
+        PersistCourse.new(entity).create_course
+      end
 
-        def self.create(entity)  
-            db_course = PersistCourse.new(entity).create_course
+      # Courselists::PersistCourse
+      class PersistCourse
+        def initialize(entity)
+          @entity = entity
         end
 
-        class PersistCourse
-            def initialize(entity)
-              @entity = entity
-            end
-    
-            def create_course
-              courses = @entity.to_hash[:courses]
-              courses.map { |course|
-                raise 'Course already exists' if Repository::Courselists.find(course)
-                Database::CourseOrm.create(course.reject { |key, _| [:id].include? key })
-              }
-            end
+        def create_course
+          courses = @entity.to_hash[:courses]
+          courses.map do |course|
+            raise 'Course already exists' if Repository::Courselists.find(course)
+
+            Database::CourseOrm.create(course.reject { |key, _| [:id].include? key })
+          end
         end
+      end
 
       def self.find(entity)
-        
         find_courseid(entity[:course_id])
       end
 
@@ -50,6 +50,3 @@ module HobbyCatcher
     end
   end
 end
-# © 2021 GitHub, Inc.
-# Terms
-# Privacy
