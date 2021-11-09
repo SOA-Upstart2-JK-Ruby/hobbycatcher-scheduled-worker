@@ -9,7 +9,7 @@ module HobbyCatcher
     module For
       ENTITY_REPOSITORY = {
         Entity::Course => Courses,
-        Entity::Courselist => Courselists
+        # Entity::Courselist => Courselists
       }.freeze
 
       def self.klass(entity_klass)

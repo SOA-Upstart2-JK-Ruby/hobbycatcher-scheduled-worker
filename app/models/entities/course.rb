@@ -3,6 +3,7 @@
 require 'dry-types'
 require 'dry-struct'
 
+
 module HobbyCatcher
   module Entity
     # Domain entity for courses
@@ -16,9 +17,14 @@ module HobbyCatcher
       attribute :price,     Strict::String
       attribute :image,     Strict::String
       attribute :rating,    Strict::Float
+      attribute :category,  Strict::String
+
 
       # def to_attr_hash
       #   to_hash.reject { |key, _| [:id].include? key }
+      # end
+      # def to_attr_hash
+      #   to_hash.reject { |key, _| %i[id courses].include? key }
       # end
     end
   end
