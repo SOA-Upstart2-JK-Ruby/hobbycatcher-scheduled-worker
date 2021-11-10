@@ -5,11 +5,17 @@ require 'sequel'
 Sequel.migration do
   change do
     create_table(:courselists_courses) do
-      primary_key %i[courselist_id course_id]
-      foreign_key :courselist_id, :courselists
-      foreign_key :course_id, :courses
+      primary_key :id
 
-      index %i[courselist_id course_id]
+      Integer  :hobby_id, unique: true, null: false
+      String   :hobby_name, null: false,unique: true
+      String   :description, null: false
+      String   :hobby_img, null: false
+      Integer  :count, 
+
+
+      DateTime :created_at
+      DateTime :updated_at
     end
   end
 end
