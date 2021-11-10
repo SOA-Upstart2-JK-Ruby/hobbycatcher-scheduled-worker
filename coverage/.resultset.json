@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/init.rb": {
+      "/home/ruby/infohunter/init.rb": {
         "lines": [
           null,
           null,
@@ -10,14 +10,14 @@
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/config/init.rb": {
+      "/home/ruby/infohunter/config/init.rb": {
         "lines": [
           null,
           null,
           1
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/config/environment.rb": {
+      "/home/ruby/infohunter/config/environment.rb": {
         "lines": [
           null,
           null,
@@ -54,7 +54,7 @@
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/init.rb": {
+      "/home/ruby/infohunter/app/init.rb": {
         "lines": [
           null,
           null,
@@ -63,55 +63,25 @@
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/models/init.rb": {
+      "/home/ruby/infohunter/app/models/init.rb": {
         "lines": [
           null,
           null,
           1,
           null,
           3,
-          8,
+          5,
           null,
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/models/entities/course.rb": {
+      "/home/ruby/infohunter/app/models/entities/course.rb": {
         "lines": [
           null,
           null,
           1,
           1,
           null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/models/entities/courselist.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
           null,
           1,
           1,
@@ -121,9 +91,16 @@
           null,
           1,
           1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
-          null,
+          1,
+          9,
           null,
           null,
           null,
@@ -133,10 +110,12 @@
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/models/mappers/course_mapper.rb": {
+      "/home/ruby/infohunter/app/models/mappers/course_mapper.rb": {
         "lines": [
           null,
           null,
+          null,
+          null,
           1,
           1,
           null,
@@ -145,24 +124,31 @@
           1,
           1,
           1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          12,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          12,
+          null,
+          null,
           null,
           null,
           1,
           12,
           null,
-          null,
-          1,
-          12,
-          null,
-          null,
-          null,
-          1,
-          1,
-          12,
-          null,
-          null,
-          1,
-          12,
           null,
           null,
           null,
@@ -197,63 +183,16 @@
           12,
           null,
           null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/models/mappers/courselist_mapper.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
           1,
           12,
           null,
           null,
           null,
           null,
-          null,
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/models/repositories/courselists.rb": {
+      "/home/ruby/infohunter/app/models/repositories/courses.rb": {
         "lines": [
           null,
           null,
@@ -267,21 +206,18 @@
           0,
           null,
           null,
+<<<<<<< HEAD
+=======
           null,
           1,
           null,
+>>>>>>> origin/develop
           1,
           0,
           null,
           null,
           1,
           0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
           null,
           null,
           1,
@@ -295,6 +231,10 @@
           1,
           0,
           null,
+          null,
+          1,
+          0,
+          null,
           0,
           null,
           null,
@@ -302,6 +242,40 @@
           null,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
           null,
           null,
           null,
@@ -310,69 +284,11 @@
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/models/repositories/courses.rb": {
+      "/home/ruby/infohunter/app/models/repositories/for.rb": {
         "lines": [
           null,
           null,
           1,
-          1,
-          null,
-          1,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/models/repositories/for.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
           null,
           1,
           1,
@@ -380,7 +296,6 @@
           1,
           null,
           1,
-          null,
           null,
           null,
           1,
@@ -395,118 +310,7 @@
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/models/repositories/init.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          4,
-          null
-        ]
-      },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/infrastructure/init.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          2,
-          null
-        ]
-      },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/infrastructure/gateways/init.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          2,
-          null
-        ]
-      },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/infrastructure/gateways/udemy_api.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          2,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          12,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          13,
-          null,
-          null,
-          1,
-          13,
-          null,
-          null,
-          1,
-          13,
-          null,
-          null,
-          null,
-          null,
-          null,
-          13,
-          13,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          13,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/infrastructure/database/init.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/infrastructure/database/orms/init.rb": {
+      "/home/ruby/infohunter/app/models/repositories/init.rb": {
         "lines": [
           null,
           null,
@@ -515,52 +319,17 @@
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/infrastructure/database/orms/course_orm.rb": {
+      "/home/ruby/infohunter/app/infrastructure/init.rb": {
         "lines": [
           null,
           null,
           1,
-          null,
           1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
+          2,
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/infrastructure/database/orms/courselist_orm.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/controllers/init.rb": {
+      "/home/ruby/infohunter/app/infrastructure/gateways/init.rb": {
         "lines": [
           null,
           null,
@@ -569,7 +338,132 @@
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/app/controllers/app.rb": {
+      "/home/ruby/infohunter/app/infrastructure/gateways/udemy_api.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/infrastructure/database/init.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/infrastructure/database/orms/init.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          2,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/infrastructure/database/orms/course_orm.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/controllers/init.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          2,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/controllers/app.rb": {
         "lines": [
           null,
           null,
@@ -609,6 +503,7 @@
           null,
           0,
           0,
+          null,
           null,
           0,
           null,
@@ -621,7 +516,7 @@
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/spec/helpers/vcr_helper.rb": {
+      "/home/ruby/infohunter/spec/helpers/vcr_helper.rb": {
         "lines": [
           null,
           null,
@@ -642,10 +537,17 @@
           null,
           1,
           1,
-          15,
-          15,
+          17,
+          17,
           null,
           1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
           null,
           null,
           null,
@@ -658,7 +560,7 @@
           null
         ]
       },
-      "/home/shihchuchen/SOA/jk.ruby/hobbycatcher/spec/helpers/database_helper.rb": {
+      "/home/ruby/infohunter/spec/helpers/database_helper.rb": {
         "lines": [
           null,
           null,
@@ -668,7 +570,6 @@
           1,
           1,
           null,
-          1,
           1,
           1,
           1,
@@ -677,7 +578,11 @@
         ]
       }
     },
+<<<<<<< HEAD
+    "timestamp": 1636565546
+=======
     "timestamp": 1636302278
+>>>>>>> origin/develop
   },
   "Minitest": {
     "coverage": {

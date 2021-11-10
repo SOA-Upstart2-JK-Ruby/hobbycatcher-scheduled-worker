@@ -11,13 +11,13 @@ module HobbyCatcher
         @udemy_token = token
       end
 
-      def courselist(field, keyword)
-        Request.new(@udemy_token).path("?#{field}=#{keyword}").parse
+      def course(field, keyword)
+        Request.new(@udemy_token).path("?#{field}=#{keyword}&fields[course]=avg_rating,primary_category,image_240x135,price,title,url,id").parse
       end
 
-      def course(courseid)
-        Request.new(@udemy_token).path("#{courseid}/?fields[course]=@all").parse
-      end
+      # def course(courseid)
+      #   Request.new(@udemy_token).path("#{courseid}/?fields[course]=@all").parse
+      # end
 
       # Sends out HTTP requests
       class Request
