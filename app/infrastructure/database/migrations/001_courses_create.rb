@@ -10,6 +10,7 @@ Sequel.migration do
       Integer  :course_id, unique: true
       String   :title, unique: true, null: false
       String   :url, unique: true, null: false
+      String   :category, null: false
       String   :price
       String   :image
       Float    :rating

@@ -15,10 +15,10 @@ module HobbyCatcher
       def find(field, keyword)
         data = @gateway.course(field, keyword)
         build_entity(data)
-        
+
       end
 
-      def build_entity(data) 
+      def build_entity(data)
         data['results'].map do |datam|
           DataMapper.new(datam).build_entity
         end
@@ -28,20 +28,18 @@ module HobbyCatcher
       class DataMapper
         def initialize(course)
           @course = course
-          
-         # @course_mapper = CourseMapper.new(token, gateway_class)
         end
 
         def build_entity
           HobbyCatcher::Entity::Course.new(
-            id: nil,
+            id:        nil,
             course_id: course_id,
-            title: title,
-            url: url,
-            price: price,
-            image: image,
-            rating: rating,
-            category: category
+            title:     title,
+            url:       url,
+            price:     price,
+            image:     image,
+            rating:    rating,
+            category:  category
           )
         end
 

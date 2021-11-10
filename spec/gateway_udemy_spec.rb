@@ -43,12 +43,11 @@ describe 'Tests Udemy API library' do
   end
 
   describe 'Course Infomation' do
-
     it 'HAPPY: should provide correct course attributes' do
       courses = @courses
-      
+
       _(courses.count).must_equal CORRECT_UD.count
-      
+
       # course_id
       ids = courses.map(&:course_id)
       correct_ids = CORRECT_UD.map { |c| c['id'] }
@@ -63,7 +62,7 @@ describe 'Tests Udemy API library' do
       urls = courses.map(&:url)
       correct_urls = CORRECT_UD.map { |c| c['url'] }
       _(urls).must_equal correct_urls
-      binding.pry
+
       # price
       prices = courses.map(&:price)
       correct_prices = CORRECT_UD.map { |c| c['price'] }
@@ -82,9 +81,7 @@ describe 'Tests Udemy API library' do
       # category
       categories = courses.map(&:category)
       correct_categories = CORRECT_UD.map { |c| c['category'] }
-      _(categories).must_equal correct_categories   
-      
-      
+      _(categories).must_equal correct_categories
     end
   end
 end

@@ -1,8 +1,7 @@
-# frozen_string_literal: false
+# frozen_string_literal: true
 
 require 'dry-types'
 require 'dry-struct'
-
 
 module HobbyCatcher
   module Entity
@@ -19,13 +18,10 @@ module HobbyCatcher
       attribute :rating,    Strict::Float
       attribute :category,  Strict::String
 
+      def to_attr_hash
+        to_hash.reject { |key, _| [:id].include? key }
+      end
 
-      # def to_attr_hash
-      #   to_hash.reject { |key, _| [:id].include? key }
-      # end
-      # def to_attr_hash
-      #   to_hash.reject { |key, _| %i[id courses].include? key }
-      # end
     end
   end
 end

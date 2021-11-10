@@ -18,9 +18,8 @@ module HobbyCatcher
 
       # GET /
       routing.root do
-       # view_courses = Repository::For.klass(Entity::Course).all
-      #  view 'home', locals: { view_courses: view_courses }
-      view 'home'
+        view_courses = Repository::For.klass(Entity::Course).all
+        view 'home', locals: { view_courses: view_courses }
       end
 
       routing.on 'introhobby' do
@@ -37,7 +36,7 @@ module HobbyCatcher
           # GET /introhoppy/hoppy
           routing.get do
             hobby_introduction = Udemy::CourseMapper.new(App.config.UDEMY_TOKEN).find('category', hobby)
-            binding.pry
+
             # Add project to database
             Repository::For.entity(hobby_introduction).create(hobby_introduction)
 

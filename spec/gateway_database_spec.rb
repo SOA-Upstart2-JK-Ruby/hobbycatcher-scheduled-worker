@@ -21,17 +21,18 @@ describe 'Integration Tests of Udemy API and Database' do
     end
 
     it 'HAPPY: should be able to save project from Github to database' do
-      data = HobbyCatcher::Udemy::CourselistMapper.new(UDEMY_TOKEN)
+      data = HobbyCatcher::Udemy::CourseMapper.new(UDEMY_TOKEN)
         .find(FIELD, KEYWORD)
-      courses = data.to_hash[:courses]
+      courses = data
       courses.map do |course|
-        rebuilt = HobbyCatcher::Database::CourseOrm.create(course.reject { |key, _| [:id].include? key })
+        rebuilt = HobbyCatcher::Database::CourseOrm.create(course.to_attr_hash)
         _(rebuilt[:course_id]).must_equal(course[:course_id])
         _(rebuilt[:title]).must_equal(course[:title])
         _(rebuilt[:url]).must_equal(course[:url])
         _(rebuilt[:price]).must_equal(course[:price])
         _(rebuilt[:image]).must_equal(course[:image])
         _(rebuilt[:rating]).must_equal(course[:rating])
+        _(rebuilt[:category]).must_equal(course[:category])
       end
     end
   end
