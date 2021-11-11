@@ -6,7 +6,7 @@ Sequel.migration do
   change do
     create_table(:courses) do
       primary_key :id
-      foreign_key :course_owner_id,
+      #foreign_key :course_owner_id
 
       Integer  :course_id, unique: true
       String   :title, unique: true, null: false
