@@ -4,15 +4,15 @@ require 'sequel'
 
 Sequel.migration do
   change do
-    create_table(:courselists_courses) do
+    create_table(:hobbies) do
       primary_key :id
+      foreign_key :categories
 
       Integer  :hobby_id, unique: true, null: false
       String   :hobby_name, null: false,unique: true
       String   :description, null: false
       String   :hobby_img, null: false
-      Integer  :count, 
-
+      Integer  :count
 
       DateTime :created_at
       DateTime :updated_at

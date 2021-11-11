@@ -1,7 +1,5 @@
 # frozen_string_literal: false
 
-# require_relative 'course_mapper'
-
 module HobbyCatcher
   module Udemy
     # Data Mapper: Udemy course -> Course entity
@@ -15,7 +13,6 @@ module HobbyCatcher
       def find(field, keyword)
         data = @gateway.course(field, keyword)
         build_entity(data)
-
       end
 
       def build_entity(data)

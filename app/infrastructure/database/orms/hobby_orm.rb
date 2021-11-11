@@ -5,16 +5,14 @@ require 'sequel'
 module HobbyCatcher
   module Database
     # Object-Relational Mapper for Courses
-    class CourseOrm < Sequel::Model(:courses)
-      one_to_many :owned_categories,
-                   class: :'HobbyCatcher::Database::CategoryOrm',
-                   key:   :category_owner_id
+    class HobbyOrm < Sequel::Model(:hobbies)
+      one_to_many :categories,
+                  class:      :'HobbyCatcher::Database::CategoryOrm',
+                  join_table: :hobbies_categories,
+                  left_key:   :hobby_id, 
+                  right_key:  :category_id
 
       plugin :timestamps, update_on_create: true
-
-      # def self.find_or_create(course_info)
-      #   first(title: course_info[:title]) || create(course_info)
-      # end
     end
   end
 end

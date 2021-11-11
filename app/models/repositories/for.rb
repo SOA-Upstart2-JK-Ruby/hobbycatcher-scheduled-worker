@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'hobbies'
+require_relative 'categories'
 require_relative 'courses'
 
 module HobbyCatcher
@@ -7,6 +9,8 @@ module HobbyCatcher
     # Finds the right repository for an entity object or class
     module For
       ENTITY_REPOSITORY = {
+        Entity::Hobby => Hobbies,
+        Entity::Category => Categories,
         Entity::Course => Courses
       }.freeze
 
@@ -14,8 +18,8 @@ module HobbyCatcher
         ENTITY_REPOSITORY[entity_klass]
       end
 
-      def self.entity(entity_objects)
-        ENTITY_REPOSITORY[entity_objects[0].class]
+      def self.entity(entity_object)
+        ENTITY_REPOSITORY[entity_object.class]
       end
     end
   end
