@@ -10,33 +10,33 @@ module HobbyCatcher
         @gateway = @gateway_class.new(@token)
       end
 
-      def load_several(courseid)
-        #binding.pry
-        CourseMapper.build_entity(@gateway.course(courseid))
-        #@gateway.course(courseid).map do |data|
-        #  CourseMapper.build_entity(data)
-        #end
+      def find(field, keyword)
+        data = @gateway.course(field, keyword)
+        build_entity(data)
       end
 
-      def self.build_entity(data)
-        DataMapper.new(data).build_entity
+      def build_entity(data)
+        data['results'].map do |datam|
+          DataMapper.new(datam).build_entity
+        end
       end
 
       # Extracts entity specific elements from data structure
       class DataMapper
-        def initialize(course_data)
-          @course = course_data
+        def initialize(course)
+          @course = course
         end
 
         def build_entity
-          Entity::Course.new(
-            id: nil,
+          HobbyCatcher::Entity::Course.new(
+            id:        nil,
             course_id: course_id,
-            title: title,
-            url: url,
-            price: price,
-            image: image,
-            rating: rating
+            title:     title,
+            url:       url,
+            price:     price,
+            image:     image,
+            rating:    rating,
+            category:  category
           )
         end
 
@@ -62,6 +62,10 @@ module HobbyCatcher
 
         def rating
           @course['avg_rating']
+        end
+
+        def category
+          @course['primary_category']['title']
         end
       end
     end

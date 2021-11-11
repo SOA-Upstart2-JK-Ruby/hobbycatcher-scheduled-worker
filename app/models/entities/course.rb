@@ -1,4 +1,4 @@
-# frozen_string_literal: false
+# frozen_string_literal: true
 
 require 'dry-types'
 require 'dry-struct'
@@ -16,6 +16,11 @@ module HobbyCatcher
       attribute :price,     Strict::String
       attribute :image,     Strict::String
       attribute :rating,    Strict::Float
+      attribute :category,  Strict::String
+
+      def to_attr_hash
+        to_hash.reject { |key, _| [:id].include? key }
+      end
     end
   end
 end

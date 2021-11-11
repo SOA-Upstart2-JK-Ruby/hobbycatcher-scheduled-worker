@@ -15,7 +15,7 @@ module HobbyCatcher
       # Environment variables setup
       Figaro.application = Figaro::Application.new(
         environment: environment,
-        path: File.expand_path('config/secrets.yml')
+        path:        File.expand_path('config/secrets.yml')
       )
       Figaro.load
       def self.config() = Figaro.env
@@ -25,8 +25,9 @@ module HobbyCatcher
       end
 
       # Database Setup
-      DB = Sequel.connect(ENV['DATABASE_URL'])
-      def self.DB() = DB 
+      const_set(:DB, Sequel.connect(ENV['DATABASE_URL']))
+      # DB = Sequel.connect(ENV['DATABASE_URL'])
+      def self.DB() = DB # rubocop:disable Naming/MethodName
     end
   end
 end

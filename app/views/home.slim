@@ -16,9 +16,18 @@
         } Show
     .row
       .col-md-12.blank-row
-/ - unless hobbies.empty?
-/   - hobbies.each do |hobby|
-/     a href= "/introhobby/#{hobby}"
-/       div.card style="width: 18rem;"
-/         div.card-body
-/           p.card-text = hobby
+
+-unless view_courses.empty?
+.container
+  .row
+    - view_courses.each do |course|
+      .col-md-3
+        .card
+          img.card-img-top src="#{course.image}"
+          .card-body
+            h5.card-title
+              a href="#{course.url}" = course.title
+            p.card-text 
+              p Price: #{course.price}
+            p.card-text 
+              p Rating: #{course.rating}

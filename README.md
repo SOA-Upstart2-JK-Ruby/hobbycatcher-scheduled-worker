@@ -1,52 +1,15 @@
-# Facebook API Client
+# HobbyCatcher
 
-Gather useful information from Facebook pages API (v12.0).
+The application allows the one who wants to bring up a new hobby without any idea and plan. 
 
-## Resources
+## Overview
 
-- PageInfo
-- Review
-- Post
+*HobbyCatcher* is naming refers to dreamcatcher, meant to help you catch your ideal hobby and cultivate it. 
+It will pull data from Udemy's and other related APIs. This web combines different platforms' resources to help you search on it. The difficulty is that having no idea how to bring up a new hobby. It will firstly help you explore different types of the hobby. And then you'll be instructed to find the resource to keep learning it.
 
-## Elements
+## Short-term usability goals
+- Pull related course info from Udemy API
+- Show up related course's Title, URL, Price, and Rating
 
-- PageInfo
-  - id
-  - name
-  - category
-  - profile (picture url)
-  - followers
-  - rating
-  - website
-  - location
-  - about
-  - list of reviews
-  - list of posts
-- Review
-  - review_date
-  - sentiment (positive/negative)
-  - comment
-- Post
-  - post_id
-  - post_date
-  - content
-
-## Entities
-These are objects that are important to the project, following my own naming conventions:
-
-Format: "own naming" ("fb objects naming")
-
-- PageInfo
-  - profile ('picture')
-  - followers ('followers_count')
-  - rating ('overall_star_rating')
-  - about ('about' & 'description')
-  - list of reviews ('ratings')
-- Review
-  - review_date ('created_time')
-  - sentiment ('recommendation_type')
-  - comment ('review_text')
-- Post
-  - post_id ('id')
-  - post_date ('date')
-  - content ('message')
+## Long-term goals
+- Build own category searching rule
