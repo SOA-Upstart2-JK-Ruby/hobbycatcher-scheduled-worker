@@ -10,10 +10,10 @@ module HobbyCatcher
         Database::CategoryOrm.all.map { |db_category| rebuild_entity(db_category) }
       end
 
-      def self.find_full_name(hobby_name, category_name)
+      def self.find_full_name(ownhobby_name, owncategory_name)
         db_category = Database::CategoryOrm
-          .left_join(:hobbies, id: :hobby_id)
-          .where(hobbyname: hobby_name, name: category_name)
+          .left_join(:hobbies, id: :ownhobby_id)
+          .where(hobbyname: ownhobby_name, name: owncategory_name)
           .first
         rebuild_entity(db_category)
       end
@@ -50,7 +50,7 @@ module HobbyCatcher
           # category_name: db_record.category_name,
           # type:          db_record.type,
           db_record.to_hash.merge(
-            category: Hobbies.rebuild_entity(db_record.belong_hobby)
+            ownhobby: Hobbies.rebuild_entity(db_record.ownhobby)
           )
         )
       end
@@ -70,10 +70,10 @@ module HobbyCatcher
         end
 
         def call
-          belong_hobby = Hobbies.db_find_or_create(@entity.belong_hobby)
+          ownhobby = Hobbies.db_find_or_create(@entity.ownhobby)
 
           create_category.tap do |db_category|
-            db_category.update(belong_hobby: belong_hobby)
+            db_category.update(ownhobby: ownhobby)
           end
         end 
       end

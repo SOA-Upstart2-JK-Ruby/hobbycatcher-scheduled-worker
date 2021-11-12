@@ -6,7 +6,7 @@ Sequel.migration do
   change do
     create_table(:courses) do
       primary_key :id
-      foreign_key :category_id, :categories
+      foreign_key :owncategory_id, :categories
 
       Integer  :ud_course_id, unique: true
       String   :title, unique: true, null: false

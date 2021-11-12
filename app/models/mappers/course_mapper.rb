@@ -17,7 +17,6 @@ module HobbyCatcher
       end
 
       def build_entity(data)
-        #binding.pry
         data['results'].map do |datam|
           DataMapper.new(datam).build_entity
         end
@@ -38,8 +37,7 @@ module HobbyCatcher
             image:        image,
             ud_category:  ud_category,
             price:        price,
-            rating:    rating,
-            category:  category
+            rating:       rating,
           )
         end
 
@@ -69,10 +67,6 @@ module HobbyCatcher
 
         def ud_category
           @course['primary_category']['title']
-        end
-
-        def category
-          
         end
       end
     end

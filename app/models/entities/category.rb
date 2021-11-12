@@ -14,10 +14,11 @@ module HobbyCatcher
       attribute :id,             Integer.optional
       attribute :ud_category_id, Strict::Integer
       attribute :name,           Strict::String
-      attribute :hobby,          Hobby
+      attribute :ownhobby,       Hobby
+      # attribute :courses,        Strict::Array.of(Course)
 
       def to_attr_hash
-        to_hash.reject { |key, _| %i[id hobby].include? key }
+        to_hash.reject { |key, _| %i[id ownhobby].include? key }
       end
     end
   end

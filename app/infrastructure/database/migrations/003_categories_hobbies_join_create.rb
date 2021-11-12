@@ -5,11 +5,11 @@ require 'sequel'
 Sequel.migration do
   change do
     create_table(:categories_hobbies) do
-      primary_key [:category_id, :hobby_id]
+      primary_key %i[category_id hobby_id]
       foreign_key :category_id, :categories
       foreign_key :hobby_id, :hobbies
 
-      index [:category_id, :hobby_id]
+      index %i[category_id hobby_id]
     end
   end
 end

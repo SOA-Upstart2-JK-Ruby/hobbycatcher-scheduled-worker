@@ -12,10 +12,10 @@ module HobbyCatcher
         Database::CourseOrm.all.map { |db_course| rebuild_entity(db_course) }
       end
 
-      def self.find_full_name(category_name, course_title)
+      def self.find_full_name(owncategory_name, course_title)
         db_course = Database::CourseOrm
-          .left_join(:categories, id: :category_id)
-          .where(name: category_name, title: course_title)
+          .left_join(:categories, id: :owncategory_id)
+          .where(name: owncategory_name, title: course_title)
           .first
         rebuild_entity(db_course)
       end
@@ -62,7 +62,7 @@ module HobbyCatcher
           # rating:    db_record.rating,
           # category:  db_record.category
           db_record.to_hash.merge(
-            category: Categories.rebuild_entity(db_record.belong_category)
+            owncategory: Categories.rebuild_entity(db_record.owncategory)
           )
         )
       end
@@ -92,10 +92,10 @@ module HobbyCatcher
         end
 
         def call
-          belong_category = Categories.db_find_or_create(@entity.belong_category)
+          owncategory = Categories.db_find_or_create(@entity.owncategory)
 
           create_course.tap do |db_course|
-            db_course.update(belong_category: belong_category)
+            db_course.update(owncategory: owncategory)
           end
         end        
         # def create_course
