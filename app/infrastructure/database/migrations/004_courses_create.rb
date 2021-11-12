@@ -6,14 +6,14 @@ Sequel.migration do
   change do
     create_table(:courses) do
       primary_key :id
-      #foreign_key :course_owner_id
+      foreign_key :category_id, :categories
 
-      Integer  :course_id, unique: true
+      Integer  :ud_course_id, unique: true
       String   :title, unique: true, null: false
       String   :url, unique: true, null: false
-      String   :category, null: false
-      String   :price
       String   :image
+      String   :ud_category, null: false
+      String   :price
       Float    :rating
 
       DateTime :created_at
