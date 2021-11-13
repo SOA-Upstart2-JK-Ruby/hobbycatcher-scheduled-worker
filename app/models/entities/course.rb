@@ -4,7 +4,6 @@ require 'dry-types'
 require 'dry-struct'
 
 require_relative 'category'
-require_relative 'hobby'
 
 module HobbyCatcher
   module Entity

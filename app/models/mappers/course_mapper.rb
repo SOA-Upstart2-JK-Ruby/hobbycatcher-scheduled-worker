@@ -68,6 +68,10 @@ module HobbyCatcher
         def ud_category
           @course['primary_category']['title']
         end
+
+        def owncategory
+          Repository::For.klass(Entity::Course).all
+        end
       end
     end
   end
