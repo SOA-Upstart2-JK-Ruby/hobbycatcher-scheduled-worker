@@ -24,28 +24,28 @@ module HobbyCatcher
         class Type
           include UserAnswer
           def type_ans
-
+            @type_ans
           end
         end
   
         class Difficulty
           include UserAnswer
-          def diffculty_ans
-          
-          end  
+          def difficulty_ans
+            @difficulty_ans
+          end
         end
 
         class FreeTime
           include UserAnswer
           def freetime_ans
-
+            @freetime_ans
           end
         end
 
         class Mood
           include UserAnswer
           def mood_ans
-
+            @mood_ans
           end
         end
       end
