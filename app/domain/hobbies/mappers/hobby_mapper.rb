@@ -9,30 +9,30 @@ module HobbyCatcher
         @gateway_class = gateway_class
         @gateway = @gateway_class.new(@token)
       end
-  
+
       def self.build_entity(data)
         DataMapper.new(data).build_entity
       end
-  
+
       # Extracts entity specific elements from data structure
       class DataMapper
-        def initialize(ownhobby_id)            
-          hobby=HobbyCatcher::Database::HobbyOrm.where(id: ownhobby_id).first           
-          @hobby=hobby.to_hash
-          end
-  
+        def initialize(ownhobby_id)
+          hobby = HobbyCatcher::Database::HobbyOrm.where(id: ownhobby_id).first
+          @hobby = hobby.to_hash
+        end
+
         def build_entity
           Entity::Hobby.new(
-            id: nil,
-            name: name,
-            img: img,
+            id:          nil,
+            name:        name,
+            img:         img,
             description: description,
-            user_num: user_num
+            user_num:    user_num
           )
         end
-  
+
         private
-  
+
         def name
           @hobby[:name]
         end

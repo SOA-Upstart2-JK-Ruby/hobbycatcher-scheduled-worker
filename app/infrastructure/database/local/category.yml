@@ -1,0 +1,31 @@
+---
+- ud_category_id: 111
+  name: Dance
+  ownhobby_id: 1
+- ud_category_id: 222
+  name: Sports
+  ownhobby_id: 2
+- ud_category_id: 333
+  name: Travel
+  ownhobby_id: 3
+- ud_category_id: 444
+  name: Commercial Photography
+  ownhobby_id: 4
+- ud_category_id: 555
+  name: Fashion Design
+  ownhobby_id: 4
+- ud_category_id: 666
+  name: Arts & Crafts
+  ownhobby_id: 5
+- ud_category_id: 777
+  name: Music Techniques
+  ownhobby_id: 5
+- ud_category_id: 888
+  name: Yoga
+  ownhobby_id: 6
+- ud_category_id: 999
+  name: Money Management Tools
+  ownhobby_id: 7
+- ud_category_id: 101010
+  name: Real Estate
+  ownhobby_id: 7

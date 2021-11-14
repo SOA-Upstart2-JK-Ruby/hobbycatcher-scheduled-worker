@@ -7,7 +7,7 @@ Sequel.migration do
     create_table(:hobbies) do
       primary_key :id
 
-      String   :name, null: false,unique: true
+      String   :name, null: false, unique: true
       String   :img, null: false
       String   :description, null: false
       Integer  :user_num
