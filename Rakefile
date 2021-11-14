@@ -29,6 +29,8 @@ namespace :db do
   task migrate: :config do
     Sequel.extension :migration
     puts "Migrating #{app.environment} database to latest"
+    puts "Need to run 'HobbyCatcher::InitializeDatabase::Create.hobby_load'"
+    puts "Need to run 'HobbyCatcher::InitializeDatabase::Create.category_load'"
     Sequel::Migrator.run(app.DB, 'app/infrastructure/database/migrations')
   end
 
