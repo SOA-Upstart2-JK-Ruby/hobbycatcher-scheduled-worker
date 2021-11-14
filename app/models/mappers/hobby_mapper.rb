@@ -1,0 +1,65 @@
+# frozen_string_literal: false
+
+module HobbyCatcher
+  module Udemy
+    # Data Mapper: Udemy course -> Course entity
+    class HobbyMapper
+      def initialize(ud_token, gateway_class = Udemy::Api)
+        @token = ud_token
+        @gateway_class = gateway_class
+        @gateway = @gateway_class.new(@token)
+      end
+  
+        # def load_several(url)
+        #   @gateway.contributors_data(url).map do |data|
+        #     MemberMapper.build_entity(data)
+        #   end
+        # end
+  
+        def self.build_entity(data)
+          DataMapper.new(data).build_entity
+        end
+  
+        # Extracts entity specific elements from data structure
+        class DataMapper
+          def initialize(ownhobby_id)
+            
+            hobby=HobbyCatcher::Database::HobbyOrm.where(id: ownhobby_id).first
+           
+            @hobby=hobby.to_hash
+             #binding.pry
+          end
+  
+          def build_entity
+            Entity::Hobby.new(
+              id: nil,
+              name: name,
+              img: img,
+              description: description,
+              user_num: user_num
+            )
+          end
+  
+          private
+  
+  
+          def name
+            @hobby[:name]
+          end
+
+          def img
+            @hobby[:img]
+          end
+
+          def description
+            @hobby[:description]
+          end
+
+          def user_num
+            @hobby[:user_num]
+          end
+
+        end
+      end
+    end
+  end

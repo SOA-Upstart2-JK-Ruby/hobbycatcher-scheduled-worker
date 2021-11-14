@@ -1,6 +1,11 @@
 .container
+  .row 
+    p Hobby name: #{hoppy.name}
+    p Hobby discription: #{hoppy.description}
+  -categories.each do |category|
+    p Category name: #{category.name}
   .row
-    - hobby.each do |course|
+    - courses.each do |course|
       .col-md-3
         .card
           img.card-img-top src="#{course.image}"
@@ -11,4 +16,5 @@
               p Price: #{course.price}
             p.card-text 
               p Rating: #{course.rating}
+
 

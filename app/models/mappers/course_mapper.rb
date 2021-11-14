@@ -11,13 +11,16 @@ module HobbyCatcher
       end
 
       def find(field, keyword)
-        #binding.pry
+        
         data = @gateway.course(field, keyword)
+        #binding.pry
         build_entity(data)
+        
       end
 
       def build_entity(data)
         data['results'].map do |datam|
+         
           DataMapper.new(datam).build_entity
         end
       end
@@ -25,6 +28,7 @@ module HobbyCatcher
       # Extracts entity specific elements from data structure
       class DataMapper
         def initialize(course)
+        
           @course = course
         end
 
@@ -38,6 +42,7 @@ module HobbyCatcher
             ud_category:  ud_category,
             price:        price,
             rating:       rating,
+            owncategory:  owncategory
           )
         end
 
@@ -62,17 +67,25 @@ module HobbyCatcher
         end
 
         def rating
-          @course['avg_rating']
+          @course['avg_rating']==0 ? 0.0 : @course['avg_rating']
         end
 
         def ud_category
-          @course['primary_category']['title']
+          @course['primary_subcategory']['title']
         end
 
         def owncategory
-          Repository::For.klass(Entity::Course).all
+          #ud_category_id=>7878裡存到category
+          
+          
+         
+          #Repository::For.klass(Entity::Course)
+
+           CategoryMapper.build_entity(@course['primary_subcategory']['title'])
+          
         end
       end
     end
   end
 end
+
