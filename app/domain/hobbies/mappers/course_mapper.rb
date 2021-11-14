@@ -3,6 +3,7 @@
 module HobbyCatcher
   module Udemy
     # Data Mapper: Udemy course -> Course entity
+    # :reek:UtilityFunction
     class CourseMapper
       def initialize(ud_token, gateway_class = Udemy::Api)
         @token = ud_token
@@ -22,6 +23,7 @@ module HobbyCatcher
       end
 
       # Extracts entity specific elements from data structure
+      # rubocop:disable Metrics/MethodLength
       class DataMapper
         def initialize(course)
           @course = course
@@ -62,7 +64,8 @@ module HobbyCatcher
         end
 
         def rating
-          @course['avg_rating'].zero? ? 0.0 : @course['avg_rating']
+          avg_rating = @course['avg_rating']
+          avg_rating.zero? ? 0.0 : avg_rating
         end
 
         def ud_category
@@ -73,6 +76,7 @@ module HobbyCatcher
           CategoryMapper.build_entity(@course['primary_subcategory']['title'])
         end
       end
+      # rubocop:enable Metrics/MethodLength
     end
   end
 end

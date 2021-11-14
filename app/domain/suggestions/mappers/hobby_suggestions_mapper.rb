@@ -11,18 +11,12 @@ module HobbyCatcher
         @results = results
       end
 
-      def for_suggest
-        @hobby = @results.hobby
-        @answers = @results.answers
-        @create_time = @results.create_time
-        @count = @results.count
-
       def build_entity
         Entity::HobbySuggestions.new(
-          hobby:       @hobby,
-          answers:     @answers,
-          create_time: @create_time,
-          count:       @count
+          hobby:       @results.hobby,
+          answers:     @results.answers,
+          create_time: @results.create_time,
+          count:       @results.count
         )
       end
     end

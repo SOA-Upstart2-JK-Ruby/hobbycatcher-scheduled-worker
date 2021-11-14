@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # Helper to clean database during test runs
+# :reek:DuplicateMethodCall
 module DatabaseHelper
   def self.wipe_database
     # Ignore foreign key constraints when wiping tables
