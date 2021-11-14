@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'sequel'
+# require 'sequel'
 
 module HobbyCatcher
   module Database
@@ -18,3 +18,4 @@ module HobbyCatcher
     end
   end
 end
+

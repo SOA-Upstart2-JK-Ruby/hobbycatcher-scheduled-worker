@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'sequel'
+# require 'sequel'
 
 module HobbyCatcher
   module Database
@@ -19,7 +19,8 @@ module HobbyCatcher
                   # left_key:   :hobby_id,
                   # right_key:  :category_id
 
-      plugin :timestamps, update_on_create: true
+
+       plugin :timestamps, update_on_create: true
 
       def self.find_or_create(category_info)
         first(name: category_info[:name]) || create(category_info)
@@ -27,3 +28,4 @@ module HobbyCatcher
     end
   end
 end
+
