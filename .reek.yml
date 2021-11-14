@@ -7,6 +7,8 @@
         - DB
     TooManyStatements:
       max_statements: 7
+    LongParameterList:
+      max_params: 4
   exclude_paths:
     - _snippets
     - spec/fixtures/project_info.rb # one-time test fixture creator

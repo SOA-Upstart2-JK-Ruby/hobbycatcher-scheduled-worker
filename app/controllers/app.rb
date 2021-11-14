@@ -12,6 +12,7 @@ module HobbyCatcher
     plugin :public, root: 'app/views/public'
     plugin :halt
 
+    # rubocop:disable Metrics/BlockLength
     route do |routing|
       routing.assets # load CSS
       routing.public
@@ -58,7 +59,7 @@ module HobbyCatcher
           end
         end
       end
-      
+
       routing.on 'test_3' do
         routing.is do
           routing.post do
@@ -66,7 +67,7 @@ module HobbyCatcher
           end
         end
       end
-      
+
       routing.on 'test_4' do
         routing.is do
           routing.post do
@@ -75,5 +76,6 @@ module HobbyCatcher
         end
       end
     end
+    # rubocop:enable Metrics/BlockLength
   end
 end
