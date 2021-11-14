@@ -71,11 +71,7 @@ module HobbyCatcher
 
         def owncategory
           #ud_category_id=>7878裡存到category
-          
-          
-         
           #Repository::For.klass(Entity::Course)
-
           CategoryMapper.build_entity(@course['primary_subcategory']['title'])          
         end
       end

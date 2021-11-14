@@ -1,0 +1,33 @@
+---
+- name: Type1
+  img: JPG
+  description: Description Type1
+  user_num: 0
+- name: Type2
+  img: JPG
+  description: Description Type2
+  user_num: 0
+- name: Type3
+  img: JPG
+  description: Description Type3
+  user_num: 0
+- name: Type4
+  img: JPG
+  description: Description Type4
+  user_num: 0
+- name: Type5
+  img: JPG
+  description: Description Type5
+  user_num: 0
+- name: Type6
+  img: JPG
+  description: Description Type6
+  user_num: 0
+- name: Type7
+  img: JPG
+  description: Description Type7
+  user_num: 0
+- name: Type8
+  img: JPG
+  description: Description Type8
+  user_num: 0
