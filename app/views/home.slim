@@ -14,20 +14,33 @@
           type='submit' id='hobby-form-submit' class='submit' 
           value='submit' class="btn btn-success" 
         } Show
+  form role="form" action="/test_2" method='POST' id='show-hoppy-form'
+    .row.vertical-align.query-bar
+        .text-right What would you do if you had a day off? 
     .row
-      .col-md-12.blank-row
+      .col-md-6.col-sm-6
+        button { 
+          type='submit' id='hobby-form-submit' class='submit' 
+          value='submit' class="btn btn-success" 
+        }  Watch Netflix at home
+      .col-md-6.col-sm-6
+        button { 
+          type='submit' id='hobby-form-submit' class='submit' 
+          value='submit' class="btn btn-success" 
+        } Go out and have some fun
 
--unless view_courses.empty?
-.container
-  .row
-    - view_courses.each do |course|
-      .col-md-3
-        .card
-          img.card-img-top src="#{course.image}"
-          .card-body
-            h5.card-title
-              a href="#{course.url}" = course.title
-            p.card-text 
-              p Price: #{course.price}
-            p.card-text 
-              p Rating: #{course.rating}
+
+/ -unless view_courses.empty?
+/ .container
+/   .row
+/     - view_courses.each do |course|
+/       .col-md-3
+/         .card
+/           img.card-img-top src="#{course.image}"
+/           .card-body
+/             h5.card-title
+/               a href="#{course.url}" = course.title
+/             p.card-text 
+/               p Price: #{course.price}
+/             p.card-text 
+/               p Rating: #{course.rating}

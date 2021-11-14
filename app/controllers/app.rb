@@ -54,6 +54,30 @@ module HobbyCatcher
           end
         end
       end
+
+      routing.on 'test_2' do
+        routing.is do
+          routing.post do
+            view 'test_2'
+          end
+        end
+      end
+      
+      routing.on 'test_3' do
+        routing.is do
+          routing.post do
+            view 'test_3'
+          end
+        end
+      end
+      
+      routing.on 'test_4' do
+        routing.is do
+          routing.post do
+            view 'test_4'
+          end
+        end
+      end
     end
   end
 end
