@@ -18,32 +18,30 @@ module HobbyCatcher
       class DataMapper
         def initialize(course_name)
           category = HobbyCatcher::Database::CategoryOrm.where(name: course_name).first
-            
-          @category=category.to_hash
-          #binding.pry
+          @category = category.to_hash
         end
-  
+
         def build_entity
           Entity::Category.new(
-            id: nil,
+            id:             nil,
             ud_category_id: ud_category_id,
-            name: name,
-            ownhobby: ownhobby
+            name:           name,
+            ownhobby:       ownhobby
           )
         end
-  
+
         private
-  
+
         def ud_category_id
           @category[:ud_category_id]
         end
-  
+
         def name
-            @category[:name]
+          @category[:name]
         end
-  
+
         def ownhobby
-          HobbyMapper.build_entity( @category[:ownhobby_id])
+          HobbyMapper.build_entity(@category[:ownhobby_id])
         end
       end
     end
