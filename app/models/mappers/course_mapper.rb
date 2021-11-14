@@ -11,6 +11,7 @@ module HobbyCatcher
       end
 
       def find(field, keyword)
+        #binding.pry
         data = @gateway.course(field, keyword)
         build_entity(data)
       end
@@ -29,18 +30,18 @@ module HobbyCatcher
 
         def build_entity
           HobbyCatcher::Entity::Course.new(
-            id:        nil,
-            course_id: course_id,
-            title:     title,
-            url:       url,
-            price:     price,
-            image:     image,
-            rating:    rating,
-            category:  category
+            id:           nil,
+            ud_course_id: ud_course_id,
+            title:        title,
+            url:          url,
+            image:        image,
+            ud_category:  ud_category,
+            price:        price,
+            rating:       rating,
           )
         end
 
-        def course_id
+        def ud_course_id
           @course['id']
         end
 
@@ -64,8 +65,12 @@ module HobbyCatcher
           @course['avg_rating']
         end
 
-        def category
+        def ud_category
           @course['primary_category']['title']
+        end
+
+        def owncategory
+          Repository::For.klass(Entity::Course).all
         end
       end
     end

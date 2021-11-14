@@ -6,7 +6,7 @@ module HobbyCatcher
   module Database
     # Object-Relational Mapper for Courses
     class CourseOrm < Sequel::Model(:courses)
-      many_to_one :belong_category,
+      many_to_one :owncategory,
                   class: :'HobbyCatcher::Database::CategoryOrm'
 
       plugin :timestamps, update_on_create: true

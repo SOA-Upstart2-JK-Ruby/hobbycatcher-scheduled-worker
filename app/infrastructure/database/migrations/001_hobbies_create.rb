@@ -6,13 +6,11 @@ Sequel.migration do
   change do
     create_table(:hobbies) do
       primary_key :id
-      foreign_key :categories
 
-      Integer  :hobby_id, unique: true, null: false
-      String   :hobby_name, null: false,unique: true
+      String   :name, null: false,unique: true
+      String   :img, null: false
       String   :description, null: false
-      String   :hobby_img, null: false
-      Integer  :count
+      Integer  :user_num
 
       DateTime :created_at
       DateTime :updated_at
