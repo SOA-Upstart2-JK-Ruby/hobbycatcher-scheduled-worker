@@ -45,21 +45,13 @@ module HobbyCatcher
         return nil unless db_record
 
         Entity::Category.new(
-          # id:            db_record.id,
-          # category_id:   db_record.category_id,
-          # category_name: db_record.category_name,
-          # type:          db_record.type,
           db_record.to_hash.merge(
             ownhobby: Hobbies.rebuild_entity(db_record.ownhobby)
           )
         )
       end
 
-      # def self.rebuild_many(db_records)
-      #   db_records.map do |db_course|
-      #     Courses.rebuild_entity(db_course)
-      #   end
-      # end
+      # Helper class to persist category and its hobby to database
       class PersistCategory
         def initialize(entity)
           @entity = entity
@@ -75,7 +67,7 @@ module HobbyCatcher
           create_category.tap do |db_category|
             db_category.update(ownhobby: ownhobby)
           end
-        end 
+        end
       end
 
       def self.db_find_or_create(entity)

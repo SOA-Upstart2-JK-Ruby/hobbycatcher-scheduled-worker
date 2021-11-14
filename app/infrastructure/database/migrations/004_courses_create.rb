@@ -14,7 +14,7 @@ Sequel.migration do
       String   :image
       String   :ud_category, null: false
       String   :price
-      Float   :rating
+      Float    :rating
 
       DateTime :created_at
       DateTime :updated_at

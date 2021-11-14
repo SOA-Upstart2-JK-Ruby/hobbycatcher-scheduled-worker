@@ -1,20 +1,19 @@
 .container
   .row 
-    p Hobby name: #{hoppy.name}
-    p Hobby discription: #{hoppy.description}
+    p Hobby name: #{hobby.name}
+    p Hobby discription: #{hobby.description}
   -categories.each do |category|
     p Category name: #{category.name}
-  .row
-    - courses.each do |course|
-      .col-md-3
-        .card
-          img.card-img-top src="#{course.image}"
-          .card-body
-            h5.card-title
-              a href="#{course.url}" = course.title
-            p.card-text 
-              p Price: #{course.price}
-            p.card-text 
-              p Rating: #{course.rating}
-
-
+    .row
+      - courses.each do |course|
+        - if course.owncategory.name == category.name
+          .col-md-3
+            .card
+              img.card-img-top src="#{course.image}"
+              .card-body
+                h5.card-title
+                  a href="#{course.url}" = course.title
+                p.card-text 
+                  p Price: #{course.price}
+                p.card-text 
+                  p Rating: #{course.rating}

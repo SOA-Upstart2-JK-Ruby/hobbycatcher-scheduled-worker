@@ -4,10 +4,6 @@ module HobbyCatcher
   module Repository
     # Repository for Course
     class Courses
-      # def self.find_hobby(hobby)
-      #   Database::CourseOrm.where(category: hobby).map { |db_course| rebuild_entity(db_course) }
-      # end
-
       def self.all
         Database::CourseOrm.all.map { |db_course| rebuild_entity(db_course) }
       end
@@ -34,14 +30,6 @@ module HobbyCatcher
         rebuild_entity(db_record)
       end
 
-      # def self.find_title(title)
-      #   rebuild_entity Database::CourseOrm.first(title: title)
-      # end
-
-      # def self.find_courseid(course_id)
-      #   rebuild_entity Database::CourseOrm.first(course_id: course_id)
-      # end
-
       def self.create(entity)
         raise 'Course already exists' if find(entity)
 
@@ -51,37 +39,15 @@ module HobbyCatcher
 
       def self.rebuild_entity(db_record)
         return nil unless db_record
-        
+
         Entity::Course.new(
-          # id:        db_record.id,
-          # course_id: db_record.course_id,
-          # title:     db_record.title,
-          # url:       db_record.url,
-          # price:     db_record.price,
-          # image:     db_record.image,
-          # rating:    db_record.rating,
-          # category:  db_record.category
           db_record.to_hash.merge(
             owncategory: Categories.rebuild_entity(db_record.owncategory)
           )
         )
       end
 
-      # def self.rebuild_many(db_records)
-      #   db_records.map do |db_course|
-      #     Courses.rebuild_entity(db_course)
-      #   end
-      # end
-
-      # def self.db_find_or_create(entity)
-      #   Database::CourseOrm.find_or_create(entity.to_attr_hash)
-      # end
-
-      # def self.create(entity)
-      #   PersistCourse.new(entity).create_course
-      #                            .map { |db_course| rebuild_entity(db_course) }
-      # end
-
+      # Helper class to persist course and its category to database
       class PersistCourse
         def initialize(entity)
           @entity = entity
@@ -97,14 +63,7 @@ module HobbyCatcher
           create_course.tap do |db_course|
             db_course.update(owncategory: owncategory)
           end
-        end        
-        # def create_course
-        #   @entity.map do |course|
-        #     raise 'Course already exists' if Repository::Courses.find(course)
-
-        #     Database::CourseOrm.create(course.to_attr_hash)
-        #   end
-        # end
+        end
       end
     end
   end

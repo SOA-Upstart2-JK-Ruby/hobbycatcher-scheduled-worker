@@ -7,8 +7,8 @@ module HobbyCatcher
     # Object-Relational Mapper for Courses
     class HobbyOrm < Sequel::Model(:hobbies)
       one_to_many :owned_categories,
-                  class:   :'HobbyCatcher::Database::CategoryOrm',
-                  key:     :ownhobby_id
+                  class: :'HobbyCatcher::Database::CategoryOrm',
+                  key:   :ownhobby_id
 
       plugin :timestamps, update_on_create: true
 
@@ -18,4 +18,3 @@ module HobbyCatcher
     end
   end
 end
-
