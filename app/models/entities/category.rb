@@ -22,3 +22,4 @@ module HobbyCatcher
     end
   end
 end
+

@@ -35,8 +35,8 @@ module HobbyCatcher
         routing.on String do |hobby|
           # GET /introhoppy/hoppy
           routing.get do
-            binding.pry
-            hobby_intros = Udemy::CourseMapper.new(App.config.UDEMY_TOKEN).find('category', hobby)
+            #binding.pry
+            hobby_intros = Udemy::CourseMapper.new(App.config.UDEMY_TOKEN).find('subcategory', hobby)
 
             # Add project to database
             hobby_intros.map do |hobby_intro|
