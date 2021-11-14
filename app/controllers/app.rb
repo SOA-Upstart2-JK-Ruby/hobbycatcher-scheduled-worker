@@ -36,12 +36,20 @@ module HobbyCatcher
           # GET /introhoppy/hoppy
           routing.get do
             #binding.pry
-            hobby_intros = Udemy::CourseMapper.new(App.config.UDEMY_TOKEN).find('subcategory', hobby)
+            hobby_intro =HobbyCatcher::Database::HobbyOrm.where(id:hobby).first
+            categories_intros =  hobby_intro.first.owned_categories
 
-            # Add project to database
-            hobby_intros.map do |hobby_intro|
-              Repository::For.entity(hobby_intro).create(hobby_intro)
-            end
+            categories_intros.map do |category|
+             
+              hobby_intros =Udemy::CourseMapper.new(App.config.UDEMY_TOKEN).find('subcategory', category.to_hash[:name])
+              # Add project to database
+              hobby_intros.map do |hobby_intro|
+               Repository::For.entity(hobby_intro).create(hobby_intro)
+              end
+             
+            end 
+            
+            hobby_intros
 
             view 'introhobby', locals: { hobby: hobby_intros }
           end
