@@ -10,37 +10,38 @@ module HobbyCatcher
         @gateway = @gateway_class.new(@token)
       end
 
-      def find(field, keyword)
+      def find(field, keyword)        
         data = @gateway.course(field, keyword)
-        build_entity(data)
+        build_entity(data)        
       end
 
       def build_entity(data)
-        data['results'].map do |datam|
+        data['results'].map do |datam|         
           DataMapper.new(datam).build_entity
         end
       end
 
       # Extracts entity specific elements from data structure
       class DataMapper
-        def initialize(course)
+        def initialize(course)       
           @course = course
         end
 
         def build_entity
           HobbyCatcher::Entity::Course.new(
-            id:        nil,
-            course_id: course_id,
-            title:     title,
-            url:       url,
-            price:     price,
-            image:     image,
-            rating:    rating,
-            category:  category
+            id:           nil,
+            ud_course_id: ud_course_id,
+            title:        title,
+            url:          url,
+            image:        image,
+            ud_category:  ud_category,
+            price:        price,
+            rating:       rating,
+            owncategory:  owncategory
           )
         end
 
-        def course_id
+        def ud_course_id
           @course['id']
         end
 
@@ -61,11 +62,21 @@ module HobbyCatcher
         end
 
         def rating
-          @course['avg_rating']
+          @course['avg_rating']==0 ? 0.0 : @course['avg_rating']
         end
 
-        def category
-          @course['primary_category']['title']
+        def ud_category
+          @course['primary_subcategory']['title']
+        end
+
+        def owncategory
+          #ud_category_id=>7878裡存到category
+          
+          
+         
+          #Repository::For.klass(Entity::Course)
+
+          CategoryMapper.build_entity(@course['primary_subcategory']['title'])          
         end
       end
     end
