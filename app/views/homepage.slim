@@ -1,5 +1,5 @@
 .container
-  form role="form" action="/introhobby" method='POST' id='show-hobby-form'
+  form role="form" action="/test_1" method='POST' id='show-hobby-form'
     .row.vertical-align.query-bar
       .col-md-2.col-sm-3
         .text-right What's your hobby id ?
@@ -28,19 +28,3 @@
           type='submit' id='hobby-form-submit' class='submit' 
           value='submit' class="btn btn-success" 
         } Go out and have some fun
-
-
-/ -unless view_courses.empty?
-/ .container
-/   .row
-/     - view_courses.each do |course|
-/       .col-md-3
-/         .card
-/           img.card-img-top src="#{course.image}"
-/           .card-body
-/             h5.card-title
-/               a href="#{course.url}" = course.title
-/             p.card-text 
-/               p Price: #{course.price}
-/             p.card-text 
-/               p Rating: #{course.rating}
