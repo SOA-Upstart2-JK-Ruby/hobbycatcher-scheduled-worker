@@ -8,7 +8,7 @@ module HobbyCatcher
     # InitializeDatabase for Create Hobby & Category
     class Create
       def self.hobby_load
-        HOBBY_FILE.map do |data|
+        HOBBY_FILE.map do |data| 
           Database::HobbyOrm.create(data)
         end
       end

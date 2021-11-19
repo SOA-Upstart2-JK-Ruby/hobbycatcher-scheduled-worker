@@ -44,7 +44,7 @@ module HobbyCatcher
             emotion   = routing.params['emotion'].to_i
             answer = [type, difficulty, freetime, emotion]
             #有需要refactor嗎
-            binding.pry
+            #binding.pry
             hobby = Mapper::HobbySuggestions.new(answer).build_entity
             # Redirect viewer to project page
             routing.redirect "suggestion/#{hobby.answers.id}"
