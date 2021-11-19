@@ -7,11 +7,13 @@ require 'yaml'
 module HobbyCatcher
   # Web App
   class App < Roda
-    plugin :render, engine: 'slim', views: 'app/views'
-    plugin :assets, css: 'style.css', path: 'app/views/assets'
-    plugin :public, root: 'app/views/public'
-    plugin :halt
-
+    # plugin :halt
+    # plugin :flash
+    # plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
+    plugin :render, engine: 'slim', views: 'app/presentation/views_html'
+    plugin :public, root: 'app/presentation/public'
+    plugin :assets, path: 'app/presentation/assets',
+                    css: 'style.css', js: 'table_row.js'
     # rubocop:disable Metrics/BlockLength
     route do |routing|
       routing.assets # load CSS
@@ -40,6 +42,7 @@ module HobbyCatcher
             diffculty = routing.params['diffculty']
             freetime  = routing.params['freetime']
             emotion   = routing.params['emotion']
+            #有需要refactor嗎
             hobby_id = Value::QuizAnswer::UserAnswer.setup_useranswer_module(type, diffculty, freetime, emotion)
             # Redirect viewer to project page
             routing.redirect "suggestion/#{hobby_id}"
