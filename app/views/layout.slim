@@ -23,13 +23,13 @@ html
       crossorigin="anonymous"
     }
   
-    .container id='html_body'
+    .container-fluid id='html_body'
       section
-        .row style="vertical-align: middle;"
-          .col-12
-            h1
-              a.title href="/" HobbyCatcher
+        nav role="navigation" class="navbar navbar-expand-lg navbar-light bg-light"
+          a class="navbar-brand" rel="home" href="/" &emsp;HobbyCatcher
 
+    .container
+      br
       section
         == yield
       

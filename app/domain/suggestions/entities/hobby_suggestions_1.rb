@@ -3,7 +3,7 @@
 module HobbyCatcher
   module Entity
     # Aggregate root for suggestions domain
-    class HobbySuggestions < Dry::Struct
+    class HobbySuggestions1 < Dry::Struct
       include Dry.Types
 
       attribute :hobby,         Strict::Integer
