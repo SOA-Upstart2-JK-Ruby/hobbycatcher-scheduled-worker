@@ -3,12 +3,42 @@
         .text-right If you are having an adventure in the forest, and there are two roads ahead,which one would you choose?
     .row
       .col-md-6.col-sm-6
+        .form-check
+             input {
+               class="form-check-input" type="radio" 
+               name="flexRadioDefault" id="flexRadioDefault1"
+               value="1"
+             }Default radio
+        .form-check
+             input {
+               class="form-check-input" type="radio" 
+               name="flexRadioDefault" id="flexRadioDefault1"
+               value="2"
+             }Default radio 
+    .row.vertical-align.query-bar
+        .text-right If you are having an adventure in the forest, and there are two roads ahead,which one would you choose?
+    .row
+      .col-md-6.col-sm-6
+        .form-check
+             input {
+               class="form-check-input" type="radio" 
+               name="flexRadioDefault1" id="flexRadioDefault1"
+               value="3"
+             }Default radio
+        .form-check
+             input {
+               class="form-check-input" type="radio" 
+               name="flexRadioDefault1" id="flexRadioDefault1"
+               value="4"
+             }Default radio     
         button { 
-          type='submit' id='hobby-form-submit' class='submit' 
-          value='submit' class="btn btn-success" 
+          type='submit' id='adventure' class='submit' 
+          value='submit' class="btn btn-success"  name="adventure" 
+          onclick="console.log('foo')"
         }  one with treasures but guarded by monsters
+
       .col-md-6.col-sm-6
         button { 
-          type='submit' id='hobby-form-submit' class='submit' 
-          value='submit' class="btn btn-success" 
+          type='submit' id='safe' class='submit' 
+          value='submit' class="btn btn-success" name="safe"
         } the other ordinary but safe road

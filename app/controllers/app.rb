@@ -23,20 +23,33 @@ module HobbyCatcher
         view 'home', locals: { view_courses: view_courses }
       end
 
-      routing.on 'introhobby' do
+      routing.on 'test' do
+        routing.is do
+          routing.post do
+            questions = Repository::Questions.all
+            view 'test', locals: {questions: questions}
+          end
+        end
+      end
+
+      routing.on 'suggestion' do
         routing.is do
           # POST /introhobby/
           routing.post do
-            hobby_name = routing.params['hobby_name']
+            type      = routing.params['type']
+            diffculty = routing.params['diffculty']
+            freetime  = routing.params['freetime']
+            emotion   = routing.params['emotion']
+            hobby_id = Value::QuizAnswer::UserAnswer.setup_useranswer_module(type, diffculty, freetime, emotion)
             # Redirect viewer to project page
-            routing.redirect "introhobby/#{hobby_name}"
+            routing.redirect "suggestion/#{hobby_id}"
           end
         end
 
-        routing.on String do |hobby|
+        routing.on String do |hobby_id|
           # GET /introhoppy/hoppy
           routing.get do
-            hobby = HobbyCatcher::Database::HobbyOrm.where(id: hobby).first
+            hobby = HobbyCatcher::Database::HobbyOrm.where(id: hobby_id).first
             categories = hobby.owned_categories
             courses_intros = []
             categories.map do |category|
@@ -47,31 +60,8 @@ module HobbyCatcher
               end
               courses_intros.append(courses)
             end
-            view 'introhobby', locals: { courses: courses_intros.flatten, hobby: hobby, categories: categories }
-          end
-        end
-      end
-
-      routing.on 'test_2' do
-        routing.is do
-          routing.post do
-            view 'test_2'
-          end
-        end
-      end
-
-      routing.on 'test_3' do
-        routing.is do
-          routing.post do
-            view 'test_3'
-          end
-        end
-      end
-
-      routing.on 'test_4' do
-        routing.is do
-          routing.post do
-            view 'test_4'
+            #view 'introhobby', locals: { courses: courses_intros.flatten, hobby: hobby, categories: categories }
+            view 'suggestion', locals: { courses: courses_intros.flatten, hobby: hobby, categories: categories }
           end
         end
       end

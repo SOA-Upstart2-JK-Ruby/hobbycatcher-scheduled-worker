@@ -7,7 +7,7 @@ module HobbyCatcher
       module UserAnswer
         attr_reader :answer_t, :answer_d, :answer_f, :answer_m
 
-        def setup_useranswer_module(answer_t, answer_d, answer_f, answer_m)
+        def self.setup_useranswer_module(answer_t, answer_d, answer_f, answer_m)
           @answer_t = answer_t
           @answer_d = answer_d
           @answer_f = answer_f
