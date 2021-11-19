@@ -38,14 +38,16 @@ module HobbyCatcher
         routing.is do
           # POST /introhobby/
           routing.post do
-            type      = routing.params['type']
-            diffculty = routing.params['diffculty']
-            freetime  = routing.params['freetime']
-            emotion   = routing.params['emotion']
+            type      = routing.params['type'].to_i
+            difficulty = routing.params['difficulty'].to_i
+            freetime  = routing.params['freetime'].to_i
+            emotion   = routing.params['emotion'].to_i
+            answer = [type, difficulty, freetime, emotion]
             #有需要refactor嗎
-            hobby_id = Value::QuizAnswer::UserAnswer.setup_useranswer_module(type, diffculty, freetime, emotion)
+            binding.pry
+            hobby = Mapper::HobbySuggestions.new(answer).build_entity
             # Redirect viewer to project page
-            routing.redirect "suggestion/#{hobby_id}"
+            routing.redirect "suggestion/#{hobby.answers.id}"
           end
         end
 

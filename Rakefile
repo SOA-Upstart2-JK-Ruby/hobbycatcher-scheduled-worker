@@ -34,7 +34,7 @@ namespace :db do
     require_relative 'config/environment' # load config info
     require_relative 'spec/helpers/database_helper'
 
-    def app() = CodePraise::App
+    def app() = HobbyCatcher::App
   end
 
   desc 'Run migrations'
