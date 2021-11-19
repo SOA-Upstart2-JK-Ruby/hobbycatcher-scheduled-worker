@@ -4,19 +4,18 @@ module HobbyCatcher
   module Mapper
     # suggestions services
     class HobbySuggestions
-      attr_reader :hobby, :answers, :create_time, :count
+      attr_reader :answers
 
-      def initialize(results)
+      def initialize(answers)
         # call data from front-end
-        @results = results
+        @answers = answers
       end
 
       def build_entity
         Entity::HobbySuggestions.new(
-          hobby:       @results.hobby,
-          answers:     @results.answers,
-          create_time: @results.create_time,
-          count:       @results.count
+          answers:     @answers,
+          # create_time: @results.create_time,
+          # count:       @results.count
         )
       end
     end
