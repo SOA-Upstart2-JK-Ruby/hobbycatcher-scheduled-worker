@@ -7,9 +7,9 @@ require 'yaml'
 module HobbyCatcher
   # Web App
   class App < Roda
-    # plugin :halt
+    plugin :halt
     # plugin :flash
-    # plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
+    plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
     plugin :render, engine: 'slim', views: 'app/presentation/views_html'
     plugin :public, root: 'app/presentation/public'
     plugin :assets, path: 'app/presentation/assets',
@@ -21,8 +21,10 @@ module HobbyCatcher
 
       # GET /
       routing.root do
-        view_courses = Repository::For.klass(Entity::Course).all
-        view 'home', locals: { view_courses: view_courses }
+        # Get cookie viewer's previously seen test history
+        session[:watching] ||= []
+
+        view 'home'
       end
 
       routing.on 'test' do
@@ -34,6 +36,25 @@ module HobbyCatcher
         end
       end
 
+      routing.on 'history' do 
+        routing.delete do
+          session[:watching].delete(hobby)
+        end
+
+        routing.is do
+          routing.post do
+            # Load previously viewed projects
+            projects = Repository::For.klass(Entity::Project)
+              .find_full_names(session[:watching])
+
+            session[:watching] = projects.map(&:fullname)
+            
+            view 'history', locals: {questions: questions}
+          end
+        end
+      end
+
+
       routing.on 'suggestion' do
         routing.is do
           # POST /introhobby/
@@ -43,9 +64,11 @@ module HobbyCatcher
             freetime  = routing.params['freetime'].to_i
             emotion   = routing.params['emotion'].to_i
             answer = [type, difficulty, freetime, emotion]
-            #有需要refactor嗎
-            binding.pry
+            # 有需要refactor嗎
             hobby = Mapper::HobbySuggestions.new(answer).build_entity
+
+            # Add new record to watched set in cookies
+            session[:watching].insert(0, hobby.answers.id).uniq!
             # Redirect viewer to project page
             routing.redirect "suggestion/#{hobby.answers.id}"
           end
