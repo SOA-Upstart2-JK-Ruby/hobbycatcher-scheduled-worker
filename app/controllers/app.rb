@@ -8,12 +8,15 @@ module HobbyCatcher
   # Web App
   class App < Roda
     plugin :halt
-    # plugin :flash
+    plugin :flash
     plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
     plugin :render, engine: 'slim', views: 'app/presentation/views_html'
     plugin :public, root: 'app/presentation/public'
     plugin :assets, path: 'app/presentation/assets',
                     css: 'style.css', js: 'table_row.js'
+    
+    use Rack::MethodOverride # for other HTTP verbs (with plugin all_verbs
+    
     # rubocop:disable Metrics/BlockLength
     route do |routing|
       routing.assets # load CSS
@@ -36,20 +39,27 @@ module HobbyCatcher
         end
       end
 
-      routing.on 'history' do 
-        routing.delete do
-          session[:watching].delete(hobby)
+      routing.on 'history_test' do 
+        routing.post do
+          hobby = routing.params['delete']
+          delete_item = nil
+          session[:watching].each do |item|
+            delete_item = item if item.updated_at.to_s == hobby
+          end
+          binding.pry
+          session[:watching].delete(delete_item)
+
+          routing.redirect '/history_test'
         end
 
         routing.is do
-          routing.post do
-            # Load previously viewed projects
-            projects = Repository::For.klass(Entity::Project)
-              .find_full_names(session[:watching])
-
-            session[:watching] = projects.map(&:fullname)
+          routing.get do
+            # Load previously viewed hobbies
+            hobbies = session[:watching].map do |history|
+              history
+            end
             
-            view 'history', locals: {questions: questions}
+            view 'history_test', locals: {hobbies: hobbies}
           end
         end
       end
@@ -68,7 +78,7 @@ module HobbyCatcher
             hobby = Mapper::HobbySuggestions.new(answer).build_entity
 
             # Add new record to watched set in cookies
-            session[:watching].insert(0, hobby.answers.id).uniq!
+            session[:watching].insert(0, hobby.answers).uniq!
             # Redirect viewer to project page
             routing.redirect "suggestion/#{hobby.answers.id}"
           end

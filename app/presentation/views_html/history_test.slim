@@ -1,7 +1,7 @@
 .container
   .row
     .col-md-12.blank-row
-    table class="table table-hover" id="projects_table"
+    table class="table table-hover" id="history_table"
       thead
         tr
           th
@@ -9,19 +9,19 @@
           th Results
           th Link
       tbody
-        - projects.each do |project|
-          tr class="table-row project_row" data-href=project.praise_link id="#{project.index_str}.row"
-            td id='delete_project'
-              form role='form' method='post' action=project.praise_link
-                input type='hidden' name='_method' value='delete'
-                button type="submit" class="btn btn-sm btn-link" id="#{project.index_str}.delete"
+        - hobbies.each do |hobby|
+          tr class="table-row history_row" data-href='/suggestion/#{hobby.id}'
+            td id='delete_history'
+              form role='form' method='post' action='/history_test'
+                input type='hidden' name='delete' value="#{hobby.updated_at}"
+                button type="submit" class="btn btn-sm btn-link"
                   i class="fas fa-trash-alt"
-            td id='td_owner'
-              span class="project_table_owner" id="#{project.index_str}.owner"
-                = project.owner_name
-            td id='td_project_name'
-              span class="project_name" id="#{project.index_str}.name"
-                a href=project.http_url id="#{project.index_str}.link" #{project.name}
-            td id='td_members'
-              span class="project_table_member" id="#{project.index_str}.contributors"
-                = project.contributor_names
+            td id='td_testing_time'
+              span class="history_table_time"
+                = hobby.updated_at.strftime("%F %R")
+            td id='td_hobby_name'
+              span class="history_table_name"
+                = hobby.name
+            td id='td_links'
+              span class="history_table_member"
+                a href='/suggestion/#{hobby.id}' Result ->

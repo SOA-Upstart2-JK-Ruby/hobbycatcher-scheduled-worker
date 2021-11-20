@@ -10,9 +10,12 @@ require 'watir'
 
 describe 'Acceptance Tests' do
   before do
-    DatabaseHelper.wipe_database
+    # DatabaseHelper.wipe_database
     # @headless = Headless.new
-    @browser = Watir::Browser.new
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument('--headless')
+    binding.pry
+    @browser = Watir::Browser.new :chrome, :options => options
   end
 
   after do

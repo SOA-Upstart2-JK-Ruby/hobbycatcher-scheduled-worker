@@ -11,6 +11,12 @@ module HobbyCatcher
         rebuild_entity Database::HobbyOrm.first(id: id)
       end
 
+      def self.find_ids(hobbies)
+        hobbies.map do |hobby|
+          find_id(hobby.id)
+        end
+      end
+
       def self.find_name(name)
         rebuild_entity Database::HobbyOrm.first(name: name)
       end
@@ -29,6 +35,16 @@ module HobbyCatcher
 
       def self.db_find_or_create(entity)
         Database::HobbyOrm.find_or_create(entity.to_attr_hash)
+      end
+
+      def self.updated_at(id)
+        Database::HobbyOrm.first(id: id).updated_at
+      end
+
+      def self.updated(ids)
+        ids.map do |id|
+          updated_at(id)
+        end
       end
     end
   end
