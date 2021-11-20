@@ -5,6 +5,7 @@ require 'yaml'
 require 'figaro'
 require 'sequel'
 require 'pry'
+require 'delegate'
 
 module HobbyCatcher
   # Configuration for the App
@@ -19,6 +20,8 @@ module HobbyCatcher
       )
       Figaro.load
       def self.config() = Figaro.env
+
+      use Rack::Session::Cookie, secret: config.SESSION_SECRET
 
       configure :development, :test do
         ENV['DATABASE_URL'] = "sqlite://#{config.DB_FILENAME}"

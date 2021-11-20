@@ -1,5 +1,5 @@
 .container
-  form role="form" action="/introhobby" method='POST' id='show-hobby-form'
+  /form role="form" action="/introhobby" method='POST' id='show-hobby-form'
     .row.vertical-align.query-bar
       .col-md-2.col-sm-3
         .text-right What's your hobby id ?
@@ -14,17 +14,28 @@
           type='submit' id='hobby-form-submit' class='submit' 
           value='submit' class="btn btn-success" 
         } Show
-  form role="form" action="/test" method='POST' id='show-hobby-form'
+  .row.align-items-center
+    .col-md-6.align-middle
+      h1.display-1 Hobby Catcher
+    .col-md-3.align-middle
+      a#catch-hobby.btn.btn-success href="/test" Catch My Hobby Now!
+    .col-md-3.align-middle
+      a#history.btn.btn-success href="/history" Check My History
+  /.row
+    .col-md-2.align-right
+      a#history.btn.btn-success href="/history" Check My History
+  /form role="form" action="/test" method='POST' id='show-hobby-form'
       .col-md-6.col-sm-6
         button { 
           type='submit' id='hobby-form-submit' class='submit' 
           value='submit' class="btn btn-success" 
-        }  who am i ?
+        }  Catch My Hobby Now!
+  /form role="form" action="/history" method='POST' id='show-hobby-form'      
       .col-md-6.col-sm-6
         button { 
           type='submit' id='hobby-form-submit' class='submit' 
           value='submit' class="btn btn-success" 
-        } other
+        } Check My History
 
 
 / -unless view_courses.empty?

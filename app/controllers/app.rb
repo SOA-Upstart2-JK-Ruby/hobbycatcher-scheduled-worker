@@ -2,6 +2,7 @@
 
 require 'roda'
 require 'slim'
+require 'slim/include'
 require 'yaml'
 
 module HobbyCatcher
@@ -14,6 +15,7 @@ module HobbyCatcher
     plugin :public, root: 'app/presentation/public'
     plugin :assets, path: 'app/presentation/assets',
                     css: 'style.css', js: 'table_row.js'
+    plugin :flash
     # rubocop:disable Metrics/BlockLength
     route do |routing|
       routing.assets # load CSS
@@ -44,7 +46,7 @@ module HobbyCatcher
             emotion   = routing.params['emotion'].to_i
             answer = [type, difficulty, freetime, emotion]
             #有需要refactor嗎
-            binding.pry
+            #binding.pry
             hobby = Mapper::HobbySuggestions.new(answer).build_entity
             # Redirect viewer to project page
             routing.redirect "suggestion/#{hobby.answers.id}"
