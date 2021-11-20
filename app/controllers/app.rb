@@ -46,7 +46,6 @@ module HobbyCatcher
           session[:watching].each do |item|
             delete_item = item if item.updated_at.to_s == hobby
           end
-          binding.pry
           session[:watching].delete(delete_item)
 
           routing.redirect '/history_test'

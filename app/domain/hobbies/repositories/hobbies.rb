@@ -36,16 +36,6 @@ module HobbyCatcher
       def self.db_find_or_create(entity)
         Database::HobbyOrm.find_or_create(entity.to_attr_hash)
       end
-
-      def self.updated_at(id)
-        Database::HobbyOrm.first(id: id).updated_at
-      end
-
-      def self.updated(ids)
-        ids.map do |id|
-          updated_at(id)
-        end
-      end
     end
   end
 end
