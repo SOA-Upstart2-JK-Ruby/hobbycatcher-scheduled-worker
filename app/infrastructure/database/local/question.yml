@@ -1,0 +1,17 @@
+---
+- description: What would you do if you had a day off?
+  answer_1: Go out and have some fun
+  answer_2: Watch Netflix at home
+  button_name: type
+- description: If you are having an adventure in the forest, and there are two roads ahead, which one would you prefer?
+  answer_1: One with treasures but guarded by monsters
+  answer_2: The other ordinary but safe road
+  button_name: difficulty
+- description: You have a delicious cake,how would yo enjoy it?
+  answer_1: Eat it all at once
+  answer_2: Eat it slowly in portions
+  button_name: freetime
+- description: Choose a color to represent your mood?
+  answer_1: Yellow
+  answer_2: Black
+  button_name: emotion

@@ -41,6 +41,7 @@ namespace :db do
   task :migrate => :config do
     Sequel.extension :migration
     puts "Migrating #{app.environment} database to latest"
+    puts "Need to run 'HobbyCatcher::InitializeDatabase::Create.load'"
     Sequel::Migrator.run(app.DB, 'app/infrastructure/database/migrations')
   end
 
@@ -71,7 +72,7 @@ end
 namespace :repos do
   task :config do
     require_relative 'config/environment' # load config info
-    def app() = CodePraise::App
+    def app() = HobbyCatcher::App
   end
 
   desc 'Create director for repo store'

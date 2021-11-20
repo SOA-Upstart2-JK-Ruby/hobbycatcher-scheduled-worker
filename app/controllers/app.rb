@@ -8,14 +8,16 @@ require 'yaml'
 module HobbyCatcher
   # Web App
   class App < Roda
-    # plugin :halt
-    # plugin :flash
-    # plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
+    plugin :halt
+    plugin :flash
+    plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
     plugin :render, engine: 'slim', views: 'app/presentation/views_html'
     plugin :public, root: 'app/presentation/public'
     plugin :assets, path: 'app/presentation/assets',
                     css: 'style.css', js: 'table_row.js'
-    plugin :flash
+    
+    use Rack::MethodOverride # for other HTTP verbs (with plugin all_verbs
+    
     # rubocop:disable Metrics/BlockLength
     route do |routing|
       routing.assets # load CSS
@@ -23,8 +25,10 @@ module HobbyCatcher
 
       # GET /
       routing.root do
-        view_courses = Repository::For.klass(Entity::Course).all
-        view 'home', locals: { view_courses: view_courses }
+        # Get cookie viewer's previously seen test history
+        session[:watching] ||= []
+
+        view 'home'
       end
 
       routing.on 'test' do
@@ -36,6 +40,31 @@ module HobbyCatcher
         end
       end
 
+      routing.on 'history_test' do 
+        routing.post do
+          hobby = routing.params['delete']
+          delete_item = nil
+          session[:watching].each do |item|
+            delete_item = item if item.updated_at.to_s == hobby
+          end
+          session[:watching].delete(delete_item)
+
+          routing.redirect '/history_test'
+        end
+
+        routing.is do
+          routing.get do
+            # Load previously viewed hobbies
+            hobbies = session[:watching].map do |history|
+              history
+            end
+            
+            view 'history_test', locals: {hobbies: hobbies}
+          end
+        end
+      end
+
+
       routing.on 'suggestion' do
         routing.is do
           # POST /introhobby/
@@ -45,9 +74,11 @@ module HobbyCatcher
             freetime  = routing.params['freetime'].to_i
             emotion   = routing.params['emotion'].to_i
             answer = [type, difficulty, freetime, emotion]
-            #有需要refactor嗎
-            #binding.pry
+            # 有需要refactor嗎
             hobby = Mapper::HobbySuggestions.new(answer).build_entity
+
+            # Add new record to watched set in cookies
+            session[:watching].insert(0, hobby.answers).uniq!
             # Redirect viewer to project page
             routing.redirect "suggestion/#{hobby.answers.id}"
           end
