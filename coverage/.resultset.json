@@ -934,6 +934,7 @@
       "/home/ruby/infohunter/app/domain/questions/entities/question.rb": {
         "lines": [
           null,
+<<<<<<< HEAD
           null,
           1,
           1,
@@ -951,6 +952,25 @@
           1,
           null,
           1,
+=======
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+>>>>>>> 1bc08d5f7e5f11f57073d45d8298169b70b7bda6
           0,
           null,
           null,
@@ -984,10 +1004,18 @@
           null,
           0,
           null,
+<<<<<<< HEAD
+          null,
+          null,
+          null,
+=======
+>>>>>>> 1bc08d5f7e5f11f57073d45d8298169b70b7bda6
           null,
           null,
           null,
           null,
+          1,
+          0,
           null,
           null,
           null,
@@ -1089,6 +1117,8 @@
         ]
       },
       "/home/ruby/infohunter/app/infrastructure/database/init.rb": {
+<<<<<<< HEAD
+=======
         "lines": [
           null,
           null,
@@ -1130,6 +1160,287 @@
           0,
           null,
           null,
+          null,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/infrastructure/database/orms/course_orm.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/infrastructure/database/orms/hobby_orm.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/infrastructure/database/orms/initialize_database.rb": {
+>>>>>>> 1bc08d5f7e5f11f57073d45d8298169b70b7bda6
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+<<<<<<< HEAD
+      "/home/ruby/infohunter/app/infrastructure/database/orms/init.rb": {
+=======
+      "/home/ruby/infohunter/app/infrastructure/database/orms/question_orm.rb": {
+>>>>>>> 1bc08d5f7e5f11f57073d45d8298169b70b7bda6
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          1,
+<<<<<<< HEAD
+          6,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/infrastructure/database/orms/category_orm.rb": {
+=======
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/controllers/init.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          2,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/controllers/app.rb": {
+>>>>>>> 1bc08d5f7e5f11f57073d45d8298169b70b7bda6
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+<<<<<<< HEAD
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+=======
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/presentation/init.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/app/presentation/view_objects/init.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/spec/helpers/database_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          9,
+          9,
+          9,
+          9,
+          9,
+          null,
+          null
+        ]
+      },
+      "/home/ruby/infohunter/spec/helpers/vcr_helper.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+>>>>>>> 1bc08d5f7e5f11f57073d45d8298169b70b7bda6
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
           null,
           null
         ]
@@ -1426,7 +1737,11 @@
         ]
       }
     },
+<<<<<<< HEAD
     "timestamp": 1637478655
+=======
+    "timestamp": 1637331624
+>>>>>>> 1bc08d5f7e5f11f57073d45d8298169b70b7bda6
   },
   "Minitest": {
     "coverage": {

@@ -73,7 +73,12 @@ module HobbyCatcher
             freetime  = routing.params['freetime'].to_i
             emotion   = routing.params['emotion'].to_i
             answer = [type, difficulty, freetime, emotion]
+<<<<<<< HEAD
             # 有需要refactor嗎
+=======
+            #有需要refactor嗎
+            #binding.pry
+>>>>>>> 1bc08d5f7e5f11f57073d45d8298169b70b7bda6
             hobby = Mapper::HobbySuggestions.new(answer).build_entity
 
             # Add new record to watched set in cookies
