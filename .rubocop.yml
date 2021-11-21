@@ -24,3 +24,7 @@ Layout/MultilineMethodCallIndentation:
 # using table style
 Layout/HashAlignment:
   EnforcedColonStyle: table
+
+Lint/MissingSuper:
+  Exclude:
+    - '**/*.rb'

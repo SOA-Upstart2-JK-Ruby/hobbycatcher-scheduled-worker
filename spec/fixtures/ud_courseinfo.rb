@@ -40,7 +40,7 @@ ud_results = courses.map do |course|
   # info = ud_response[course_url].parse
 
   value = course['id'], course['title'], "https://www.udemy.com#{course['url']}",
-  course['price'], course['image_240x135'], course['avg_rating'], course['primary_subcategory']['title']
+          course['price'], course['image_240x135'], course['avg_rating'], course['primary_subcategory']['title']
   key.zip(value).to_h
 end
 
