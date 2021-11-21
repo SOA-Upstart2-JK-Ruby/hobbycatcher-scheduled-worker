@@ -21,6 +21,6 @@ describe 'Test TEST reply and work correctly' do
     _(suggestion).wont_be_nil
     _(suggestion.class).must_equal HobbyCatcher::Entity::HobbySuggestions
 
-    _(suggestion.answers.name).must_equal "ZEBRA"
+    _(suggestion.answers.name).must_equal ANIMAL
   end
 end

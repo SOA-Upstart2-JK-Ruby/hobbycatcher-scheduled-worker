@@ -29,7 +29,8 @@ CASSETTES_FOLDER = 'spec/fixtures/cassettes'
 CASSETTE_UD_FILE = 'udemy_api'
 
 # REPLY ANSWERS
-CORRECT_ANSWERS = [1,2,1,1]
+CORRECT_ANSWERS = [1, 2, 1, 1].freeze
+ANIMAL = 'ZEBRA'
 
 # Helper method for acceptance tests
 # :reek:UtilityFunction

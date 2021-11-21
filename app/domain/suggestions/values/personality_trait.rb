@@ -20,14 +20,9 @@ module HobbyCatcher
         @freetime_ans = freetime_ans # Value::FreeTime.new(freetime_ans)
         @mood_ans = mood_ans # Value::Mood.new(mood_ans)
         @symbol = categorize
-        @valid = check_input
       end
 
-      # def animal_name
-      #   @symbol
-      # end
       # :reek:DuplicateMethodCall
-
       def categorize
         symbol = 'lion'      if @type_ans == 1 && @difficulty_ans == 1 && @freetime_ans == 1 && @mood_ans == 1
         symbol = 'giraffe'   if @type_ans == 2 && @difficulty_ans == 1 && @freetime_ans == 1 && @mood_ans == 1
@@ -46,19 +41,6 @@ module HobbyCatcher
         symbol = 'panda'     if @type_ans == 2 && @difficulty_ans == 2 && @freetime_ans == 2 && @mood_ans == 1
         symbol = 'hippo'     if @type_ans == 2 && @difficulty_ans == 2 && @freetime_ans == 2 && @mood_ans == 2
         symbol
-      end
-
-      def check_input
-        # if @type_ans.nil? || @difficulty_ans.nil? || @freetime_ans.nil? || @mood_ans.nil?
-        # if @type_ans==0 || @difficulty_ans==0 || @freetime_ans==0 || @mood_ans==0
-        #   @valid = false
-        # else
-        #   @valid = true
-        if @type_ans!=0 && @difficulty_ans!=0 && @freetime_ans!=0 && @mood_ans!=0
-          @valid = true
-        else
-          @valid = false
-        end
       end
     end
   end

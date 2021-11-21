@@ -31,19 +31,18 @@ module HobbyCatcher
         hobbies = session[:watching].map do |history|
           history
         end
-        
-        view 'home', locals: {hobbies: hobbies}
+        view 'home', locals: { hobbies: hobbies }
       end
 
       routing.on 'test' do
         routing.is do
           routing.post do
             questions = Repository::Questions.all
-            view 'test', locals: {questions: questions}
+            view 'test', locals: { questions: questions }
+
           rescue StandardError => e
             flash.now[:error] = 'Having trouble accessing the question database'
             puts e.message
-  
             routing.redirect '/'
           end
         end
@@ -67,14 +66,14 @@ module HobbyCatcher
             hobbies = session[:watching].map do |history|
               history
             end
-            
+
             if hobbies.nil?
               flash.now[:notice] = 'Catch your hobby first to see history.'
               routing.redirect '/'
             end
-            
-            view 'history_test', locals: {hobbies: hobbies}
-          end          
+
+            view 'history_test', locals: { hobbies: hobbies }
+          end
         end
       end
 
@@ -87,10 +86,10 @@ module HobbyCatcher
             freetime   = routing.params['freetime'].to_i
             emotion    = routing.params['emotion'].to_i
             answer = [type, difficulty, freetime, emotion]
-            # 有需要refactor嗎
-            # if type.nil? || difficulty.nil? || freetime.nil? || emotion.nil?
-            if type==0 || difficulty==0 || freetime==0 || emotion==0
+
+            unless answer.any?(&:zero?) == false
               flash[:error] = 'Seems like you did not answer all of the questions'
+              response.status = 400
               routing.redirect '/test'
             end
             hobby = Mapper::HobbySuggestions.new(answer).build_entity
