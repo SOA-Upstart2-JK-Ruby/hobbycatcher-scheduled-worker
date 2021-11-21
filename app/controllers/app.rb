@@ -88,11 +88,12 @@ module HobbyCatcher
             emotion    = routing.params['emotion'].to_i
             answer = [type, difficulty, freetime, emotion]
             # 有需要refactor嗎
-            hobby = Mapper::HobbySuggestions.new(answer).build_entity
-            if answer.length != 4
+            # if type.nil? || difficulty.nil? || freetime.nil? || emotion.nil?
+            if type==0 || difficulty==0 || freetime==0 || emotion==0
               flash[:error] = 'Seems like you did not answer all of the questions'
               routing.redirect '/test'
             end
+            hobby = Mapper::HobbySuggestions.new(answer).build_entity
             # Add new record to watched set in cookies
             session[:watching].insert(0, hobby.answers).uniq!
             # Redirect viewer to project page

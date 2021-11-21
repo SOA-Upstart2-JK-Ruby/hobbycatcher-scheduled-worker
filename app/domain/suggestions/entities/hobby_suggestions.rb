@@ -12,7 +12,11 @@ module HobbyCatcher
 
       def hobby_type(answers)
         personality = Value::PersonalityTrait.new(answers[0],answers[1],answers[2],answers[3])
-        animal_to_hobby(personality.symbol) #if personality.check_input = true
+        if personality.check_input = true
+          animal_to_hobby(personality.symbol)
+        else
+          nil
+        end
       end
 
       def animal_to_hobby(animal)
