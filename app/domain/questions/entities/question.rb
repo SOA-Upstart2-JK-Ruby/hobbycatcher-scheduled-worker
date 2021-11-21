@@ -11,8 +11,8 @@ module HobbyCatcher
 
       attribute :id,          Integer.optional
       attribute :description, Strict::String
-      attribute :answer_1,    Strict::String
-      attribute :answer_2,    Strict::String
+      attribute :answerA,    Strict::String
+      attribute :answerB,    Strict::String
       attribute :button_name, Strict::String
 
       def to_attr_hash

@@ -15,10 +15,10 @@ module HobbyCatcher
 
       def initialize(type_ans, difficulty_ans, freetime_ans, mood_ans)
         # super(type_ans, difficulty_ans, freetime_ans, mood_ans)
-        @type_ans = type_ans #Value::Type.new(type_ans)
-        @difficulty_ans = difficulty_ans #Value::Difficulty.new(difficulty_ans)
-        @freetime_ans = freetime_ans #Value::FreeTime.new(freetime_ans)
-        @mood_ans = mood_ans #Value::Mood.new(mood_ans)
+        @type_ans = type_ans # Value::Type.new(type_ans)
+        @difficulty_ans = difficulty_ans # Value::Difficulty.new(difficulty_ans)
+        @freetime_ans = freetime_ans # Value::FreeTime.new(freetime_ans)
+        @mood_ans = mood_ans # Value::Mood.new(mood_ans)
         @symbol = categorize
       end
 

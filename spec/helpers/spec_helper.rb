@@ -28,6 +28,7 @@ CASSETTES_FOLDER = 'spec/fixtures/cassettes'
 CASSETTE_UD_FILE = 'udemy_api'
 
 # Helper method for acceptance tests
+# :reek:UtilityFunction
 def homepage
   HobbyCatcher::App.config.APP_HOST
 end

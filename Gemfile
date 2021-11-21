@@ -59,4 +59,3 @@ group :development do
   gem 'reek'
   gem 'rubocop'
 end
-

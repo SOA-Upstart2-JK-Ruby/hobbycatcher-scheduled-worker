@@ -38,7 +38,7 @@ namespace :db do
   end
 
   desc 'Run migrations'
-  task :migrate => :config do
+  task migrate: :config do
     Sequel.extension :migration
     puts "Migrating #{app.environment} database to latest"
     puts "Need to run 'HobbyCatcher::InitializeDatabase::Create.load'"
@@ -46,7 +46,7 @@ namespace :db do
   end
 
   desc 'Wipe records from all tables'
-  task :wipe => :config do
+  task wipe: :config do
     if app.environment == :production
       puts 'Do not damage production database!'
       return
@@ -58,7 +58,7 @@ namespace :db do
   end
 
   desc 'Delete dev or test database file (set correct RACK_ENV)'
-  task :drop => :config do
+  task drop: :config do
     if app.environment == :production
       puts 'Do not damage production database!'
       return
@@ -76,19 +76,19 @@ namespace :repos do
   end
 
   desc 'Create director for repo store'
-  task :create => :config do
+  task create: :config do
     puts `mkdir #{app.config.REPOSTORE_PATH}`
   end
 
   desc 'Delete cloned repos in repo store'
-  task :wipe => :config do
+  task wipe: :config do
     sh "rm -rf #{app.config.REPOSTORE_PATH}/*" do |ok, _|
       puts(ok ? 'Cloned repos deleted' : 'Could not delete cloned repos')
     end
   end
 
   desc 'List cloned repos in repo store'
-  task :list => :config do
+  task list: :config do
     puts `ls #{app.config.REPOSTORE_PATH}`
   end
 end
@@ -151,4 +151,3 @@ namespace :quality do
     sh "flog -m #{only_app}"
   end
 end
-

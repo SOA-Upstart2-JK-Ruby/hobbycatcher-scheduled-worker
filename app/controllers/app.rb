@@ -14,9 +14,9 @@ module HobbyCatcher
     plugin :public, root: 'app/presentation/public'
     plugin :assets, path: 'app/presentation/assets',
                     css: 'style.css', js: 'table_row.js'
-    
+
     use Rack::MethodOverride # for other HTTP verbs (with plugin all_verbs
-    
+
     # rubocop:disable Metrics/BlockLength
     route do |routing|
       routing.assets # load CSS
@@ -34,12 +34,12 @@ module HobbyCatcher
         routing.is do
           routing.post do
             questions = Repository::Questions.all
-            view 'test', locals: {questions: questions}
+            view 'test', locals: { questions: questions }
           end
         end
       end
 
-      routing.on 'history_test' do 
+      routing.on 'history_test' do
         routing.post do
           hobby = routing.params['delete']
           delete_item = nil
@@ -57,21 +57,19 @@ module HobbyCatcher
             hobbies = session[:watching].map do |history|
               history
             end
-            
-            view 'history_test', locals: {hobbies: hobbies}
+            view 'history_test', locals: { hobbies: hobbies }
           end
         end
       end
-
 
       routing.on 'suggestion' do
         routing.is do
           # POST /introhobby/
           routing.post do
-            type      = routing.params['type'].to_i
+            type       = routing.params['type'].to_i
             difficulty = routing.params['difficulty'].to_i
-            freetime  = routing.params['freetime'].to_i
-            emotion   = routing.params['emotion'].to_i
+            freetime   = routing.params['freetime'].to_i
+            emotion    = routing.params['emotion'].to_i
             answer = [type, difficulty, freetime, emotion]
             # 有需要refactor嗎
             hobby = Mapper::HobbySuggestions.new(answer).build_entity
@@ -97,7 +95,6 @@ module HobbyCatcher
               end
               courses_intros.append(courses)
             end
-            #view 'introhobby', locals: { courses: courses_intros.flatten, hobby: hobby, categories: categories }
             view 'suggestion', locals: { courses: courses_intros.flatten, hobby: hobby, categories: categories }
           end
         end

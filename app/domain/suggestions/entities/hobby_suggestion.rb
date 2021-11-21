@@ -1,18 +1,24 @@
 # frozen_string_literal: true
 
-require 'dry-types'
-require 'dry-struct'
-
 module HobbyCatcher
   module Entity
     # Aggregate root for suggestions domain
-    class HobbySuggestion < Dry::Struct
-      include Dry.Types
+    class HobbySuggestions < SimpleDelegator
+      attr_reader :answers
 
-      attribute :hobby,         Strict::Integer
-      attribute :answers,       Strict::Integer
-      attribute :create_time,   Strict::DateTime
-      attribute :count,         Strict::Integer
+      def initialize(answers:)
+        @answers = hobby_type(answers)
+      end
+
+      def hobby_type(answers)
+        personality = Value::PersonalityTrait.new(answers[0], answers[1], answers[2], answers[3])
+        animal_to_hobby(personality.symbol)
+      end
+
+      def animal_to_hobby(animal)
+        hobby = HobbyCatcher::Database::HobbyOrm.find(name: animal.upcase)
+        hobby.update(user_num: hobby.user_num + 1)
+      end
     end
   end
 end

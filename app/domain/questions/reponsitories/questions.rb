@@ -4,7 +4,6 @@ module HobbyCatcher
   module Repository
     # Repository for Hobby Entities
     class Questions
-
       def self.all
         Database::QuestionOrm.all.map { |db_course| rebuild_entity(db_course) }
       end
@@ -23,8 +22,8 @@ module HobbyCatcher
         Entity::Question.new(
           id:          db_record.id,
           description: db_record.description,
-          answer_1:    db_record.answer_1,
-          answer_2:    db_record.answer_2,
+          answerA:     db_record.answerA,
+          answerB:     db_record.answerB,
           button_name: db_record.button_name
         )
       end
