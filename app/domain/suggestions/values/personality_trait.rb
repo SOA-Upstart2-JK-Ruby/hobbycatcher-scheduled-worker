@@ -20,7 +20,7 @@ module HobbyCatcher
         @freetime_ans = freetime_ans #Value::FreeTime.new(freetime_ans)
         @mood_ans = mood_ans #Value::Mood.new(mood_ans)
         @symbol = categorize
-        #@valid = check_input
+        @valid = check_input
       end
 
       # def animal_name
@@ -48,13 +48,18 @@ module HobbyCatcher
         symbol
       end
 
-      # def check_input
-      #   if @type_ans.nil? || @difficulty_ans.nil? || @freetime_ans.nil? || @mood_ans.nil?
-      #     @valid = false
-      #   else
-      #     @valid = true
-      #   end
-      # end
+      def check_input
+        # if @type_ans.nil? || @difficulty_ans.nil? || @freetime_ans.nil? || @mood_ans.nil?
+        # if @type_ans==0 || @difficulty_ans==0 || @freetime_ans==0 || @mood_ans==0
+        #   @valid = false
+        # else
+        #   @valid = true
+        if @type_ans!=0 && @difficulty_ans!=0 && @freetime_ans!=0 && @mood_ans!=0
+          @valid = true
+        else
+          @valid = false
+        end
+      end
     end
   end
 end
