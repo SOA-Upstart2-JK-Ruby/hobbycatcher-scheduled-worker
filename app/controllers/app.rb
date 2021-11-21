@@ -28,7 +28,11 @@ module HobbyCatcher
         # Get cookie viewer's previously seen test history
         session[:watching] ||= []
 
-        view 'home'
+        hobbies = session[:watching].map do |history|
+          history
+        end
+        
+        view 'home', locals: {hobbies: hobbies}
       end
 
       routing.on 'test' do
@@ -36,11 +40,16 @@ module HobbyCatcher
           routing.post do
             questions = Repository::Questions.all
             view 'test', locals: {questions: questions}
+          rescue StandardError => e
+            flash.now[:error] = 'Having trouble accessing the question database'
+            puts e.message
+  
+            routing.redirect '/'
           end
         end
       end
 
-      routing.on 'history_test' do 
+      routing.on 'history_test' do
         routing.post do
           hobby = routing.params['delete']
           delete_item = nil
@@ -59,8 +68,13 @@ module HobbyCatcher
               history
             end
             
+            if hobbies.nil?
+              flash.now[:notice] = 'Catch your hobby first to see history.'
+              routing.redirect '/'
+            end
+            
             view 'history_test', locals: {hobbies: hobbies}
-          end
+          end          
         end
       end
 
@@ -76,7 +90,10 @@ module HobbyCatcher
             answer = [type, difficulty, freetime, emotion]
             # 有需要refactor嗎
             hobby = Mapper::HobbySuggestions.new(answer).build_entity
-
+            if answer.length != 4
+              flash[:error] = 'Seems like you did not answer all of the questions'
+              routing.redirect '/test'
+            end
             # Add new record to watched set in cookies
             session[:watching].insert(0, hobby.answers).uniq!
             # Redirect viewer to project page
@@ -100,6 +117,11 @@ module HobbyCatcher
             end
             #view 'introhobby', locals: { courses: courses_intros.flatten, hobby: hobby, categories: categories }
             view 'suggestion', locals: { courses: courses_intros.flatten, hobby: hobby, categories: categories }
+          rescue StandardError => e
+            flash.now[:error] = 'Having trouble accessing Udemy courses'
+            puts e.message
+
+            routing.redirect '/'
           end
         end
       end

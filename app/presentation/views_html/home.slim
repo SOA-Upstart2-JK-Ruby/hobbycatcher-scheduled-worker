@@ -18,19 +18,31 @@
     .col-md-6.align-middle
       h1.display-1 Hobby Catcher
     .col-md-3.align-middle
-      a#catch-hobby.btn.btn-success href="/test" Catch My Hobby Now!
+      form role="form" action="/test" method='POST' id='show-hobby-form'
+        button { 
+          type='submit' id='hobby-form-submit' class='submit' 
+          value='submit' class="btn btn-success" 
+        } Catch My Hobby Now!
     .col-md-3.align-middle
-      a#history.btn.btn-success href="/history" Check My History
-  /.row
-    .col-md-2.align-right
-      a#history.btn.btn-success href="/history" Check My History
+      form role="form" action="/history_test" method='POST' id='show-hobby-form'      
+        button { 
+          type='submit' id='hobby-form-submit' class='submit' 
+          value='submit' class="btn btn-success" 
+        } Check My History
+  .row.align-items-center
+    h5 Other visiters are:
+    - hobbies.each do |hobby|
+      - if hobby.user_num != 0
+        .col.align-middle
+          img src="#{hobby.img}" style="height:100px"
+          h5 #{hobby.name}: #{hobby.user_num}
   /form role="form" action="/test" method='POST' id='show-hobby-form'
       .col-md-6.col-sm-6
         button { 
           type='submit' id='hobby-form-submit' class='submit' 
           value='submit' class="btn btn-success" 
         }  Catch My Hobby Now!
-  /form role="form" action="/history" method='POST' id='show-hobby-form'      
+  /form role="form" action="/history_test" method='POST' id='show-hobby-form'      
       .col-md-6.col-sm-6
         button { 
           type='submit' id='hobby-form-submit' class='submit' 
