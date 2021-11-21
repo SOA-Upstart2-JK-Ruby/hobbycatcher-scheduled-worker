@@ -6,9 +6,21 @@ task :default do
   puts `rake -T`
 end
 
-desc 'Keep rerunning tests upon changes'
+desc 'Run unit and integration tests'
+Rake::TestTask.new(:spec) do |t|
+  t.pattern = 'spec/tests/{integration,unit}/**/*_spec.rb'
+  t.warning = false
+end
+
+desc 'Keep rerunning unit/integration tests upon changes'
 task :respec do
   sh "rerun -c 'rake spec' --ignore 'coverage/*'"
+end
+
+desc 'Run acceptance tests'
+task :spec_accept do
+  puts 'NOTE: run app in test environment in another process'
+  sh 'ruby spec/tests/acceptance/acceptance_spec.rb'
 end
 
 desc 'Keep restarting web app upon changes'
@@ -29,6 +41,7 @@ namespace :db do
   task migrate: :config do
     Sequel.extension :migration
     puts "Migrating #{app.environment} database to latest"
+    puts "Need to run 'HobbyCatcher::InitializeDatabase::Create.load'"
     Sequel::Migrator.run(app.DB, 'app/infrastructure/database/migrations')
   end
 
@@ -39,6 +52,8 @@ namespace :db do
       return
     end
 
+    require_relative 'app/infrastructure/database/init'
+    require_relative 'spec/helpers/database_helper'
     DatabaseHelper.wipe_database
   end
 
@@ -49,10 +64,57 @@ namespace :db do
       return
     end
 
-    FileUtils.rm(HobbyCatcher::App.config.DB_FILENAME)
-    puts "Deleted #{HobbyCatcher::App.config.DB_FILENAME}"
+    FileUtils.rm(app.config.DB_FILENAME)
+    puts "Deleted #{app.config.DB_FILENAME}"
   end
 end
+
+namespace :repos do
+  task :config do
+    require_relative 'config/environment' # load config info
+    def app() = HobbyCatcher::App
+  end
+
+  desc 'Create director for repo store'
+  task create: :config do
+    puts `mkdir #{app.config.REPOSTORE_PATH}`
+  end
+
+  desc 'Delete cloned repos in repo store'
+  task wipe: :config do
+    sh "rm -rf #{app.config.REPOSTORE_PATH}/*" do |ok, _|
+      puts(ok ? 'Cloned repos deleted' : 'Could not delete cloned repos')
+    end
+  end
+
+  desc 'List cloned repos in repo store'
+  task list: :config do
+    puts `ls #{app.config.REPOSTORE_PATH}`
+  end
+end
+# namespace :repos do
+#   task :config do
+#     require_relative 'config/environment' # load config info
+#     def app() = HobbyCatcher::App
+#   end
+
+#   desc 'Create director for repo store'
+#   task :create => :config do
+#     puts `mkdir #{app.config.REPOSTORE_PATH}`
+#   end
+
+#   desc 'Delete cloned repos in repo store'
+#   task :wipe => :config do
+#     sh "rm -rf #{app.config.REPOSTORE_PATH}/*" do |ok, _|
+#       puts(ok ? 'Cloned repos deleted' : 'Could not delete cloned repos')
+#     end
+#   end
+
+#   desc 'List cloned repos in repo store'
+#   task :list => :config do
+#     puts `ls #{app.config.REPOSTORE_PATH}`
+#   end
+# end
 
 desc 'Run application console'
 task :console do
@@ -86,11 +148,6 @@ namespace :quality do
 
   desc 'complexiy analysis'
   task :flog do
-    sh "flog #{only_app}"
-  end
-
-  desc 'complexiy analysis - detailed'
-  task :dflog do
-    sh "flog -d #{only_app}"
+    sh "flog -m #{only_app}"
   end
 end

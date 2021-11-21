@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require 'sequel'
+# require 'sequel'
 
 module HobbyCatcher
   module Database
     # Object-Relational Mapper for Courses
-    class CourseOrm < Sequel::Model(:courses)
+    class HobbyOrm < Sequel::Model(:hobbies)
       one_to_many :owned_categories,
-                   class: :'HobbyCatcher::Database::CategoryOrm',
-                   key:   :category_owner_id
+                  class: :'HobbyCatcher::Database::CategoryOrm',
+                  key:   :ownhobby_id
 
       plugin :timestamps, update_on_create: true
 
-      # def self.find_or_create(course_info)
-      #   first(title: course_info[:title]) || create(course_info)
-      # end
+      def self.find_or_create(hobby_info)
+        first(name: hobby_info[:name]) || create(hobby_info)
+      end
     end
   end
 end

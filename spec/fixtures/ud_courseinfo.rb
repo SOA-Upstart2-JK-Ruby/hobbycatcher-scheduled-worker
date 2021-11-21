@@ -18,14 +18,14 @@ def call_ud_url(url)
 end
 
 ud_response = {}
-ud_results = {}
 
 NEWLINE = "\n"
+FIELDS = 'avg_rating,primary_subcategory,image_240x135,price,title,url,id'
 
 # HAPPY course list (clist) request
 field = 'category'
 keyword = 'Design'
-clist_url = ud_api_path("?#{field}=#{keyword}&fields[course]=avg_rating, primary_category, image_240x135, price, title, url, id")
+clist_url = ud_api_path("?#{field}=#{keyword.gsub(' ', '%20')}&fields[course]=#{FIELDS}")
 ud_response[clist_url] = call_ud_url(config, clist_url)
 clist = ud_response[clist_url].parse
 
@@ -40,7 +40,7 @@ ud_results = courses.map do |course|
   info = ud_response[course_url].parse
 
   value = info['id'], info['title'], "https://www.udemy.com#{course['url']}",
-          info['price'], info['image_240x135'], info['avg_rating'],info['primary_category']
+          info['price'], info['image_240x135'], info['avg_rating'], info['primary_subcategory']
   key.zip(value).to_h
 end
 
