@@ -23,10 +23,10 @@ NEWLINE = "\n"
 FIELDS = 'avg_rating,primary_subcategory,image_240x135,price,title,url,id'
 
 # HAPPY course list (clist) request
-field = 'category'
-keyword = 'Design'
+field = 'subcategory'
+keyword = 'Dance'
 clist_url = ud_api_path("?#{field}=#{keyword.gsub(' ', '%20')}&fields[course]=#{FIELDS}")
-ud_response[clist_url] = call_ud_url(config, clist_url)
+ud_response[clist_url] = call_ud_url(clist_url)
 clist = ud_response[clist_url].parse
 
 courses = clist['results']
@@ -35,12 +35,12 @@ courses = clist['results']
 key = %w[id title url price image rating category]
 
 ud_results = courses.map do |course|
-  course_url = ud_api_path("#{course['id']}/?fields[course]=@all")
-  ud_response[course_url] = call_ud_url(course_url)
-  info = ud_response[course_url].parse
+  # course_url = ud_api_path("#{course['id']}/?fields[course]=@all")
+  # ud_response[course_url] = call_ud_url(course_url)
+  # info = ud_response[course_url].parse
 
-  value = info['id'], info['title'], "https://www.udemy.com#{course['url']}",
-          info['price'], info['image_240x135'], info['avg_rating'], info['primary_subcategory']
+  value = course['id'], course['title'], "https://www.udemy.com#{course['url']}",
+  course['price'], course['image_240x135'], course['avg_rating'], course['primary_subcategory']['title']
   key.zip(value).to_h
 end
 

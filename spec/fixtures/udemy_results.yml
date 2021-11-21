@@ -1,181 +1,85 @@
 ---
-- id: 1298438
-  title: Art Fundamentals - Building Blocks of Digital Painting
-  url: https://www.udemy.com/course/art-fundamentals-in-one-hour/
+- id: 3715984
+  title: Full Bellydance choreography of the song Ensay!
+  url: https://www.udemy.com/course/ensayenglish/
   price: Free
-  image: https://img-b.udemycdn.com/course/240x135/1298438_2631.jpg?secure=WMysbJr2MQ4WdlzwMYke1A%3D%3D%2C1636557246
-  rating: 4.7222223
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
-- id: 1298462
-  title: Photoshop Fundamentals
-  url: https://www.udemy.com/course/photoshop-fundamentals-in-one-hour/
+  image: https://img-b.udemycdn.com/course/240x135/3715984_22bb_2.jpg?secure=Wzk-ymK6XvgfOrpQWNIapQ%3D%3D%2C1637565812
+  rating: 4.7
+  category: Dance
+- id: 2790000
+  title: Free Bachata Mini Course - Introduction To Bachata Dancing
+  url: https://www.udemy.com/course/freebachataminicourse/
   price: Free
-  image: https://img-b.udemycdn.com/course/240x135/1298462_38dd.jpg?secure=V-yXDzrUKwy3_YgyWS0vkw%3D%3D%2C1636557247
-  rating: 4.5160255
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
-- id: 2689650
-  title: Photoshop CC 2020 Productivity Techniques
-  url: https://www.udemy.com/course/photoshop-cc-2019-productivity-techniques/
+  image: https://img-c.udemycdn.com/course/240x135/2790000_69e0_2.jpg
+  rating: 4.65
+  category: Dance
+- id: 968434
+  title: How To Breakdance - From Beginner To Pro In Just 7 Days
+  url: https://www.udemy.com/course/how-to-breakdance-from-beginner-to-pro-in-just-7-days/
   price: Free
-  image: https://img-b.udemycdn.com/course/240x135/2689650_f696.jpg?secure=jf8R6TDk3PVQKZ0JbfzGoA%3D%3D%2C1636557248
-  rating: 4.629032
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
-- id: 399938
-  title: Professional Logo Design in Adobe Illustrator
-  url: https://www.udemy.com/course/professional-logo-design-crash-course/
+  image: https://img-c.udemycdn.com/course/240x135/968434_0d92.jpg
+  rating: 4.6
+  category: Dance
+- id: 3870294
+  title: Free Salsa & Bachata Dance Videos
+  url: https://www.udemy.com/course/free-salsa-bachata-dance-videos/
   price: Free
-  image: https://img-c.udemycdn.com/course/240x135/399938_e897_5.jpg
-  rating: 4.5576925
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
-- id: 2657572
-  title: Free Blender Crash Course!
-  url: https://www.udemy.com/course/blender-crash-course/
+  image: https://img-c.udemycdn.com/course/240x135/3870294_b0d2.jpg
+  rating: 4.4
+  category: Dance
+- id: 3517590
+  title: Full Body Isolation & Body Roll Techniques for Dancers
+  url: https://www.udemy.com/course/full-body-isolation-body-roll-techniques-for-dancers/
   price: Free
-  image: https://img-c.udemycdn.com/course/240x135/2657572_8301.jpg
-  rating: 4.640625
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
-- id: 3758812
-  title: How to Draw Dynamic Stickmen
-  url: https://www.udemy.com/course/how-to-draw-dynamic-stickmen/
-  price: NT$2,290
-  image: https://img-b.udemycdn.com/course/240x135/3758812_f0fa.jpg?secure=WeahVqcWvuH9QqLjnSeyjQ%3D%3D%2C1636557250
-  rating: 4.525641
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
-- id: 2122746
-  title: Combat Knife 3D Game Asset in Blender and Substance Painter
-  url: https://www.udemy.com/course/combat-knife-3d-game-model-asset-in-blender-and-substance-painter/
+  image: https://img-c.udemycdn.com/course/240x135/3517590_37bc.jpg
+  rating: 4.8
+  category: Dance
+- id: 4378672
+  title: Beginners Dance Course - Bollywood 1
+  url: https://www.udemy.com/course/beginners-dance-course-bollywood-1/
   price: Free
-  image: https://img-c.udemycdn.com/course/240x135/2122746_fa3f.jpg
-  rating: 4.6836734
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
-- id: 918278
-  title: How to draw a realistic eye
-  url: https://www.udemy.com/course/how-to-draw-a-realistic-eye/
+  image: https://img-b.udemycdn.com/course/240x135/4378672_0727_4.jpg?secure=EJecKZq5VtVpPWKCcbWrIQ%3D%3D%2C1637565812
+  rating: 5.0
+  category: Dance
+- id: 1467302
+  title: Disco Samba - Most Simple Social Party Dance
+  url: https://www.udemy.com/course/disco-samba-dance-course-of-most-simple-social-dance/
   price: Free
-  image: https://img-c.udemycdn.com/course/240x135/918278_36fb.jpg
-  rating: 4.37931
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
-- id: 783802
-  title: Create Your Own Character in Blender
-  url: https://www.udemy.com/course/create-your-own-character/
+  image: https://img-c.udemycdn.com/course/240x135/1467302_18bc_2.jpg
+  rating: 4.45
+  category: Dance
+- id: 2897652
+  title: Dancing into Confidence
+  url: https://www.udemy.com/course/dancing-into-confidence/
   price: Free
-  image: https://img-b.udemycdn.com/course/240x135/783802_be91_9.jpg?secure=5wAyMXjgjX5TUaY5MMn9hw%3D%3D%2C1636557252
-  rating: 4.625
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
-- id: 1561106
-  title: WordPress for Beginners - How to Make a Website Step by Step
-  url: https://www.udemy.com/course/wordpress-website-tutorial/
+  image: https://img-c.udemycdn.com/course/240x135/2897652_5e5d_3.jpg
+  rating: 4.45
+  category: Dance
+- id: 3872454
+  title: Fun Bollywood Dance workout
+  url: https://www.udemy.com/course/fun-bollywood-dance-workout/
   price: Free
-  image: https://img-b.udemycdn.com/course/240x135/1561106_19a9_11.jpg?secure=t_q1D-uSkQTr1XVlwFdqQg%3D%3D%2C1636557253
-  rating: 4.422222
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
-- id: 585916
-  title: How to Build a Website with WordPress For Fun and Business
-  url: https://www.udemy.com/course/how-to-create-a-website-with-wordpress-for-fun-and-profit/
+  image: https://img-c.udemycdn.com/course/240x135/3872454_e367_4.jpg
+  rating: 4.4375
+  category: Dance
+- id: 2911302
+  title: Learn Bhangra Dance - Beginner Steps
+  url: https://www.udemy.com/course/learn-bhangra-now/
   price: Free
-  image: https://img-c.udemycdn.com/course/240x135/585916_03d9_3.jpg
-  rating: 4.75
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
-- id: 3335090
-  title: Get Started in UI/UX Design
-  url: https://www.udemy.com/course/ui-ux-designs/
+  image: https://img-c.udemycdn.com/course/240x135/2911302_b602_4.jpg
+  rating: 5.0
+  category: Dance
+- id: 4078654
+  title: Bharathanatyam Made Easy
+  url: https://www.udemy.com/course/bharathanatyam-made-easy/
   price: NT$590
-  image: https://img-b.udemycdn.com/course/240x135/3335090_4863_2.jpg?secure=iYCzYAl0_HUzROekEkanDA%3D%3D%2C1636557255
-  rating: 4.480392
-  category:
-    _class: course_category
-    id: 269
-    title: Design
-    url: "/courses/design/"
-    icon_class: udi udi-design
-    type: category
-    title_cleaned: design
-    channel_id: 1626
+  image: https://img-b.udemycdn.com/course/240x135/4078654_a89c_2.jpg?secure=Tk6ybROpOesneWkUBCywEA%3D%3D%2C1637565812
+  rating: 4.8333335
+  category: Dance
+- id: 933420
+  title: Secrets of Great Dancers to Partner Dance With Anyone
+  url: https://www.udemy.com/course/secrets-of-great-dancers-to-partner-dance-with-anyone/
+  price: Free
+  image: https://img-c.udemycdn.com/course/240x135/933420_e133_2.jpg
+  rating: 3.25
+  category: Dance
