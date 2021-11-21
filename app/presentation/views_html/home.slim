@@ -1,30 +1,53 @@
 .container
-  / form role="form" action="/introhobby" method='POST' id='show-hobby-form'
-  /   .row.vertical-align.query-bar
-  /     .col-md-2.col-sm-3
-  /       .text-right What's your hobby id ?
-  /     .col-md-8.col-sm-6
-  /       input { 
-  /         type='text' name='hobby_name'
-  /         id='hobby_name_input' class="form-control"
-  /         placeholder="e.g. 1"
-  /       }
-  /     .col-md-2.col-sm-3
-  /       button { 
-  /         type='submit' id='hobby-form-submit' class='submit' 
-  /         value='submit' class="btn btn-success" 
-  /       } Show
-  form role="form" action="/test" method='POST' id='show-hobby-form'
-      .col-md-6.col-sm-6
+  /form role="form" action="/introhobby" method='POST' id='show-hobby-form'
+    .row.vertical-align.query-bar
+      .col-md-2.col-sm-3
+        .text-right What's your hobby id ?
+      .col-md-8.col-sm-6
+        input { 
+          type='text' name='hobby_name'
+          id='hobby_name_input' class="form-control"
+          placeholder="e.g. 1"
+        }
+      .col-md-2.col-sm-3
+        button { 
+          type='submit' id='hobby-form-submit' class='submit' 
+          value='submit' class="btn btn-success" 
+        } Show
+  .row.align-items-center
+    .col-md-6.align-middle
+      h1.display-1 Hobby Catcher
+    .col-md-3.align-middle
+      form role="form" action="/test" method='POST' id='show-hobby-form'
         button { 
           type='submit' id='hobby-form-submit-test' class='submit' 
-          value='submit-test' class="btn btn-success" 
-        }  who am i ?
+          value='submit' class="btn btn-success" 
+        } Catch My Hobby Now!
+    .col-md-3.align-middle
+      form role="form" action="/history_test" method='POST' id='show-hobby-form'      
+        button { 
+          type='submit' id='hobby-form-submit' class='submit' 
+          value='submit' class="btn btn-success" 
+        } Check My History
+  .row.align-items-center
+    h5 Other visiters are:
+    - hobbies.each do |hobby|
+      - if hobby.user_num != 0
+        .col.align-middle
+          img src="#{hobby.img}" style="height:100px"
+          h5 #{hobby.name}: #{hobby.user_num}
+  /form role="form" action="/test" method='POST' id='show-hobby-form'
       .col-md-6.col-sm-6
         button { 
-          type='submit' id='hobby-form-submit-other' class='submit' 
-          value='submit-other' class="btn btn-success" 
-        } other
+          type='submit' id='hobby-form-submit' class='submit' 
+          value='submit' class="btn btn-success" 
+        }  Catch My Hobby Now!
+  /form role="form" action="/history_test" method='POST' id='show-hobby-form'      
+      .col-md-6.col-sm-6
+        button { 
+          type='submit' id='hobby-form-submit' class='submit' 
+          value='submit' class="btn btn-success" 
+        } Check My History
 
 
 / -unless view_courses.empty?

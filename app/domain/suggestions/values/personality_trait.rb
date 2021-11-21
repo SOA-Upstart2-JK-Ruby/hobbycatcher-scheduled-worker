@@ -11,7 +11,7 @@ module HobbyCatcher
   module Value
     # Value of the user's personality trait (delegates to String)
     class PersonalityTrait < SimpleDelegator
-      attr_reader :type_ans, :difficulty_ans, :freetime_ans, :mood_ans, :symbol, :description
+      attr_reader :type_ans, :difficulty_ans, :freetime_ans, :mood_ans, :symbol, :description, :valid
 
       def initialize(type_ans, difficulty_ans, freetime_ans, mood_ans)
         # super(type_ans, difficulty_ans, freetime_ans, mood_ans)
@@ -20,6 +20,7 @@ module HobbyCatcher
         @freetime_ans = freetime_ans # Value::FreeTime.new(freetime_ans)
         @mood_ans = mood_ans # Value::Mood.new(mood_ans)
         @symbol = categorize
+        #@valid = check_input
       end
 
       # def animal_name
@@ -45,25 +46,15 @@ module HobbyCatcher
         symbol = 'panda'     if @type_ans == 2 && @difficulty_ans == 2 && @freetime_ans == 2 && @mood_ans == 1
         symbol = 'hippo'     if @type_ans == 2 && @difficulty_ans == 2 && @freetime_ans == 2 && @mood_ans == 2
         symbol
-        # rubocop:disable Layout/LineLength
-        # @symbol = 'lion' if @type_ans == 'dynamic' && @difficulty_ans == 'high' && @freetime_ans == 'long' && @mood_ans == 'up'
-        # @symbol = 'giraffe' if @type_ans == 'static' && @difficulty_ans == 'high' && @freetime_ans == 'long' && @mood_ans == 'up'
-        # @symbol = 'dog' if @type_ans == 'dynamic' && @difficulty_ans == 'high' && @freetime_ans == 'short' && @mood_ans == 'up'
-        # @symbol = 'zebra' if @type_ans == 'dynamic' && @difficulty_ans == 'low' && @freetime_ans == 'long' && @mood_ans == 'up'
-        # @symbol = 'goat' if @type_ans == 'dynamic' && @difficulty_ans == 'high' && @freetime_ans == 'long' && @mood_ans == 'down'
-        # @symbol = 'rabbit' if @type_ans == 'dynamic' && @difficulty_ans == 'high' && @freetime_ans == 'short' && @mood_ans == 'up'
-        # @symbol = 'elephant' if @type_ans == 'static' && @difficulty_ans == 'low' && @freetime_ans == 'long' && @mood_ans == 'up'
-        # @symbol = 'racoon' if @type_ans == 'dynamic' && @difficulty_ans == 'low' && @freetime_ans == 'short' && @mood_ans == 'up'
-        # @symbol = 'cat' if @type_ans == 'static' && @difficulty_ans == 'high' && @freetime_ans == 'long' && @mood_ans == 'down'
-        # @symbol = 'owl' if @type_ans == 'dynamic' && @difficulty_ans == 'high' && @freetime_ans == 'short' && @mood_ans == 'down'
-        # @symbol = 'koala' if @type_ans == 'dynamic' && @difficulty_ans == 'low' && @freetime_ans == 'long' && @mood_ans == 'down'
-        # @symbol = 'hedgehog' if @type_ans == 'dynamic' && @difficulty_ans == 'low' && @freetime_ans == 'short' && @mood_ans == 'down'
-        # @symbol = 'turtle' if @type_ans == 'static' && @difficulty_ans == 'low' && @freetime_ans == 'long' && @mood_ans == 'down'
-        # @symbol = 'crocodile' if @type_ans == 'static' && @difficulty_ans == 'high' && @freetime_ans == 'short' && @mood_ans == 'down'
-        # @symbol = 'panda' if @type_ans == 'static' && @difficulty_ans == 'low' && @freetime_ans == 'short' && @mood_ans == 'up'
-        # @symbol = 'hippo' if @type_ans == 'static' && @difficulty_ans == 'low' && @freetime_ans == 'short' && @mood_ans == 'down'
-        # rubocop:enable Layout/LineLength
       end
+
+      # def check_input
+      #   if @type_ans.nil? || @difficulty_ans.nil? || @freetime_ans.nil? || @mood_ans.nil?
+      #     @valid = false
+      #   else
+      #     @valid = true
+      #   end
+      # end
     end
   end
 end
