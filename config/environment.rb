@@ -5,29 +5,31 @@ require 'yaml'
 require 'figaro'
 require 'sequel'
 require 'pry'
+require 'delegate' # needed until Rack 2.3 fixes delegateclass bug
 
 module HobbyCatcher
-  # Configuration for the App
+  # Environment-specific configuration
   class App < Roda
     plugin :environments
 
-    configure do
-      # Environment variables setup
-      Figaro.application = Figaro::Application.new(
-        environment: environment,
-        path:        File.expand_path('config/secrets.yml')
-      )
-      Figaro.load
-      def self.config() = Figaro.env
+    # Environment variables setup
+    Figaro.application = Figaro::Application.new(
+      environment: environment,
+      path:        File.expand_path('config/secrets.yml')
+    )
+    Figaro.load
+    def self.config() = Figaro.env
 
-      configure :development, :test do
-        ENV['DATABASE_URL'] = "sqlite://#{config.DB_FILENAME}"
-      end
+    use Rack::Session::Cookie, secret: config.SESSION_SECRET
 
-      # Database Setup
-      const_set(:DB, Sequel.connect(ENV['DATABASE_URL']))
-      # DB = Sequel.connect(ENV['DATABASE_URL'])
-      def self.DB() = DB # rubocop:disable Naming/MethodName
+    configure :development, :test do
+      require 'pry'; # for breakpoints
+      ENV['DATABASE_URL'] = "sqlite://#{config.DB_FILENAME}"
     end
+
+    # Database Setup
+    DB = Sequel.connect(ENV['DATABASE_URL'])
+    # deliberately :reek:UncommunicativeMethodName calling method DB
+    def self.DB() = DB # rubocop:disable Naming/MethodName
   end
 end

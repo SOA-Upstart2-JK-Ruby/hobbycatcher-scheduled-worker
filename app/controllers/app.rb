@@ -2,15 +2,21 @@
 
 require 'roda'
 require 'slim'
+require 'slim/include'
 require 'yaml'
 
 module HobbyCatcher
   # Web App
   class App < Roda
-    plugin :render, engine: 'slim', views: 'app/views'
-    plugin :assets, css: 'style.css', path: 'app/views/assets'
-    plugin :public, root: 'app/views/public'
     plugin :halt
+    plugin :flash
+    plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
+    plugin :render, engine: 'slim', views: 'app/presentation/views_html'
+    plugin :public, root: 'app/presentation/public'
+    plugin :assets, path: 'app/presentation/assets',
+                    css: 'style.css', js: 'table_row.js'
+
+    use Rack::MethodOverride # for other HTTP verbs (with plugin all_verbs
 
     # rubocop:disable Metrics/BlockLength
     route do |routing|
@@ -19,24 +25,85 @@ module HobbyCatcher
 
       # GET /
       routing.root do
-        view_courses = Repository::For.klass(Entity::Course).all
-        view 'home', locals: { view_courses: view_courses }
+        # Get cookie viewer's previously seen test history
+        session[:watching] ||= []
+
+        hobbies = session[:watching].map do |history|
+          history
+        end
+        view 'home', locals: { hobbies: hobbies }
       end
 
-      routing.on 'introhobby' do
+      routing.on 'test' do
+        routing.is do
+          routing.post do
+            questions = Repository::Questions.all
+            view 'test', locals: { questions: questions }
+
+          rescue StandardError => e
+            flash.now[:error] = 'Having trouble accessing the question database'
+            puts e.message
+            routing.redirect '/'
+          end
+        end
+      end
+
+      routing.on 'history_test' do
+        routing.post do
+          hobby = routing.params['delete']
+          delete_item = nil
+          session[:watching].each do |item|
+            delete_item = item if item.updated_at.to_s == hobby
+          end
+          session[:watching].delete(delete_item)
+
+          routing.redirect '/history_test'
+        end
+
+        routing.is do
+          routing.get do
+            # Load previously viewed hobbies
+            hobbies = session[:watching].map do |history|
+              history
+            end
+
+            if hobbies.nil?
+              flash.now[:notice] = 'Catch your hobby first to see history.'
+              routing.redirect '/'
+            end
+
+            view 'history_test', locals: { hobbies: hobbies }
+          end
+        end
+      end
+
+      routing.on 'suggestion' do
         routing.is do
           # POST /introhobby/
           routing.post do
-            hobby_name = routing.params['hobby_name']
+            type       = routing.params['type'].to_i
+            difficulty = routing.params['difficulty'].to_i
+            freetime   = routing.params['freetime'].to_i
+            emotion    = routing.params['emotion'].to_i
+            answer = [type, difficulty, freetime, emotion]
+
+            unless answer.any?(&:zero?) == false
+              flash[:error] = 'Seems like you did not answer all of the questions'
+              response.status = 400
+              routing.redirect '/test'
+            end
+            hobby = Mapper::HobbySuggestions.new(answer).build_entity
+            # Add new record to watched set in cookies
+            session[:watching].insert(0, hobby.answers).uniq!
             # Redirect viewer to project page
-            routing.redirect "introhobby/#{hobby_name}"
+            routing.redirect "suggestion/#{hobby.answers.id}"
           end
         end
 
-        routing.on String do |hobby|
+        routing.on String do |hobby_id|
           # GET /introhoppy/hoppy
           routing.get do
-            hobby = HobbyCatcher::Database::HobbyOrm.where(id: hobby).first
+            hobby = HobbyCatcher::Database::HobbyOrm.where(id: hobby_id).first
             categories = hobby.owned_categories
             courses_intros = []
             categories.map do |category|
@@ -47,31 +114,12 @@ module HobbyCatcher
               end
               courses_intros.append(courses)
             end
-            view 'introhobby', locals: { courses: courses_intros.flatten, hobby: hobby, categories: categories }
-          end
-        end
-      end
+            view 'suggestion', locals: { courses: courses_intros.flatten, hobby: hobby, categories: categories }
+          rescue StandardError => e
+            flash.now[:error] = 'Having trouble accessing Udemy courses'
+            puts e.message
 
-      routing.on 'test_2' do
-        routing.is do
-          routing.post do
-            view 'test_2'
-          end
-        end
-      end
-
-      routing.on 'test_3' do
-        routing.is do
-          routing.post do
-            view 'test_3'
-          end
-        end
-      end
-
-      routing.on 'test_4' do
-        routing.is do
-          routing.post do
-            view 'test_4'
+            routing.redirect '/'
           end
         end
       end

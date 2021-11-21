@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'spec_helper'
+require 'set'
+
+require_relative '../../helpers/spec_helper'
+require_relative '../../helpers/vcr_helper'
+require_relative '../../helpers/database_helper'
 
 describe 'Tests Udemy API library' do
   VCR.configure do |c|
@@ -15,8 +19,9 @@ describe 'Tests Udemy API library' do
     VCR.insert_cassette CASSETTE_UD_FILE,
                         record:            :new_episodes,
                         match_requests_on: %i[method uri headers]
-    @courses = HobbyCatcher::Udemy::CourseMapper.new(UDEMY_TOKEN)
-      .find(FIELD, KEYWORD)
+    # binding.pry
+    # DatabaseHelper.wipe_database
+    @courses = HobbyCatcher::Udemy::CourseMapper.new(UDEMY_TOKEN).find(FIELD, KEYWORD)
   end
 
   after do
@@ -24,7 +29,7 @@ describe 'Tests Udemy API library' do
   end
 
   describe 'Course API' do
-    it 'HAPPY: should provide courseS' do
+    it 'HAPPY: should provide courses' do
       _(@courses).wont_be_nil
     end
 
@@ -49,39 +54,46 @@ describe 'Tests Udemy API library' do
       _(courses.count).must_equal CORRECT_UD.count
 
       # course_id
-      ids = courses.map(&:course_id)
+      ids = courses.map(&:ud_course_id)
       correct_ids = CORRECT_UD.map { |c| c['id'] }
-      _(ids).must_equal correct_ids
+      # _(ids.sort).must_equal correct_ids.sort
+      assert_equal ids.to_set, correct_ids.to_set
 
       # title
       titles = courses.map(&:title)
       correct_titles = CORRECT_UD.map { |c| c['title'] }
-      _(titles).must_equal correct_titles
+      # _(titles.sort).must_equal correct_titles.sort
+      assert_equal titles.to_set, correct_titles.to_set
 
       # url
       urls = courses.map(&:url)
       correct_urls = CORRECT_UD.map { |c| c['url'] }
-      _(urls).must_equal correct_urls
+      # _(urls.sort).must_equal correct_urls.sort
+      assert_equal urls.to_set, correct_urls.to_set
 
       # price
       prices = courses.map(&:price)
       correct_prices = CORRECT_UD.map { |c| c['price'] }
-      _(prices).must_equal correct_prices
+      # _(prices.sort).must_equal correct_prices.sort
+      assert_equal prices.to_set, correct_prices.to_set
 
       # image
       images = courses.map(&:image)
       correct_images = CORRECT_UD.map { |c| c['image'] }
-      _(images).must_equal correct_images
+      # _(images.sort_by(&:length)).must_equal correct_images.sort_by(&:length)
+      assert_equal images.to_set, correct_images.to_set
 
       # rating
       ratings = courses.map(&:rating)
       correct_ratings = CORRECT_UD.map { |c| c['rating'] }
-      _(ratings).must_equal correct_ratings
+      # _(ratings.sort).must_equal correct_ratings.sort
+      assert_equal ratings.to_set, correct_ratings.to_set
 
       # category
-      categories = courses.map(&:category)
+      categories = courses.map(&:ud_category)
       correct_categories = CORRECT_UD.map { |c| c['category'] }
-      _(categories).must_equal correct_categories
+      # _(categories).must_equal correct_categories
+      assert_equal categories.to_set, correct_categories.to_set
     end
   end
 end
