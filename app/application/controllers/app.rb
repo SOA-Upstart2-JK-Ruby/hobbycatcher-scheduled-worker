@@ -35,23 +35,19 @@ module HobbyCatcher
       routing.on 'test' do
         routing.is do
           routing.post do
-            questions = Repository::Questions.all
-            
-            unless questions
-              begin
-                questions
-              rescue StandardError => e
-                flash[:error] = 'Having trouble accessing the question database'
-                puts e.message
-                routing.redirect '/'
-              end
-            end
-
             routing.redirect 'test'
           end
 
           routing.get do
-            questions = Repository::Questions.all
+            result = Service::ShowTest.new.call
+
+            if result.failure?
+              flash[:error] = result.failure
+              routing.redirect '/'
+            else
+              questions = result.value!
+            end
+
             view 'test', locals: { questions: questions }
           end
         end
@@ -72,13 +68,19 @@ module HobbyCatcher
         routing.is do
           routing.get do
             # Load previously viewed hobbies
-            hobbies = session[:watching]
+            result = Service::ListHistories.new.call(session[:watching])
 
-            if hobbies.empty?
-              flash.now[:notice] = 'Catch your hobby first to see history.'
+            if result.failure?
+              flash[:error] = result.failure
+              viewable_hobbies = []
+            else
+              hobbies = result.value!
+              if hobbies.empty?
+                flash.now[:notice] = 'Catch your hobby first to see history.'
+              end
+
+              viewable_hobbies = Views::HobbiesList.new(hobbies)
             end
-
-            viewable_hobbies = Views::HobbiesList.new(hobbies)
 
             view 'history', locals: { hobbies: viewable_hobbies }
           end
