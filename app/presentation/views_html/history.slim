@@ -12,18 +12,18 @@
           th Link
       tbody
         - hobbies.each do |hobby|
-          tr class="table-row history_row" data-href='/suggestion/#{hobby.id}' id="#{hobby.id}.row"
+          tr class="table-row history_row" data-href='#{hobby.result_url}' id="#{hobby.index_str}.row"
             td id='delete_history'
               form role='form' method='post' action='/history'
                 input type='hidden' name='delete' value="#{hobby.time}"
-                button type="submit" class="btn btn-sm btn-link" id="#{hobby.id}.delete"
+                button type="submit" class="btn btn-sm btn-link" id="#{hobby.index_str}.delete"
                   i class="fas fa-trash-alt"
             td id='td_testing_time'
-              span class="history_table_time" id="#{hobby.id}.time"
+              span class="history_table_time" id="#{hobby.index_str}.time"
                 = hobby.standard_time
             td id='td_hobby_name'
-              span class="history_table_name" id="#{hobby.id}.name"
+              span class="history_table_name" id="#{hobby.index_str}.name"
                 = hobby.name
             td id='td_links'
-              span class="history_table_result" id="#{hobby.id}.result"
-                a href='#{hobby.result_url}' id="#{hobby.id}.link" Result
+              span class="history_table_result" id="#{hobby.index_str}.result"
+                a href='#{hobby.result_url}' id="#{hobby.index_str}.link" Result
