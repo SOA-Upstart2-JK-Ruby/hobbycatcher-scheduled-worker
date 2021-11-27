@@ -43,7 +43,7 @@ module Views
     end
 
     def standard_time
-      time.strftime("%F %R")
+      time.strftime('%F %R')
     end
 
     def result_url
@@ -51,13 +51,11 @@ module Views
     end
 
     def categories
-      @hobby.owned_categories.map { |category| Category.new(category)}
+      @hobby.owned_categories.map { |category| Category.new(category) }
     end
 
-    def categories_each
-      categories.each do |category|
-        yield category
-      end
+    def categories_each(&block)
+      categories.each(&block)
     end
 
     def categories_any?

@@ -24,8 +24,8 @@
       .row
         br
       .row
-        - if courses.any?
-          - courses.each do |course|
+        - courses.each do |course|
+          - if course.owncategory.name == category.name
             .col-md-3
               .card
                 img.card-img-top src="#{course.image}"
