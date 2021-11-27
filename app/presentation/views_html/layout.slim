@@ -37,7 +37,7 @@ html
   
     .container-fluid id='html_body'
       section
-        nav role="navigation" class="navbar navbar-expand-lg navbar-light bg-light"
+        nav role="navigation" class="navbar navbar-expand-lg navbar-light bg-light" id='main_header'
           a class="navbar-brand" rel="home" href="/" &emsp;HobbyCatcher
 
     .container
@@ -45,6 +45,19 @@ html
       section
         include :flash_bar
         == yield
-      
+
+    /.container id='html_body'
+      section
+        nav role="navigation" class="navbar navbar-expand-lg navbar-light bg-light"
+          a class="navbar-brand" rel="home" href="/" &emsp;HobbyCatcher
+        /.row style="vertical-align: middle;"
+          .col-12
+            h1 id='main_header'
+              a href="/" HobbyCatcher
+
+      section
+        include :flash_bar
+        == yield
+
     .footer
       == render :footer
