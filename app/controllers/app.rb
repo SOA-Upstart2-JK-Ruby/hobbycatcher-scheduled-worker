@@ -48,7 +48,7 @@ module HobbyCatcher
         end
       end
 
-      routing.on 'history_test' do
+      routing.on 'history' do
         routing.post do
           hobby = routing.params['delete']
           delete_item = nil
@@ -57,7 +57,7 @@ module HobbyCatcher
           end
           session[:watching].delete(delete_item)
 
-          routing.redirect '/history_test'
+          routing.redirect '/history'
         end
 
         routing.is do
@@ -72,7 +72,7 @@ module HobbyCatcher
               routing.redirect '/'
             end
 
-            view 'history_test', locals: { hobbies: hobbies }
+            view 'history', locals: { hobbies: hobbies }
           end
         end
       end
@@ -88,7 +88,7 @@ module HobbyCatcher
             answer = [type, difficulty, freetime, emotion]
 
             unless answer.any?(&:zero?) == false
-              flash[:error] = 'Seems like you did not answer all of the questions'
+              flash.now[:error] = 'Seems like you did not answer all of the questions'
               response.status = 400
               routing.redirect '/test'
             end
