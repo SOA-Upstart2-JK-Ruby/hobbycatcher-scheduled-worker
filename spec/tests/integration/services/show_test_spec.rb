@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../../../helpers/spec_helper.rb'
-require_relative '../../../helpers/vcr_helper.rb'
-require_relative '../../../helpers/database_helper.rb'
+require_relative '../../../helpers/spec_helper'
+require_relative '../../../helpers/vcr_helper'
+require_relative '../../../helpers/database_helper'
 
 require 'ostruct'
 
@@ -24,7 +24,7 @@ describe 'Show Test Service Test' do
 
     it 'HAPPY: should return test that are being watched' do
       questions = HobbyCatcher::Repository::Questions.all
-      
+
       # WHEN: we request all watched test
       result = HobbyCatcher::Service::ShowTest.new.call
 

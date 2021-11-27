@@ -75,9 +75,7 @@ module HobbyCatcher
               viewable_hobbies = []
             else
               hobbies = result.value!
-              if hobbies.empty?
-                flash.now[:notice] = 'Catch your hobby first to see history.'
-              end
+              flash.now[:notice] = 'Catch your hobby first to see history.' if hobbies.empty?
 
               viewable_hobbies = Views::HobbiesList.new(hobbies)
             end
@@ -126,7 +124,7 @@ module HobbyCatcher
             end
             viewable_hobby = Views::Hobby.new(hobby)
             view 'suggestion', locals: { hobby: viewable_hobby, courses: courses_intros.flatten }
-          
+
           rescue StandardError => e
             flash[:error] = 'Having trouble accessing Udemy courses'
             puts e.message

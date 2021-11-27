@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../../../helpers/spec_helper.rb'
-require_relative '../../../helpers/vcr_helper.rb'
-require_relative '../../../helpers/database_helper.rb'
+require_relative '../../../helpers/spec_helper'
+require_relative '../../../helpers/vcr_helper'
+require_relative '../../../helpers/database_helper'
 
 require 'ostruct'
 
@@ -26,7 +26,7 @@ describe 'List History Hobbies Service Integration Test' do
       # GIVEN: a valid hobby exists locally and is being watched
       hobby = HobbyCatcher::Database::HobbyOrm
         .where(name: ANIMAL)
-      
+
       watched_list = [hobby]
 
       # WHEN: we request a list of all watched hobby
