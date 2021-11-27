@@ -15,15 +15,15 @@
           tr class="table-row history_row" data-href='/suggestion/#{hobby.id}' id="#{hobby.id}.row"
             td id='delete_history'
               form role='form' method='post' action='/history'
-                input type='hidden' name='delete' value="#{hobby.updated_at}"
+                input type='hidden' name='delete' value="#{hobby.time}"
                 button type="submit" class="btn btn-sm btn-link" id="#{hobby.id}.delete"
                   i class="fas fa-trash-alt"
             td id='td_testing_time'
               span class="history_table_time" id="#{hobby.id}.time"
-                = hobby.updated_at.strftime("%F %R")
+                = hobby.standard_time
             td id='td_hobby_name'
               span class="history_table_name" id="#{hobby.id}.name"
                 = hobby.name
             td id='td_links'
               span class="history_table_result" id="#{hobby.id}.result"
-                a href='/suggestion/#{hobby.id}' id="#{hobby.id}.link" Result
+                a href='#{hobby.result_url}' id="#{hobby.id}.link" Result

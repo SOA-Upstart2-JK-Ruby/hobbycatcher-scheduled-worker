@@ -27,11 +27,9 @@ module HobbyCatcher
       routing.root do
         # Get cookie viewer's previously seen test history
         session[:watching] ||= []
+        viewable_hobbies = Views::HobbiesList.new(session[:watching])
 
-        hobbies = session[:watching].map do |history|
-          history
-        end
-        view 'home', locals: { hobbies: hobbies }
+        view 'home', locals: { hobbies: viewable_hobbies }
       end
 
       routing.on 'test' do
@@ -41,7 +39,7 @@ module HobbyCatcher
             
             unless questions
               begin
-                questions = Repository::Questions.all
+                questions
               rescue StandardError => e
                 flash[:error] = 'Having trouble accessing the question database'
                 puts e.message
@@ -80,7 +78,9 @@ module HobbyCatcher
               flash.now[:notice] = 'Catch your hobby first to see history.'
             end
 
-            view 'history', locals: { hobbies: hobbies }
+            viewable_hobbies = Views::HobbiesList.new(hobbies)
+
+            view 'history', locals: { hobbies: viewable_hobbies }
           end
         end
       end
@@ -122,11 +122,12 @@ module HobbyCatcher
               end
               courses_intros.append(courses)
             end
-            view 'suggestion', locals: { courses: courses_intros.flatten, hobby: hobby, categories: categories }
+            viewable_hobby = Views::Hobby.new(hobby)
+            view 'suggestion', locals: { hobby: viewable_hobby, courses: courses_intros.flatten }
+          
           rescue StandardError => e
             flash[:error] = 'Having trouble accessing Udemy courses'
             puts e.message
-
             routing.redirect '/'
           end
         end
