@@ -121,11 +121,12 @@ module HobbyCatcher
             else
               suggestions = result.value!
             end
-         
-            viewable_hobby = Views::Hobby.new(suggestions[:hobby])
-            courses_intros = suggestions[:courses_intros]
+
+            viewable_hobby = Views::Suggestion.new(
+              suggestions[:hobby], suggestions[:categories], suggestions[:courses_intros]
+            )
             
-            view 'suggestion', locals: { hobby: viewable_hobby, courses: courses_intros.flatten }
+            view 'suggestion', locals: { hobby: viewable_hobby}
           end
         end
       end
