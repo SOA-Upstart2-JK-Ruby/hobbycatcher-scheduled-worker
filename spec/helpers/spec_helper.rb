@@ -32,10 +32,9 @@ CASSETTE_UD_FILE = 'udemy_api'
 CORRECT_ANSWERS = [1, 2, 1, 1].freeze
 ANIMAL = 'ZEBRA'
 
-#SUGGESTION DATA
+# SUGGESTION DATA
 HOBBY_ID = 1
 CATEGORY_NAME = 'Dance'
-
 
 # Helper method for acceptance tests
 # :reek:UtilityFunction

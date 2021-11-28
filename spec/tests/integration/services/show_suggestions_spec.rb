@@ -23,22 +23,20 @@ describe 'Show Suggestion Service Test' do
     end
 
     it 'HAPPY: should return suggestion related to test' do
-      
       hobby = HobbyCatcher::Repository::Hobbies.find_id(HOBBY_ID)
-      
 
       categories = HobbyCatcher::Repository::Hobbies.find_owncategories(HOBBY_ID)
-      courses =  HobbyCatcher::Udemy::CourseMapper.new(UDEMY_TOKEN).find('subcategory',CATEGORY_NAME)
+      courses =  HobbyCatcher::Udemy::CourseMapper.new(UDEMY_TOKEN).find('subcategory', CATEGORY_NAME)
       courses_intros = []
       courses.map do |course_intro|
         course = HobbyCatcher::Repository::For.entity(course_intro)
         course.create(course_intro) if course.find(course_intro).nil?
       end
       courses_intros.append(courses)
-      
+
       # WHEN: we request all related data
       result = HobbyCatcher::Service::ShowSuggestion.new.call(HOBBY_ID)
-      
+
       # THEN: we should see data in the suggestion page
       _(result.success?).must_equal true
       tests = result.value!

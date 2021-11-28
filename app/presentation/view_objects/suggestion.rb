@@ -76,7 +76,5 @@ module Views
     def courses_any?
       courses.any?
     end
-
-
   end
 end

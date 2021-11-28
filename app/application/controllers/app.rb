@@ -38,7 +38,6 @@ module HobbyCatcher
           end
 
           routing.get do
-            
             result = Service::ShowTest.new.call
 
             if result.failure?
@@ -89,7 +88,6 @@ module HobbyCatcher
         routing.is do
           # POST /introhobby/
           routing.post do
-            
             url_request = Forms::AddAnswer.new.call(routing.params)
 
             if url_request.failure?
@@ -111,9 +109,7 @@ module HobbyCatcher
         routing.on String do |hobby_id|
           # GET /introhoppy/hoppy
           routing.get do
-
             result = Service::ShowSuggestion.new.call(hobby_id)
-            
             if result.failure?
               flash[:error] = result.failure
               routing.redirect '/'
@@ -124,8 +120,8 @@ module HobbyCatcher
             viewable_hobby = Views::Suggestion.new(
               suggestions[:hobby], suggestions[:categories], suggestions[:courses_intros]
             )
-            
-            view 'suggestion', locals: { hobby: viewable_hobby}
+
+            view 'suggestion', locals: { hobby: viewable_hobby }
           end
         end
       end
