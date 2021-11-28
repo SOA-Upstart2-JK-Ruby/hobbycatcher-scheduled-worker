@@ -14,11 +14,7 @@ module HobbyCatcher
     
         categories = Repository::Hobbies.find_owncategories(input)
         hobby = Repository::Hobbies.find_id(input)
-        
-        
-         #hobby = HobbyCatcher::Database::HobbyOrm.where(id: input).first
-        # categories = hobby.owned_categories
-        
+      
         courses_intros = []
         categories.map do |category|
             courses = Udemy::CourseMapper.new(App.config.UDEMY_TOKEN).find('subcategory', category.name)

@@ -40,7 +40,6 @@ module HobbyCatcher
 
           routing.get do
             result = Service::ShowTest.new.call
-           
 
             if result.failure?
               flash[:error] = result.failure
@@ -90,17 +89,18 @@ module HobbyCatcher
         routing.is do
           # POST /introhobby/
           routing.post do
-            type       = routing.params['type'].to_i
-            difficulty = routing.params['difficulty'].to_i
-            freetime   = routing.params['freetime'].to_i
-            emotion    = routing.params['emotion'].to_i
-            answer = [type, difficulty, freetime, emotion]
 
-            unless answer.any?(&:zero?) == false
+            url_request = Forms::AddAnswer.new.call(routing.params)
+           
+            binding.pry
+            if url_request.failure?
               flash[:error] = 'Seems like you did not answer all of the questions'
               response.status = 400
               routing.redirect '/test'
             end
+
+            answer = [url_request[:type], url_request[:difficulty], url_request[:freetime], url_request[:emotion]]
+
             hobby = Mapper::HobbySuggestions.new(answer).build_entity
             # Add new record to watched set in cookies
             session[:watching].insert(0, hobby.answers).uniq!
