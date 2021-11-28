@@ -28,7 +28,6 @@ module HobbyCatcher
         # Get cookie viewer's previously seen test history
         session[:watching] ||= []
         viewable_hobbies = Views::HobbiesList.new(session[:watching])
-
         view 'home', locals: { hobbies: viewable_hobbies }
       end
 
@@ -39,6 +38,7 @@ module HobbyCatcher
           end
 
           routing.get do
+            
             result = Service::ShowTest.new.call
 
             if result.failure?
@@ -89,10 +89,9 @@ module HobbyCatcher
         routing.is do
           # POST /introhobby/
           routing.post do
-
+            
             url_request = Forms::AddAnswer.new.call(routing.params)
-           
-            binding.pry
+
             if url_request.failure?
               flash[:error] = 'Seems like you did not answer all of the questions'
               response.status = 400
