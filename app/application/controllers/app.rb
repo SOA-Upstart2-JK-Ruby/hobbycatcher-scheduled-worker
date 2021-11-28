@@ -5,6 +5,7 @@ require 'slim'
 require 'slim/include'
 require 'yaml'
 
+# :reek:RepeatedConditiona
 module HobbyCatcher
   # Web App
   class App < Roda

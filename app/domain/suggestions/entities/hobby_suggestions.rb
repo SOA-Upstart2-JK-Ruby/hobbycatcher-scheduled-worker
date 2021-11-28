@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# :reek:FeatureEnvy
+# :reek:UtilityFunction
 module HobbyCatcher
   module Entity
     # Aggregate root for suggestions domain

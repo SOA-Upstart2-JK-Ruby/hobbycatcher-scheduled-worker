@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require 'dry/monads'
-
+# :reek:NestedIterators
+# :reek:TooManyStatements
+# :reek:NilCheck
 module HobbyCatcher
   module Service
     # Retrieves array of all listed hobby entities

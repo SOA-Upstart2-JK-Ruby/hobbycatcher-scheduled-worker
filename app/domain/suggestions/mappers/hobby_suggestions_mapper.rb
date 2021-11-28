@@ -14,8 +14,6 @@ module HobbyCatcher
       def build_entity
         Entity::HobbySuggestions.new(
           answers: @answers
-          # create_time: @results.create_time,
-          # count:       @results.count
         )
       end
     end

@@ -2,6 +2,7 @@
 
 require 'dry-validation'
 
+# :reek:RepeatedConditiona
 module HobbyCatcher
   module Forms
     # do validation on test
