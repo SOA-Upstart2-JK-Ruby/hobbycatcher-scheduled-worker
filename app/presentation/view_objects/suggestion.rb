@@ -3,6 +3,7 @@
 require_relative 'category'
 require_relative 'course'
 
+# :reek:TooManyMethod
 module Views
   # View for a single hobby entity
   class Suggestion
@@ -76,7 +77,5 @@ module Views
     def courses_any?
       courses.any?
     end
-
-
   end
 end

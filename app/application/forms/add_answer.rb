@@ -2,10 +2,11 @@
 
 require 'dry-validation'
 
+# :reek:RepeatedConditiona
 module HobbyCatcher
   module Forms
+    # do validation on test
     class AddAnswer < Dry::Validation::Contract
-
       params do
         required(:type).filled(:integer)
         required(:difficulty).filled(:integer)
@@ -14,27 +15,19 @@ module HobbyCatcher
       end
 
       rule(:type) do
-        if value.nil?
-          key.failure('you must answer Q1')
-        end
+        key.failure('you must answer Q1') if value.nil?
       end
 
       rule(:difficulty) do
-        if value.nil?
-          key.failure('you must answer Q2')
-        end
+        key.failure('you must answer Q2') if value.nil?
       end
 
       rule(:freetime) do
-        if value.nil?
-          key.failure('you must answer Q3')
-        end
+        key.failure('you must answer Q3') if value.nil?
       end
 
       rule(:emotion) do
-        if value.nil?
-          key.failure('you must answer Q4')
-        end
+        key.failure('you must answer Q4') if value.nil?
       end
     end
   end

@@ -1,39 +1,38 @@
 # frozen_string_literal: true
 
 module Views
-    # View for a single category entity
-    class Course
-      def initialize(course)
-        @course = course
-      end
-  
-      def category_name
-        @course.owncategory.name
-      end
+  # View for a single course entity
+  class Course
+    def initialize(course)
+      @course = course
+    end
 
-      def entity
-        @course
-      end
+    def category_name
+      @course.owncategory.name
+    end
 
-      def image
-        @course.image
-      end
-      
-      def url
-        @course.url
-      end
+    def entity
+      @course
+    end
 
-      def price
-        @course.price
-      end
+    def image
+      @course.image
+    end
 
-      def title
-        @course.title
-      end
+    def url
+      @course.url
+    end
 
-      def rating
-        @course.rating
-      end
+    def price
+      @course.price
+    end
 
+    def title
+      @course.title
+    end
+
+    def rating
+      @course.rating
     end
   end
+end

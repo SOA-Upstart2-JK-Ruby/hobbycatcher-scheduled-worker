@@ -22,16 +22,28 @@ describe 'Show Suggestion Service Test' do
       DatabaseHelper.wipe_database
     end
 
-    it 'HAPPY: should return test that are being watched' do
-      questions = HobbyCatcher::Repository::Questions.all
+    it 'HAPPY: should return suggestion related to test' do
+      hobby = HobbyCatcher::Repository::Hobbies.find_id(HOBBY_ID)
 
-      # WHEN: we request all watched test
-      result = HobbyCatcher::Service::ShowTest.new.call
+      categories = HobbyCatcher::Repository::Hobbies.find_owncategories(HOBBY_ID)
+      courses =  HobbyCatcher::Udemy::CourseMapper.new(UDEMY_TOKEN).find('subcategory', CATEGORY_NAME)
+      courses_intros = []
+      courses.map do |course_intro|
+        course = HobbyCatcher::Repository::For.entity(course_intro)
+        course.create(course_intro) if course.find(course_intro).nil?
+      end
+      courses_intros.append(courses)
 
-      # THEN: we should see our hobby in the resulting list
+      # WHEN: we request all related data
+      result = HobbyCatcher::Service::ShowSuggestion.new.call(HOBBY_ID)
+
+      # THEN: we should see data in the suggestion page
       _(result.success?).must_equal true
       tests = result.value!
-      _(tests).must_equal questions
+
+      _(tests[:hobby]).must_equal hobby
+      _(tests[:categories]).must_equal categories
+      _(tests[:courses_intros][0].count).target.must_equal courses_intros[0].count
     end
   end
 end

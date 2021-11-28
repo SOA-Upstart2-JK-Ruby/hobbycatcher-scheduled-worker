@@ -6,7 +6,7 @@ module Views
   # View for a single hobbies list entity
   class HobbiesList
     def initialize(hobbies)
-      @hobbies = hobbies.map.with_index { |hobby, i| Hobby.new(hobby, i) }
+      @hobbies = hobbies.map.with_index { |hobby, index| Hobby.new(hobby, index) }
     end
 
     def each(&block)
