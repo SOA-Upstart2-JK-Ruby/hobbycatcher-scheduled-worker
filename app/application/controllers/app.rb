@@ -40,6 +40,7 @@ module HobbyCatcher
 
           routing.get do
             result = Service::ShowTest.new.call
+           
 
             if result.failure?
               flash[:error] = result.failure
@@ -111,24 +112,20 @@ module HobbyCatcher
         routing.on String do |hobby_id|
           # GET /introhoppy/hoppy
           routing.get do
-            hobby = HobbyCatcher::Database::HobbyOrm.where(id: hobby_id).first
-            categories = hobby.owned_categories
-            courses_intros = []
-            categories.map do |category|
-              courses = Udemy::CourseMapper.new(App.config.UDEMY_TOKEN).find('subcategory', category.name)
-              courses.map do |course_intro|
-                course = Repository::For.entity(course_intro)
-                course.create(course_intro) if course.find(course_intro).nil?
-              end
-              courses_intros.append(courses)
-            end
-            viewable_hobby = Views::Hobby.new(hobby)
-            view 'suggestion', locals: { hobby: viewable_hobby, courses: courses_intros.flatten }
 
-          rescue StandardError => e
-            flash[:error] = 'Having trouble accessing Udemy courses'
-            puts e.message
-            routing.redirect '/'
+            result = Service::ShowSuggestion.new.call(hobby_id)
+            
+            if result.failure?
+              flash[:error] = result.failure
+              routing.redirect '/'
+            else
+              suggestions = result.value!
+            end
+         
+            viewable_hobby = Views::Hobby.new(suggestions[:hobby])
+            courses_intros = suggestions[:courses_intros]
+            
+            view 'suggestion', locals: { hobby: viewable_hobby, courses: courses_intros.flatten }
           end
         end
       end
