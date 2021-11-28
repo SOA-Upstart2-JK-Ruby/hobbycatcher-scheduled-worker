@@ -7,16 +7,26 @@ ruby File.read('.ruby-version').strip
 gem 'figaro', '~> 1.2'
 gem 'rake', '~> 13.0'
 
+# PRESENTATION LAYER
+gem 'slim', '~> 4.1'
+
+# APPLICATION LAYER
 # Web Application
 gem 'puma', '~> 5.5'
 gem 'rack', '~> 2' # 2.3 will fix delegateclass bug
 gem 'roda', '~> 3.49'
-gem 'slim', '~> 4.1'
 
+# Controllers and services
+gem 'dry-monads', '~> 1.4'
+gem 'dry-transaction', '~> 0.13'
+gem 'dry-validation', '~> 1.7'
+
+# DOMAIN LAYER
 # Validation
 gem 'dry-struct', '~> 1.4'
 gem 'dry-types', '~> 1.5'
 
+# INFRASTRUCTURE LAYER
 # Networking
 gem 'http', '~> 5.0'
 
@@ -42,6 +52,7 @@ group :test do
   gem 'webmock', '~> 3.0'
 
   gem 'headless', '~> 2.3'
+  gem 'page-object', '~> 2.3'
   gem 'watir', '~> 7.0'
   gem 'webdrivers', '~> 5.0'
 end

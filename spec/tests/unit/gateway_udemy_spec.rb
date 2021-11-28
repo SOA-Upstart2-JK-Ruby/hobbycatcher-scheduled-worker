@@ -19,8 +19,6 @@ describe 'Tests Udemy API library' do
     VCR.insert_cassette CASSETTE_UD_FILE,
                         record:            :new_episodes,
                         match_requests_on: %i[method uri headers]
-    # binding.pry
-    # DatabaseHelper.wipe_database
     @courses = HobbyCatcher::Udemy::CourseMapper.new(UDEMY_TOKEN).find(FIELD, KEYWORD)
   end
 

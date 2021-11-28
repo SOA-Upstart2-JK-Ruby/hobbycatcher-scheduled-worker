@@ -11,6 +11,14 @@ module HobbyCatcher
         rebuild_entity Database::HobbyOrm.first(id: id)
       end
 
+      def self.find_owncategories(id)
+        hobby = Database::HobbyOrm.first(id: id)
+
+        hobby.owned_categories.map do |category|
+          Categories.rebuild_entity(category)
+        end
+      end
+
       def self.find_ids(hobbies)
         hobbies.map do |hobby|
           find_id(hobby.id)

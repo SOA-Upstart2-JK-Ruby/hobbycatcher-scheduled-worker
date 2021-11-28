@@ -5,6 +5,7 @@ require 'slim'
 require 'slim/include'
 require 'yaml'
 
+# :reek:RepeatedConditiona
 module HobbyCatcher
   # Web App
   class App < Roda
@@ -27,28 +28,32 @@ module HobbyCatcher
       routing.root do
         # Get cookie viewer's previously seen test history
         session[:watching] ||= []
-
-        hobbies = session[:watching].map do |history|
-          history
-        end
-        view 'home', locals: { hobbies: hobbies }
+        viewable_hobbies = Views::HobbiesList.new(session[:watching])
+        view 'home', locals: { hobbies: viewable_hobbies }
       end
 
       routing.on 'test' do
         routing.is do
           routing.post do
-            questions = Repository::Questions.all
-            view 'test', locals: { questions: questions }
+            routing.redirect 'test'
+          end
 
-          rescue StandardError => e
-            flash.now[:error] = 'Having trouble accessing the question database'
-            puts e.message
-            routing.redirect '/'
+          routing.get do
+            result = Service::ShowTest.new.call
+
+            if result.failure?
+              flash[:error] = result.failure
+              routing.redirect '/'
+            else
+              questions = result.value!
+            end
+
+            view 'test', locals: { questions: questions }
           end
         end
       end
 
-      routing.on 'history_test' do
+      routing.on 'history' do
         routing.post do
           hobby = routing.params['delete']
           delete_item = nil
@@ -57,22 +62,25 @@ module HobbyCatcher
           end
           session[:watching].delete(delete_item)
 
-          routing.redirect '/history_test'
+          routing.redirect '/history'
         end
 
         routing.is do
           routing.get do
             # Load previously viewed hobbies
-            hobbies = session[:watching].map do |history|
-              history
+            result = Service::ListHistories.new.call(session[:watching])
+
+            if result.failure?
+              flash[:error] = result.failure
+              viewable_hobbies = []
+            else
+              hobbies = result.value!
+              flash.now[:notice] = 'Catch your hobby first to see history.' if hobbies.empty?
+
+              viewable_hobbies = Views::HobbiesList.new(hobbies)
             end
 
-            if hobbies.nil?
-              flash.now[:notice] = 'Catch your hobby first to see history.'
-              routing.redirect '/'
-            end
-
-            view 'history_test', locals: { hobbies: hobbies }
+            view 'history', locals: { hobbies: viewable_hobbies }
           end
         end
       end
@@ -81,18 +89,18 @@ module HobbyCatcher
         routing.is do
           # POST /introhobby/
           routing.post do
-            type       = routing.params['type'].to_i
-            difficulty = routing.params['difficulty'].to_i
-            freetime   = routing.params['freetime'].to_i
-            emotion    = routing.params['emotion'].to_i
-            answer = [type, difficulty, freetime, emotion]
+            url_request = Forms::AddAnswer.new.call(routing.params)
 
-            unless answer.any?(&:zero?) == false
+            if url_request.failure?
               flash[:error] = 'Seems like you did not answer all of the questions'
               response.status = 400
               routing.redirect '/test'
             end
-            hobby = Mapper::HobbySuggestions.new(answer).build_entity
+
+            answer = [url_request[:type], url_request[:difficulty], url_request[:freetime], url_request[:emotion]]
+            result = Service::GetAnswer.new.call(answer)
+            hobby = result.value!
+
             # Add new record to watched set in cookies
             session[:watching].insert(0, hobby.answers).uniq!
             # Redirect viewer to project page
@@ -103,23 +111,19 @@ module HobbyCatcher
         routing.on String do |hobby_id|
           # GET /introhoppy/hoppy
           routing.get do
-            hobby = HobbyCatcher::Database::HobbyOrm.where(id: hobby_id).first
-            categories = hobby.owned_categories
-            courses_intros = []
-            categories.map do |category|
-              courses = Udemy::CourseMapper.new(App.config.UDEMY_TOKEN).find('subcategory', category.name)
-              courses.map do |course_intro|
-                course = Repository::For.entity(course_intro)
-                course.create(course_intro) if course.find(course_intro).nil?
-              end
-              courses_intros.append(courses)
+            result = Service::ShowSuggestion.new.call(hobby_id)
+            if result.failure?
+              flash[:error] = result.failure
+              routing.redirect '/'
+            else
+              suggestions = result.value!
             end
-            view 'suggestion', locals: { courses: courses_intros.flatten, hobby: hobby, categories: categories }
-          rescue StandardError => e
-            flash.now[:error] = 'Having trouble accessing Udemy courses'
-            puts e.message
 
-            routing.redirect '/'
+            viewable_hobby = Views::Suggestion.new(
+              suggestions[:hobby], suggestions[:categories], suggestions[:courses_intros]
+            )
+
+            view 'suggestion', locals: { hobby: viewable_hobby }
           end
         end
       end

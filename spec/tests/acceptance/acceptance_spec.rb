@@ -11,7 +11,6 @@ require 'watir'
 
 describe 'Acceptance Tests' do
   before do
-    # @headless = Headless.new
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument('--headless')
     # rubocop: disable Style/HashSyntax
@@ -21,7 +20,6 @@ describe 'Acceptance Tests' do
 
   after do
     @browser.close
-    # @headless.destroy
   end
 
   describe 'Homepage' do
