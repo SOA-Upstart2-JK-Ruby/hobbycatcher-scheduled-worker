@@ -79,7 +79,7 @@ module HobbyCatcher
 
         routing.on 'suggestion' do
           routing.is do
-            # POST /introhobby/
+            # POST /introhobby/freetime=0 fiffitculty=1
             routing.post do
               url_request = Request::AddAnswer.new(routing.params)
   
@@ -99,21 +99,21 @@ module HobbyCatcher
               routing.redirect "suggestion/#{hobby.answers.id}"
             end
           end
+         
           # GET /suggestion/{hobby_id} 一個或是一列
           routing.on String do |hobby_id|
-            # GET /introhoppy/hoppy
+            # GET /introhobby/hobby
             routing.get do
               result = Service::ShowSuggestion.new.call(hobby_id)
 
               if result.failure?
                 failed = Representer::HttpResponse.new(result.failure)
                 routing.halt failed.http_status_code, failed.to_json
-              else
-                suggestions = result.value!
               end
   
               http_response = Representer::HttpResponse.new(result.value!)
               response.status = http_response.http_status_code
+              #卡在回傳
               Representer::Suggestion.new(result.value!.message).to_json
               # viewable_hobby = Views::Suggestion.new(
               #   suggestions[:hobby], suggestions[:categories], suggestions[:courses_intros]
