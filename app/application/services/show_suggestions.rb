@@ -11,6 +11,7 @@ module HobbyCatcher
       include Dry::Monads[:result]
 
       def call(input)
+        
         categories = Repository::Hobbies.find_owncategories(input)
         hobby = Repository::Hobbies.find_id(input)
 
@@ -23,9 +24,21 @@ module HobbyCatcher
           end
           courses_intros.append(courses)
         end
-        Success(hobby: hobby, categories: categories, courses_intros: courses_intros)
+        # data = []
+        # binding.pry
+        # data.append(hobby)
+        # data.append(categories)
+        # data.append(courses_intros)
+        Success(Response::ApiResult.new(status: :created, message: courses_intros))
+        # data.map do |data| 
+        #   Success(Response::ApiResult.new(status: :created, message: data))
+        # end
+        
+        # Success(hobby: hobby, categories: categories, courses_intros: courses_intros)
       rescue StandardError
-        Failure('Having trouble accessing Udemy courses')
+        Failure(
+          Response::ApiResult.new(status: :internal_error, message: DB_ERR)
+        )
       end
     end
   end
