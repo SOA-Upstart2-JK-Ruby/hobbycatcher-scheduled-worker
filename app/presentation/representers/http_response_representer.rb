@@ -6,10 +6,6 @@ require 'roar/json'
 module HobbyCatcher
   module Representer
     # Representer for HTTP response information
-    # Usage:
-    #   result = Result.new(:not_found, 'resource not found')
-    #   HttpResponseRepresenter.new(result).to_json
-    #   HttpResponseRepresenter.new(result).http_status_code
     class HttpResponse < Roar::Decorator
       include Roar::JSON
 
@@ -17,15 +13,15 @@ module HobbyCatcher
       property :message
 
       HTTP_CODE = {
-        ok: 200,
-        created: 201,
-        processing: 202,
-        no_content: 204,
+        ok:             200,
+        created:        201,
+        processing:     202,
+        no_content:     204,
 
-        forbidden: 403,
-        not_found: 404,
-        bad_request: 400,
-        conflict: 409,
+        forbidden:      403,
+        not_found:      404,
+        bad_request:    400,
+        conflict:       409,
         cannot_process: 422,
 
         internal_error: 500

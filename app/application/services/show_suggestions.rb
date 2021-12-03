@@ -10,10 +10,11 @@ module HobbyCatcher
     class ShowSuggestion
       include Dry::Monads[:result]
 
+      DB_ERR = 'Having trouble accessing the database'
+
       def call(input)
-        
         categories = Repository::Hobbies.find_owncategories(input)
-        hobby = Repository::Hobbies.find_id(input)
+        # hobby = Repository::Hobbies.find_id(input)
 
         courses_intros = []
         categories.map do |category|
