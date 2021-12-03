@@ -23,6 +23,14 @@ describe 'Test API routes' do
     VcrHelper.eject_vcr
   end
   
+  describe 'Get test questions' do
+    it 'should successfully return test questions' do
+      HobbyCatcher::Service::ShowTest.new.call
+      get "/api/v1/test"
+      _(last_response.status).must_equal 200
+    end
+  end
+  
   describe 'Get suggestion information' do
     it 'should successfully return project lists' do
       HobbyCatcher::Service::ShowSuggestion.new.call(HOBBY_ID)
