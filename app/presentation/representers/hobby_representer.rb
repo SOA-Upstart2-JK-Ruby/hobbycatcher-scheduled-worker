@@ -8,6 +8,7 @@ module HobbyCatcher
     # Represents folder summary about repo's folder
     class Hobby < Roar::Decorator
       include Roar::JSON
+      property :id
       property :name
       property :img
       property :description

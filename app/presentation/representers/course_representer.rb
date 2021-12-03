@@ -9,8 +9,8 @@ module HobbyCatcher
     # Represent a Project entity as Json
     class Course < Roar::Decorator
       include Roar::JSON
-    #   include Roar::Hypermedia
-    #   include Roar::Decorator::HypermediaConsumer
+      # include Roar::Hypermedia
+      # include Roar::Decorator::HypermediaConsumer
 
       property :category_name
       property :image
@@ -19,19 +19,19 @@ module HobbyCatcher
       property :title
       property :rating
 
-    #   link :self do
-    #     "#{App.config.API_HOST}/api/v1/projects/#{project_name}/#{owner_name}"
-    #   end
+      # link :self do
+      #     "#{App.config.API_HOST}/api/v1/projects/#{project_name}/#{owner_name}"
+      # end
 
-    #   private
+      # private
 
-    #   def project_name
-    #     represented.name
-    #   end
+      # def project_name
+      #   represented.name
+      # end
 
-    #   def owner_name
-    #     represented.owner.username
-    #   end
+      # def owner_name
+      #   represented.owner.username
+      # end
     end
   end
 end
