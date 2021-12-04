@@ -42,7 +42,9 @@ module HobbyCatcher
                 routing.halt failed.http_status_code, failed.to_json
               end
 
-              view 'test', locals: { questions: questions }
+              http_response = Representer::HttpResponse.new(result.value!)
+              response.status = http_response.http_status_code
+              Representer::Test.new(result.value!.message).to_json
             end
           end
         end

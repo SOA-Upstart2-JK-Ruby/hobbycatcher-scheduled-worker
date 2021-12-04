@@ -22,6 +22,15 @@ describe 'Test API routes' do
   after do
     VcrHelper.eject_vcr
   end
+
+  describe 'Get test questions' do
+    it 'should successfully show test questions' do
+      HobbyCatcher::Service::ShowTest.new.call
+      get "/api/v1/test"
+      _(last_response.status).must_equal 201
+    end
+  end
+
   describe 'suggestion route' do
     describe 'Post test' do
       it 'should successfully return hobby answer' do
