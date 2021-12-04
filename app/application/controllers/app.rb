@@ -38,13 +38,13 @@ module HobbyCatcher
               result = Service::ShowTest.new.call
 
               if result.failure?
-                flash[:error] = result.failure
-                routing.redirect '/'
-              else
-                questions = result.value!
+                failed = Representer::HttpResponse.new(result.failure)
+                routing.halt failed.http_status_code, failed.to_json
               end
 
-              view 'test', locals: { questions: questions }
+              http_response = Representer::HttpResponse.new(result.value!)
+              response.status = http_response.http_status_code
+              Representer::Test.new(result.value!.message).to_json
             end
           end
         end
