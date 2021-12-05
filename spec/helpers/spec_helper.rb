@@ -36,6 +36,9 @@ ANIMAL = 'HEDGEHOG'
 HOBBY_ID = 1
 CATEGORY_NAME = 'Dance'
 
+# TEST DATA
+QUESTION_ID = 1
+
 # Helper method for acceptance tests
 # :reek:UtilityFunction
 def homepage

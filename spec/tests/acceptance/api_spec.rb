@@ -25,9 +25,19 @@ describe 'Test API routes' do
 
   describe 'Get test questions' do
     it 'should successfully show test questions' do
-      HobbyCatcher::Service::ShowTest.new.call
-      get '/api/v1/test'
+      HobbyCatcher::Service::ShowTest.new.call(QUESTION_ID)
+      get "/api/v1/test/#{QUESTION_ID}"
       _(last_response.status).must_equal 201
+
+      question = JSON.parse last_response.body
+      _(question['description']).must_equal 'What would you do if you had a day off?'
+    end
+
+    it 'should report error for an invalid TEST ID' do
+      HobbyCatcher::Service::ShowTest.new.call(10)
+      get "/api/v1/test/10"
+      _(last_response.status).must_equal 500
+      _(JSON.parse(last_response.body)['status']).must_include 'error'
     end
   end
 
