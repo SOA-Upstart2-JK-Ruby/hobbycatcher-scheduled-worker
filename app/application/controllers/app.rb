@@ -18,11 +18,15 @@ module HobbyCatcher
       # GET /
       routing.root do
         message = "HobbyCatcher API v1 at /api/v1/ in #{App.environment} mode"
-        # Get cookie viewer's previously seen test history
-        session[:watching] ||= []
-        viewable_hobbies = Views::HobbiesList.new(session[:watching])
-        view 'home', locals: { hobbies: viewable_hobbies }
+        
+        result_response = Representer::HttpResponse.new(
+          Response::ApiResult.new(status: :ok, message: message)
+        )
+
+        response.status = result_response.http_status_code
+        result_response.to_json
       end
+
       routing.on 'api/v1' do
         routing.on 'test' do
           routing.is do
@@ -45,37 +49,37 @@ module HobbyCatcher
           end
         end
 
-        routing.on 'history' do
-          routing.post do
-            hobby = routing.params['delete']
-            delete_item = nil
-            session[:watching].each do |item|
-              delete_item = item if item.updated_at.to_s == hobby
-            end
-            session[:watching].delete(delete_item)
+        # routing.on 'history' do
+        #   routing.post do
+        #     hobby = routing.params['delete']
+        #     delete_item = nil
+        #     session[:watching].each do |item|
+        #       delete_item = item if item.updated_at.to_s == hobby
+        #     end
+        #     session[:watching].delete(delete_item)
   
-            routing.redirect '/history'
-          end
+        #     routing.redirect '/history'
+        #   end
   
-          routing.is do
-            routing.get do
-              # Load previously viewed hobbies
-              result = Service::ListHistories.new.call(session[:watching])
+        #   routing.is do
+        #     routing.get do
+        #       # Load previously viewed hobbies
+        #       result = Service::ListHistories.new.call(session[:watching])
   
-              if result.failure?
-                flash[:error] = result.failure
-                viewable_hobbies = []
-              else
-                hobbies = result.value!
-                flash.now[:notice] = 'Catch your hobby first to see history.' if hobbies.empty?
+        #       if result.failure?
+        #         flash[:error] = result.failure
+        #         viewable_hobbies = []
+        #       else
+        #         hobbies = result.value!
+        #         flash.now[:notice] = 'Catch your hobby first to see history.' if hobbies.empty?
   
-                viewable_hobbies = Views::HobbiesList.new(hobbies)
-              end
+        #         viewable_hobbies = Views::HobbiesList.new(hobbies)
+        #       end
   
-              view 'history', locals: { hobbies: viewable_hobbies }
-            end
-          end
-        end
+        #       view 'history', locals: { hobbies: viewable_hobbies }
+        #     end
+        #   end
+        # end
 
         routing.on 'suggestion' do
           routing.is do
