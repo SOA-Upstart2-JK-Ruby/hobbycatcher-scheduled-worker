@@ -18,7 +18,7 @@ module HobbyCatcher
       # GET /
       routing.root do
         message = "HobbyCatcher API v1 at /api/v1/ in #{App.environment} mode"
-        
+
         result_response = Representer::HttpResponse.new(
           Response::ApiResult.new(status: :ok, message: message)
         )
@@ -29,13 +29,10 @@ module HobbyCatcher
 
       routing.on 'api/v1' do
         routing.on 'test' do
-          routing.is do
-            routing.post do
-              routing.redirect 'test'
-            end
-
+          routing.on String do |question_id|
+            # GET api/v1/test
             routing.get do
-              result = Service::ShowTest.new.call
+              result = Service::ShowTest.new.call(question_id)
 
               if result.failure?
                 failed = Representer::HttpResponse.new(result.failure)
@@ -67,12 +64,10 @@ module HobbyCatcher
             end
           end
 
-          # GET api/v1/suggestion/{hobby_id}
           routing.on String do |hobby_id|
-            # GET /introhobby/hobby
+            # GET api/v1/suggestion/{hobby_id}
             routing.get do
               result = Service::ShowSuggestion.new.call(hobby_id)
-              binding.pry
 
               if result.failure?
                 failed = Representer::HttpResponse.new(result.failure)
@@ -81,7 +76,6 @@ module HobbyCatcher
 
               http_response = Representer::HttpResponse.new(result.value!)
               response.status = http_response.http_status_code
-              # 卡在回傳
               Representer::Suggestion.new(result.value!.message).to_json
             end
           end

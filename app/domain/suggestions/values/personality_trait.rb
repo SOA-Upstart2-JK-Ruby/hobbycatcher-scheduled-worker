@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/AbcSize
-# rubocop:disable Metrics/CyclomaticComplexity
-# rubocop:disable Metrics/MethodLength
-# rubocop:disable Metrics/PerceivedComplexity
 # :reek:TooManyInstanceVariables
 # :reek:TooManyStatements
 module HobbyCatcher
@@ -22,15 +18,11 @@ module HobbyCatcher
       end
 
       def categorize
-        index = (@type_ans + @difficulty_ans + @freetime_ans + @mood_ans).to_i(base=2)
-        symbol_arr = ['lion', 'goat', 'dog', 'owl', 'zebra', 'koala', 'racoon', 'hedgehog', 
-                      'giraffe', 'cat', 'rabbit', 'crocodile', 'elephant', 'turtle', 'panda', 'hippo']
+        index = (@type_ans + @difficulty_ans + @freetime_ans + @mood_ans).to_i(2)
+        symbol_arr = %w[lion goat dog owl zebra koala racoon hedgehog
+                        giraffe cat rabbit crocodile elephant turtle panda hippo]
         symbol_arr[index]
       end
     end
   end
 end
-# rubocop:enable Metrics/AbcSize
-# rubocop:enable Metrics/CyclomaticComplexity
-# rubocop:enable Metrics/MethodLength
-# rubocop:enable Metrics/PerceivedComplexity
