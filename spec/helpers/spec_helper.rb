@@ -37,7 +37,7 @@ HOBBY_ID = 1
 CATEGORY_NAME = 'Dance'
 
 # TEST DATA
-TEST_ID = 1
+QUESTION_ID = 1
 
 # Helper method for acceptance tests
 # :reek:UtilityFunction
