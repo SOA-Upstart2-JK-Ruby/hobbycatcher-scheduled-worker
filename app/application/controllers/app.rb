@@ -18,8 +18,7 @@ module HobbyCatcher
       # GET /
       routing.root do
         message = "HobbyCatcher API v1 at /api/v1/ in #{App.environment} mode"
-        # Get cookie viewer's previously seen test history
-
+        
         result_response = Representer::HttpResponse.new(
           Response::ApiResult.new(status: :ok, message: message)
         )
@@ -27,6 +26,7 @@ module HobbyCatcher
         response.status = result_response.http_status_code
         result_response.to_json
       end
+
       routing.on 'api/v1' do
         routing.on 'test' do
           routing.is do
@@ -45,38 +45,6 @@ module HobbyCatcher
               http_response = Representer::HttpResponse.new(result.value!)
               response.status = http_response.http_status_code
               Representer::Test.new(result.value!.message).to_json
-            end
-          end
-        end
-
-        routing.on 'history' do
-          routing.post do
-            hobby = routing.params['delete']
-            delete_item = nil
-            session[:watching].each do |item|
-              delete_item = item if item.updated_at.to_s == hobby
-            end
-            session[:watching].delete(delete_item)
-
-            routing.redirect '/history'
-          end
-
-          routing.is do
-            routing.get do
-              # Load previously viewed hobbies
-              result = Service::ListHistories.new.call(session[:watching])
-
-              if result.failure?
-                flash[:error] = result.failure
-                viewable_hobbies = []
-              else
-                hobbies = result.value!
-                flash.now[:notice] = 'Catch your hobby first to see history.' if hobbies.empty?
-
-                viewable_hobbies = Views::HobbiesList.new(hobbies)
-              end
-
-              view 'history', locals: { hobbies: viewable_hobbies }
             end
           end
         end
@@ -104,6 +72,7 @@ module HobbyCatcher
             # GET /introhobby/hobby
             routing.get do
               result = Service::ShowSuggestion.new.call(hobby_id)
+              binding.pry
 
               if result.failure?
                 failed = Representer::HttpResponse.new(result.failure)
@@ -113,7 +82,7 @@ module HobbyCatcher
               http_response = Representer::HttpResponse.new(result.value!)
               response.status = http_response.http_status_code
               # 卡在回傳
-              Representer::Suggestion.new(result.value!.message[0][0]).to_json
+              Representer::Suggestion.new(result.value!.message).to_json
             end
           end
         end

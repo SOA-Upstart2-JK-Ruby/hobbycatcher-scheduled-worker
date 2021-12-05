@@ -12,7 +12,6 @@ module HobbyCatcher
       # include Roar::Hypermedia
       # include Roar::Decorator::HypermediaConsumer
 
-      property :category_name
       property :image
       property :url
       property :price

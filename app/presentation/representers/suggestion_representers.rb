@@ -10,14 +10,11 @@ module HobbyCatcher
     class Suggestion < Roar::Decorator
       include Roar::JSON
 
-      property :ud_course_id
-      property :image
-      property :url
-      property :price
-      property :title
-      property :rating
+      property :name
+      property :img
+      property :description
 
-      property :owncategory, extend: Representer::Category, class: OpenStruct
+      collection :categories, extend: Representer::Category, class: OpenStruct
     end
   end
 end
