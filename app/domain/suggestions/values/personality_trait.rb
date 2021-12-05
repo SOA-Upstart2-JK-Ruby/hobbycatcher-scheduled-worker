@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-<<<<<<< HEAD
-=======
-# require_relative 'test_answer'
->>>>>>> 7282fd30511a2c959280e2456633f42d1ab88c14
 # rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/CyclomaticComplexity
 # rubocop:disable Metrics/MethodLength

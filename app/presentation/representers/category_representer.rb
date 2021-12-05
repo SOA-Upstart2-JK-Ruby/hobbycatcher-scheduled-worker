@@ -2,7 +2,7 @@
 
 require 'roar/decorator'
 require 'roar/json'
-require_relative 'hobby_representer'
+require_relative 'course_representer'
 
 module HobbyCatcher
   module Representer
@@ -11,7 +11,7 @@ module HobbyCatcher
       include Roar::JSON
 
       property :name
-      property :ownhobby, extend: Representer::Hobby, class: OpenStruct
+      collection :courses, extend: Representer::Course, class: OpenStruct
     end
   end
 end

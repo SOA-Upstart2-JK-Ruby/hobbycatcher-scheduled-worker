@@ -3,6 +3,9 @@
 require 'dry-types'
 require 'dry-struct'
 
+require_relative 'category'
+require_relative 'course'
+
 module HobbyCatcher
   module Entity
     # Domain entity for hobby
