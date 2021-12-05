@@ -29,11 +29,11 @@ module HobbyCatcher
 
       routing.on 'api/v1' do
         routing.on 'test' do
-          routing.is do
+          routing.on String do |question_id|
             # GET api/v1/test
             routing.get do
               binding.pry
-              result = Service::ShowTest.new.call
+              result = Service::ShowTest.new.call(question_id)
 
               if result.failure?
                 failed = Representer::HttpResponse.new(result.failure)

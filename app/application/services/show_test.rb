@@ -9,9 +9,8 @@ module HobbyCatcher
       include Dry::Monads[:result]
       DB_ERR_MSG = 'Having trouble accessing the database'
 
-      def call
-        binding.pry
-        questions = Repository::Questions.all
+      def call(input)
+        questions = Repository::Questions.find_id(input)
 
         Success(Response::ApiResult.new(status: :created, message: questions))
       rescue StandardError
