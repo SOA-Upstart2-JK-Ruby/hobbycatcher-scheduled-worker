@@ -4,6 +4,7 @@ require 'dry/monads'
 # :reek:NestedIterators
 # :reek:TooManyStatements
 # :reek:NilCheck
+# :reek:DuplicateMethodCall
 module HobbyCatcher
   module Service
     # Retrieves array of all listed hobby entities

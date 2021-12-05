@@ -5,6 +5,7 @@ require_relative 'course_mapper'
 module HobbyCatcher
   module Udemy
     # Data Mapper: Udemy category -> Category entity
+    # :reek:UtilityFunction
     class CategoryMapper
       def initialize(ud_token, gateway_class = Udemy::Api)
         @token = ud_token

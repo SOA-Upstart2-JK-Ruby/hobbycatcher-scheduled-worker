@@ -2,6 +2,7 @@
 
 require 'dry/transaction'
 
+# :reek:FeatureEnvy
 module HobbyCatcher
   module Service
     # Retrieves array of all listed hobby entities
@@ -13,7 +14,7 @@ module HobbyCatcher
 
       private
 
-      DB_ERR_MSG = 'Having troretrieve_hobbyuble accessing the database'
+      DB_ERR_MSG = 'Having troble accessing the database'
 
       # Expects answer in input
       def validate_answer(input)
