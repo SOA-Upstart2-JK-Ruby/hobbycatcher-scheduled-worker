@@ -1,21 +1,37 @@
 # frozen_string_literal: true
 
-require 'dry/monads'
+require 'dry/transaction'
 
 module HobbyCatcher
   module Service
     # Retrieves array of all listed hobby entities
     class GetAnswer
-      include Dry::Monads[:result]
-      DB_ERR_MSG = 'Having trouble accessing the database'
+      include Dry::Transaction
 
-      def call(answer)
-        hobby = Mapper::HobbySuggestions.new(answer).build_entity
+      step :validate_answer
+      step :retrieve_hobby
 
+      private
+
+      DB_ERR_MSG = 'Having troretrieve_hobbyuble accessing the database'
+
+      # Expects answer in input
+      def validate_answer(input)
+        answer_request = input[:url_request].call
+        if answer_request.success?
+          Success(input.merge(answer: answer_request.value!))
+        else
+          Failure(answer_request.failure)
+        end
+      end
+
+      def retrieve_hobby(input)
+        hobby = Mapper::HobbySuggestions.new(input[:answer]).build_entity
         Success(Response::ApiResult.new(status: :created, message: hobby))
-      rescue StandardError => e
-        puts e.backtrace.join("\n")
-        Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR_MSG))
+      rescue StandardError
+        Failure(
+          Response::ApiResult.new(status: :internal_error, message: DB_ERR)
+        )
       end
     end
   end

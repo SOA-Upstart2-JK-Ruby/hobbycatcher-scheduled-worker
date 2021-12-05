@@ -18,7 +18,12 @@ module HobbyCatcher
       # GET /
       routing.root do
         message = "HobbyCatcher API v1 at /api/v1/ in #{App.environment} mode"
+<<<<<<< HEAD
         
+=======
+        # Get cookie viewer's previously seen test history
+
+>>>>>>> 7282fd30511a2c959280e2456633f42d1ab88c14
         result_response = Representer::HttpResponse.new(
           Response::ApiResult.new(status: :ok, message: message)
         )
@@ -33,18 +38,18 @@ module HobbyCatcher
             routing.post do
               routing.redirect 'test'
             end
-  
+
             routing.get do
               result = Service::ShowTest.new.call
-  
+
               if result.failure?
-                flash[:error] = result.failure
-                routing.redirect '/'
-              else
-                questions = result.value!
+                failed = Representer::HttpResponse.new(result.failure)
+                routing.halt failed.http_status_code, failed.to_json
               end
-  
-              view 'test', locals: { questions: questions }
+
+              http_response = Representer::HttpResponse.new(result.value!)
+              response.status = http_response.http_status_code
+              Representer::Test.new(result.value!.message).to_json
             end
           end
         end
@@ -83,28 +88,23 @@ module HobbyCatcher
 
         routing.on 'suggestion' do
           routing.is do
-            # POST /introhobby/freetime=0 fiffitculty=1
+            # POST api/v1/suggestion?type=1&difficulty=1&freetime=1&emotion=1
             routing.post do
-              url_request = Request::AddAnswer.new(routing.params)
-  
-              if url_request.failure?
-                flash[:error] = 'Seems like you did not answer all of the questions'
-                response.status = 400
-                routing.redirect '/test'
+              url_req = Request::AddAnswer.new(routing.params)
+              result = Service::GetAnswer.new.call(url_request: url_req)
+
+              if result.failure?
+                failed = Representer::HttpResponse.new(result.failure)
+                routing.halt failed.http_status_code, failed.to_json
               end
-  
-              answer = [url_request[:type], url_request[:difficulty], url_request[:freetime], url_request[:emotion]]
-              result = Service::GetAnswer.new.call(answer)
-              hobby = result.value!
-  
-              # Add new record to watched set in cookies
-              session[:watching].insert(0, hobby.answers).uniq!
-              # Redirect viewer to project page
-              routing.redirect "suggestion/#{hobby.answers.id}"
+
+              http_response = Representer::HttpResponse.new(result.value!)
+              response.status = http_response.http_status_code
+              Representer::Hobby.new(result.value!.message.answers).to_json
             end
           end
-         
-          # GET /suggestion/{hobby_id} 一個或是一列
+
+          # GET api/v1/suggestion/{hobby_id}
           routing.on String do |hobby_id|
             # GET /introhobby/hobby
             routing.get do
@@ -114,16 +114,11 @@ module HobbyCatcher
                 failed = Representer::HttpResponse.new(result.failure)
                 routing.halt failed.http_status_code, failed.to_json
               end
-  
+
               http_response = Representer::HttpResponse.new(result.value!)
               response.status = http_response.http_status_code
-              #卡在回傳
-              Representer::Suggestion.new(result.value!.message).to_json
-              # viewable_hobby = Views::Suggestion.new(
-              #   suggestions[:hobby], suggestions[:categories], suggestions[:courses_intros]
-              # )
-  
-              # view 'suggestion', locals: { hobby: viewable_hobby }
+              # 卡在回傳
+              Representer::Suggestion.new(result.value!.message[0][0]).to_json
             end
           end
         end
