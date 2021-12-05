@@ -18,7 +18,7 @@ module HobbyCatcher
       # GET /
       routing.root do
         message = "HobbyCatcher API v1 at /api/v1/ in #{App.environment} mode"
-        
+
         result_response = Representer::HttpResponse.new(
           Response::ApiResult.new(status: :ok, message: message)
         )
@@ -32,7 +32,6 @@ module HobbyCatcher
           routing.on String do |question_id|
             # GET api/v1/test
             routing.get do
-              binding.pry
               result = Service::ShowTest.new.call(question_id)
 
               if result.failure?
