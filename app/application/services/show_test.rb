@@ -10,6 +10,7 @@ module HobbyCatcher
       DB_ERR_MSG = 'Having trouble accessing the database'
 
       def call
+        binding.pry
         questions = Repository::Questions.all
 
         Success(Response::ApiResult.new(status: :created, message: questions))
