@@ -11,7 +11,6 @@ module HobbyCatcher
 
       def call(input)
         questions = Repository::Questions.find_id(input)
-        descriptions = questions.description
 
         Success(Response::ApiResult.new(status: :created, message: questions))
       rescue StandardError

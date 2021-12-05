@@ -18,9 +18,7 @@ module HobbyCatcher
       end
 
       def build_entity(data)
-        # data['results'].map do |datam|
         DataMapper.new(data).build_entity
-        # end
       end
 
       # Extracts entity specific elements from data structure
@@ -29,8 +27,6 @@ module HobbyCatcher
           @data = data['results']
           category_name = @data[0]['primary_subcategory']['title']
           category = HobbyCatcher::Database::CategoryOrm.where(name: category_name).first
-          # binding.pry
-          # @courses = category.owned_courses.map(&:to_hash)
           @category = category.to_hash
         end
 
@@ -54,7 +50,7 @@ module HobbyCatcher
         end
 
         def courses
-          @data.map do |course| 
+          @data.map do |course|
             CourseMapper.build_entity(course)
           end
         end

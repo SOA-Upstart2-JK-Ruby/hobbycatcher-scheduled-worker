@@ -42,7 +42,7 @@ module HobbyCatcher
       end
 
       def self.update_courses(entity)
-        raise 'Courses already exists' if !find(entity).courses.empty?
+        raise 'Courses already exists' unless find(entity).courses.empty?
 
         db_category = PersistCategory.new(entity).call_for_update
         rebuild_entity(db_category)
@@ -81,7 +81,6 @@ module HobbyCatcher
 
         def call
           create_category.tap do |db_category|
-
             @entity.courses.each do |course|
               db_category.add_course(Courses.db_find_or_create(course))
             end
