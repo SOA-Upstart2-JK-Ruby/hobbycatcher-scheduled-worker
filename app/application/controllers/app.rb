@@ -33,9 +33,12 @@ module HobbyCatcher
             routing.post do
               routing.redirect 'test'
             end
+          end 
 
+          # GET api/v1/test/{test_id}
+          routing.on String do |test_id|
             routing.get do
-              result = Service::ShowTest.new.call
+              result = Service::ShowTest.new.call(test_id)
 
               if result.failure?
                 failed = Representer::HttpResponse.new(result.failure)
@@ -72,7 +75,7 @@ module HobbyCatcher
             # GET /introhobby/hobby
             routing.get do
               result = Service::ShowSuggestion.new.call(hobby_id)
-              binding.pry
+              #binding.pry
 
               if result.failure?
                 failed = Representer::HttpResponse.new(result.failure)
