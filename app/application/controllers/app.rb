@@ -31,6 +31,8 @@ module HobbyCatcher
         routing.on 'test' do
           # GET api/v1/test
           routing.get do
+            response.cache_control public: true, max_age: 300
+            
             result = Service::ShowTest.new.call
 
             if result.failure?
@@ -40,7 +42,7 @@ module HobbyCatcher
 
             http_response = Representer::HttpResponse.new(result.value!)
             response.status = http_response.http_status_code
-            # result.value!.message.map |result|  
+            # result.value!.message.map |result|
            
             Representer::Test.new(result.value!.message).to_json
           end
