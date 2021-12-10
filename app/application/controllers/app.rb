@@ -7,7 +7,7 @@ module HobbyCatcher
   # Web App
   class App < Roda
     plugin :halt
-    plugin :flash
+    plugin :caching
     plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
     use Rack::MethodOverride # for other HTTP verbs (with plugin all_verbs
 
@@ -31,6 +31,8 @@ module HobbyCatcher
         routing.on 'test' do
           # GET api/v1/test
           routing.get do
+            response.cache_control public: true, max_age: 300
+            
             result = Service::ShowTest.new.call
 
             if result.failure?
@@ -40,7 +42,7 @@ module HobbyCatcher
 
             http_response = Representer::HttpResponse.new(result.value!)
             response.status = http_response.http_status_code
-            # result.value!.message.map |result|  
+            # result.value!.message.map |result|
            
             Representer::Test.new(result.value!.message).to_json
           end
@@ -67,6 +69,8 @@ module HobbyCatcher
           routing.on String do |hobby_id|
             # GET api/v1/suggestion/{hobby_id}
             routing.get do
+              response.cache_control public: true, max_age: 300
+              
               result = Service::ShowSuggestion.new.call(hobby_id)
 
               if result.failure?
