@@ -8,20 +8,20 @@ require 'dry/monads'
 module HobbyCatcher
   module Service
     # Retrieves array of all listed hobby entities
-    class ShowSuggestion
+    class AddCourses
       include Dry::Monads[:result]
 
       DB_ERR = 'Having trouble accessing the database'
 
       # rubocop:disable Metrics/AbcSize
       def call(input)
-        # hobby = Repository::Hobbies.find_id(input)
-
-        # hobby.categories.each do |category|
-        #   list = Udemy::CategoryMapper.new(App.config.UDEMY_TOKEN).find('subcategory', category.name)
-        #   Repository::For.entity(list).update_courses(list) if category.courses.empty?
-        # end
         hobby = Repository::Hobbies.find_id(input)
+
+        hobby.categories.each do |category|
+          list = Udemy::CategoryMapper.new(App.config.UDEMY_TOKEN).find('subcategory', category.name)
+          Repository::For.entity(list).update_courses(list) if category.courses.empty?
+        end
+        # hobby = Repository::Hobbies.find_id(input)
 
         Success(Response::ApiResult.new(status: :created, message: hobby))
       rescue StandardError
