@@ -18,6 +18,9 @@ module HobbyCatcher
       # GET /
       routing.root do
         message = "HobbyCatcher API v1 at /api/v1/ in #{App.environment} mode"
+        
+        # 存courses
+        Service::AddCoursesWorker.new.call
 
         result_response = Representer::HttpResponse.new(
           Response::ApiResult.new(status: :ok, message: message)
@@ -71,7 +74,6 @@ module HobbyCatcher
             routing.get do
               response.cache_control public: true, max_age: 300
 
-              Service::AddCoursesWorker.new.call(hobby_id: hobby_id)
               result = Service::ShowSuggestion.new.call(hobby_id)
 
               if result.failure?
