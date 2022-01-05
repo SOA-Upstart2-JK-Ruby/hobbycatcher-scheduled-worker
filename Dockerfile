@@ -1,4 +1,4 @@
-FROM soumyaray/ruby-http:3.0.3
+FROM karenchiu/ruby-http:3.0.3
 
 WORKDIR /worker
 
