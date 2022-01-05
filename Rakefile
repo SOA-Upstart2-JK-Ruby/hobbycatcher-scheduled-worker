@@ -5,8 +5,8 @@ task :console do
   sh 'pry -r ./init.rb'
 end
 
-USERNAME = 'soumyaray'
-IMAGE = 'codepraise-clone_report_worker'
+USERNAME = 'karenchiu'
+IMAGE = 'hobbycatcher-scheduled_worker'
 VERSION = '0.1.0'
 
 desc 'Build Docker image'
