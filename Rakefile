@@ -6,6 +6,12 @@ task :default do
   puts `rake -T`
 end
 
+desc 'Build Docker image'
+task :worker do
+  require_relative './init'
+  CodePraise::CloneReportWorker.new.call
+end
+
 desc 'Run unit and integration tests'
 Rake::TestTask.new(:spec) do |t|
   t.pattern = 'spec/tests/{integration,unit}/**/*_spec.rb'
@@ -60,12 +66,12 @@ namespace :db do
   task migrate: :config do
     Sequel.extension :migration
     puts "Migrating #{app.environment} database to latest"
-    Sequel::Migrator.run(app.DB, 'app/infrastructure/database/migrations')
+    Sequel::Migrator.run(app.DB, 'worker/infrastructure/database/migrations',target:6, current: 6)
   end
 
   desc 'Initialize database'
   task init: :config do
-    require_relative 'app/infrastructure/database/orms/init'
+    require_relative 'worker/infrastructure/database/orms/init'
     HobbyCatcher::InitializeDatabase::Create.load
     puts "Create data to initialize #{app.environment} database"
   end
@@ -77,7 +83,7 @@ namespace :db do
       return
     end
 
-    require_relative 'app/infrastructure/database/init'
+    require_relative 'worker/infrastructure/database/init'
     require_relative 'spec/helpers/database_helper'
     DatabaseHelper.wipe_database
   end
@@ -121,7 +127,7 @@ end
 namespace :cache do
   task :config do
     require_relative 'config/environment.rb' # load config info
-    require_relative 'app/infrastructure/cache/init.rb' # load cache client
+    require_relative 'worker/infrastructure/cache/init.rb' # load cache client
     @api = HobbyCatcher::App
   end
 
@@ -177,7 +183,7 @@ namespace :vcr do
 end
 
 namespace :quality do
-  only_app = 'config/ app/'
+  only_app = 'config/ worker/'
 
   desc 'run all static-analysis quality checks'
   task all: %i[rubocop reek flog]
