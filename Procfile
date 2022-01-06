@@ -1,1 +1,1 @@
-web: rake worker
+web: sh /usr/local/bin/scheduler.sh
