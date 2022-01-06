@@ -1,10 +1,7 @@
-#!/bin/bash
+FROM alpine:latest
 
-if [ "$ENV" == "production" ]
-then
-  host='https://hobbycatcher-api.herokuapp.com'
-else
-  host='http://host.docker.internal:9292'
-fi
+RUN apk --no-cache add curl
 
-curl --request GET "${host}/api/v1/scheduler"
+COPY scheduler/scheduler.sh /usr/local/bin/scheduler.sh
+
+CMD sh /usr/local/bin/scheduler.sh
