@@ -7,4 +7,4 @@ else
   host='http://host.docker.internal:9292'
 fi
 
-curl --request GET "${host}/api/v1/scheduler"
+curl "${host}/api/v1/scheduler"
