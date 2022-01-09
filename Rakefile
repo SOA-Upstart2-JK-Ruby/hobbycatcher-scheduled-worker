@@ -11,12 +11,6 @@ USERNAME = 'ruby'
 IMAGE = 'script_worker'
 VERSION = '0.1.0'
 
-desc 'Build Docker image'
-task :worker do
-  require_relative './init'
-  CodePraise::CloneReportWorker.new.call
-end
-
 namespace :docker do
   desc 'Build Docker image'
   task :build do
